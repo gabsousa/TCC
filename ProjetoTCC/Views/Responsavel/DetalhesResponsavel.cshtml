@@ -1,0 +1,78 @@
+﻿@model ProjetoTCC.Models.Responsavel
+
+@{
+    ViewData["Title"] = "DetalhesResponsavel";
+}
+
+<h2>DetalhesResponsavel</h2>
+
+<div>
+    <h4>Responsavel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cod_resp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cod_resp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_resp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nome_resp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_resp2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nome_resp2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.end_resp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.end_resp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tel_resp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tel_resp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tel2_resp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tel2_resp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.cel_resp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cel_resp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.email_resp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email_resp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.cpf_resp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cpf_resp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.rg_resp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rg_resp)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProjetoTCC.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "ListaFuncionario";
+}
+
+<h2>ListaFuncionario</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cod_func)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome_func)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tel_func)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cel_func)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email_func)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cargo_func)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cod_func)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_func)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel_func)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cel_func)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email_func)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cargo_func)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

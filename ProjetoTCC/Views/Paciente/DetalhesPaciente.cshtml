@@ -1,0 +1,42 @@
+﻿@model ProjetoTCC.Models.Paciente
+
+@{
+    ViewData["Title"] = "DetalhesPaciente";
+}
+
+<h2>DetalhesPaciente</h2>
+
+<div>
+    <h4>Paciente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cod_pac)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cod_pac)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_pac)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nome_pac)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.datanasc_pac)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.datanasc_pac)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.int_pac)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.int_pac)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

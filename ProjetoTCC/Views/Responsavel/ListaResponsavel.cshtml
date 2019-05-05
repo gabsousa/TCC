@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ProjetoTCC.Models.Responsavel>
+
+@{
+    ViewData["Title"] = "ListaResponsavel";
+}
+
+<h2>ListaResponsavel</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cod_resp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome_resp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome_resp2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.end_resp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tel_resp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tel2_resp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cel_resp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email_resp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cpf_resp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rg_resp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cod_resp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_resp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_resp2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_resp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel_resp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel2_resp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cel_resp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email_resp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cpf_resp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rg_resp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

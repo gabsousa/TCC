@@ -1,0 +1,78 @@
+﻿@model ProjetoTCC.Models.Responsavel
+
+@{
+    ViewData["Title"] = "CadastrarResponsavel";
+}
+
+<h2>CadastrarResponsavel</h2>
+
+<h4>Responsavel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CadastrarResponsavel">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="cod_resp" class="control-label"></label>
+                <input asp-for="cod_resp" class="form-control" />
+                <span asp-validation-for="cod_resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nome_resp" class="control-label"></label>
+                <input asp-for="nome_resp" class="form-control" />
+                <span asp-validation-for="nome_resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nome_resp2" class="control-label"></label>
+                <input asp-for="nome_resp2" class="form-control" />
+                <span asp-validation-for="nome_resp2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="end_resp" class="control-label"></label>
+                <input asp-for="end_resp" class="form-control" />
+                <span asp-validation-for="end_resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tel_resp" class="control-label"></label>
+                <input asp-for="tel_resp" class="form-control" />
+                <span asp-validation-for="tel_resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tel2_resp" class="control-label"></label>
+                <input asp-for="tel2_resp" class="form-control" />
+                <span asp-validation-for="tel2_resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cel_resp" class="control-label"></label>
+                <input asp-for="cel_resp" class="form-control" />
+                <span asp-validation-for="cel_resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email_resp" class="control-label"></label>
+                <input asp-for="email_resp" class="form-control" />
+                <span asp-validation-for="email_resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cpf_resp" class="control-label"></label>
+                <input asp-for="cpf_resp" class="form-control" />
+                <span asp-validation-for="cpf_resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="rg_resp" class="control-label"></label>
+                <input asp-for="rg_resp" class="form-control" />
+                <span asp-validation-for="rg_resp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
