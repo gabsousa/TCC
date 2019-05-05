@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProjetoTCC.Models.Exame>
+
+@{
+    ViewData["Title"] = "ListaExame";
+}
+
+<h2>ListaExame</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cod_exame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome_exame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data_exame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome_lab)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hora_exame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.obs_exame)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cod_exame)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_exame)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_exame)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_lab)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hora_exame)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.obs_exame)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

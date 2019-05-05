@@ -1,0 +1,62 @@
+﻿@model ProjetoTCC.Models.Agenda
+
+@{
+    ViewData["Title"] = "DeletarAgenda";
+}
+
+<h2>DeletarAgenda</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Agenda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cod_agenda)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cod_agenda)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.dia_consulta)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.dia_consulta)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.hora_consulta)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.hora_consulta)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.confirmacao_agenda)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.confirmacao_agenda)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.obs_agenda)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.obs_agenda)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.resp_agendamento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.resp_agendamento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.data_retorno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.data_retorno)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeletarAgenda">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
