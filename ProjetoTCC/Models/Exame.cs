@@ -26,11 +26,11 @@ namespace ProjetoTCC.Models
         [DisplayName("Hora do Exame")]
         public DateTime hora_exame { get; set; }
 
-   //   [DisplayName("Arquivo do Exame")]
-   //   public QUE TIPO DE VARIÁVEL É ISSO? arq_exame { get; set; }
-
-   //   [DisplayName("Médico")] - FOREIGN KEY
-   //   public int cod_med { get; set; }
+  //    [DisplayName("Arquivo do Exame")]
+  //    public Byte[] arq_exame { get; set; }
+       
+        [DisplayName("Médico")]
+        public int cod_med { get; set; }
 
         [DisplayName("Observação do Exame")]
         public string obs_exame { get; set; }

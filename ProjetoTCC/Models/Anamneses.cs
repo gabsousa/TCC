@@ -11,8 +11,8 @@ namespace ProjetoTCC.Models
         [DisplayName("Código Anamneses")]
         public int cod_anamneses { get; set; }
 
-   //   [DisplayName("Paciente")] - FOREIGN KEY
-   //   public int cod_pac { get; set; }
+        [DisplayName("Paciente")]
+        public int cod_pac { get; set; }
 
         [DisplayName("Data de Cadastro")]
         public DateTime data_anamneses { get; set; }
@@ -23,7 +23,7 @@ namespace ProjetoTCC.Models
         [DisplayName("Fatos Importantes")]
         public string fatosimpo_anamneses { get; set; }
 
-   //   [DisplayName("Médico")] - FOREIGN KEY
-   //   public int cod_med { get; set; }
+        [DisplayName("Médico")]
+        public int cod_med { get; set; }
     }
 }

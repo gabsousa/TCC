@@ -11,8 +11,8 @@ namespace ProjetoTCC.Models
         [DisplayName("Código do Pagamento")]
         public int cod_pagto { get; set; }
 
-   //   [DisplayName("Código do Serviço")] - FOREIGN KEY
-   //   public int cod_serv { get; set; }
+        [DisplayName("Código do Serviço")]
+        public int cod_serv { get; set; }
 
         [DisplayName("Forma de Pagamento")]
         public string forma_pgto { get; set; }

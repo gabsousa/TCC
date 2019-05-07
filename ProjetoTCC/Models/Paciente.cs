@@ -13,14 +13,16 @@ namespace ProjetoTCC.Models
 
         [DisplayName("Nome do Paciente")]
         public string nome_pac { get; set; }
+        
 
         [DisplayName("Data de Nascimento")]
         public DateTime datanasc_pac { get; set; }
 
-    //  [DisplayName("Responsável")] - FOREIGN KEY
-    //  public int cod_resp { get; set; }
+        [DisplayName("Responsável")]
+        public int cod_resp { get; set; }
 
         [DisplayName("Idade do Paciente")]
         public int int_pac { get; set; }
+        
     }
 }

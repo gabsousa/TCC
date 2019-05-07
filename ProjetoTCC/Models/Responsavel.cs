@@ -11,8 +11,8 @@ namespace ProjetoTCC.Models
         [DisplayName("Código do Responsável")]
         public int cod_resp { get; set; }
 
-     // [DisplayName("Nome do Responsável")] - FOREIGN KEY
-     // public string nome_pac { get; set; }
+        [DisplayName("Nome do Responsável")]
+        public string nome_pac { get; set; }
 
         [DisplayName("Nome do Responsável")]
         public string nome_resp { get; set; }

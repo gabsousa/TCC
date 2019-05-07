@@ -38,7 +38,7 @@ namespace ProjetoTCC.Models
         [DisplayName("Sexo do Médico")]
         public string sexo_med { get; set; }
 
-    //  [DisplayName("Especialidade do Médico")] - FOREIGN KEY
-    //  public int cod_espec { get; set; }
+        [DisplayName("Especialidade do Médico")]
+        public int cod_espec { get; set; }
     }
 }
