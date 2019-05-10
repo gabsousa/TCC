@@ -12,13 +12,10 @@ namespace ProjetoTCC.Models
         public int cod_resp { get; set; }
 
         [DisplayName("Nome do Responsável")]
-        public string nome_pac { get; set; }
-
-        [DisplayName("Nome do Responsável")]
         public string nome_resp { get; set; }
 
         [DisplayName("Nome do Responsável 2")]
-        public string nome_resp2 { get; set; }
+        public string resp_dois { get; set; }
 
         [DisplayName("Endereço do Responsável")]
         public string end_resp { get; set; }
@@ -27,7 +24,7 @@ namespace ProjetoTCC.Models
         public int tel_resp { get; set; }
 
         [DisplayName("Telefone Opcional")]
-        public int tel2_resp { get; set; }
+        public int tel_dois { get; set; }
 
         [DisplayName("Celular do Responsável")]
         public int cel_resp { get; set; }
@@ -37,8 +34,5 @@ namespace ProjetoTCC.Models
 
         [DisplayName("CPF do Responsável")]
         public int cpf_resp { get; set; }
-
-        [DisplayName("RG do Responsável")]
-        public int rg_resp { get; set; }
     }
 }
