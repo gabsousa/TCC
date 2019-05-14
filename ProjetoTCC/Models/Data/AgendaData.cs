@@ -117,12 +117,12 @@ namespace ProjetoTCC.Models.Data
             msc.Close();
         }
 
-        public void DeletarAgenda(int cod_pac)
+        public void DeletarAgenda(int cod_agenda)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand command = new MySqlCommand("delete from tb_clientes where cod_agenda = " + cod_pac, msc);
+            MySqlCommand command = new MySqlCommand("delete from tb_clientes where cod_agenda = " + cod_agenda, msc);
 
             command.ExecuteNonQuery();
 
