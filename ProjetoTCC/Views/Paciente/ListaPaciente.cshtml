@@ -21,8 +21,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.datanasc_pac)
             </th>
+            <td>
+                @Html.DisplayNameFor(model => model.sexo_pac)
+            </td>
             <th>
-                @Html.DisplayNameFor(model => model.int_pac)
+                @Html.DisplayNameFor(model => model.idade_pac)
             </th>
             <th></th>
         </tr>
@@ -40,7 +43,10 @@
                 @Html.DisplayFor(modelItem => item.datanasc_pac)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.int_pac)
+                @Html.DisplayFor(modelItem => item.sexo_pac)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idade_pac)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

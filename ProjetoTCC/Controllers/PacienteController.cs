@@ -30,19 +30,14 @@ namespace ProjetoTCC.Controllers
         // POST: Paciente/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult CadastrarPaciente(Models.Paciente collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Models.Data.PacienteData pacienteData = new Models.Data.PacienteData();
+            pacienteData.CadastrarPaciente(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaPaciente));
         }
+    }
 
         // GET: Paciente/Edit/5
         public ActionResult Edit(int id)
