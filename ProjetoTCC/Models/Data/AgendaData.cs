@@ -107,17 +107,5 @@ namespace ProjetoTCC.Models.Data
             cmd.ExecuteNonQuery();
             msc.Close();
         }
-
-        public void DeletarPaciente(int cod_pac)
-        {
-            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
-            msc.Open();
-
-            MySqlCommand command = new MySqlCommand("delete from tb_clientes where cod_pac = " + cod_pac, msc);
-
-            command.ExecuteNonQuery();
-
-            msc.Close();
-        }
     }
 }
