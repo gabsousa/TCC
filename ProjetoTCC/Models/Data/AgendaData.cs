@@ -27,5 +27,96 @@ namespace ProjetoTCC.Models.Data
             cmd.ExecuteNonQuery();
             msc.Close();
         }
+
+        public List<Agenda> ListaAgenda()
+        {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_clientes", msc);
+
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            msc.Close();
+
+            List<Agenda> lista = new List<Agenda>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                Agenda item = new Agenda();
+
+                item.cod_pac = int.Parse(dr["cod_agenda"].ToString());
+                item.nome_pac = dr["dia_consulta"].ToString();
+                item.datanasc_pac = DateTime.Parse(dr["hora_consulta"].ToString());
+                item.sexo_pac = dr["cod_med"].ToString();
+                item.idade_pac = int.Parse(dr["cod_pac"].ToString());
+                item.sexo_pac = dr["confirmacao_agenda"].ToString();
+                item.sexo_pac = dr["obs_agenda"].ToString();
+                item.sexo_pac = dr["resp_agendamento"].ToString();
+                item.sexo_pac = dr["data_retorno"].ToString();
+
+                lista.Add(item);
+            }
+
+            return lista;
+        }
+
+        public Agenda DetalhesAgenda(int cod_pac)
+        {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_clientes where cod_pac = " + cod_pac, msc);
+
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            msc.Close();
+
+            List<Agenda> lista = new List<Agenda>();
+
+            Agenda item = new Agenda();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                item.cod_pac = int.Parse(ds.Tables[0].Rows[0]["cod_pac"].ToString());
+                item.nome_pac = ds.Tables[0].Rows[0]["nome_pac"].ToString();
+                item.datanasc_pac = DateTime.Parse(ds.Tables[0].Rows[0]["datanasc_pac"].ToString());
+                item.sexo_pac = ds.Tables[0].Rows[0]["sexo_pac"].ToString();
+                item.idade_pac = int.Parse(ds.Tables[0].Rows[0]["idade_pac"].ToString());
+            }
+
+            return item;
+        }
+
+        public void EditarAgenda(Agenda agenda)
+        {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
+
+            MySqlCommand cmd = new MySqlCommand("update tb_clientes set cod_pac = @cod_pac, nome_pac = @nome_pac, datanasc_pac = @datanasc_pac, sexo_pac = @sexo_pac, idade_pac = @idade_pac where cod_pac = @cod_pac ", msc);
+
+            cmd.Parameters.AddWithValue("@cod_pac", agenda.cod_pac);
+            cmd.Parameters.AddWithValue("@nome_pac", agenda.nome_pac);
+            cmd.Parameters.AddWithValue("@datanasc_pac", agenda.datanasc_pac);
+            cmd.Parameters.AddWithValue("@sexo_pac", agenda.sexo_pac);
+            cmd.Parameters.AddWithValue("@idade_pac", agenda.idade_pac);
+
+            cmd.ExecuteNonQuery();
+            msc.Close();
+        }
+
+        public void DeletarAgenda(int cod_pac)
+        {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
+
+            MySqlCommand command = new MySqlCommand("delete from tb_clientes where cod_pac = " + cod_pac, msc);
+
+            command.ExecuteNonQuery();
+
+            msc.Close();
+        }
     }
 }
