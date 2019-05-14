@@ -64,12 +64,12 @@ namespace ProjetoTCC.Models.Data
             return lista;
         }
 
-        public Agenda DetalhesAgenda(int cod_pac)
+        public Agenda DetalhesAgenda(int cod_agenda)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_clientes where cod_pac = " + cod_pac, msc);
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_clientes where cod_pac = " + cod_agenda, msc);
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
