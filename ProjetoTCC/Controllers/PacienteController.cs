@@ -16,13 +16,22 @@ namespace ProjetoTCC.Controllers
         }
 
         // GET: Paciente/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetalhesPaciente(int id)
         {
-            return View();
+            Models.Data.PacienteData cd = new Models.Data.PacienteData();
+
+            return View(cd.DetalhesPaciente(id));
+        }
+
+        public ActionResult ListaPaciente()
+        {
+            Models.Data.PacienteData td = new Models.Data.PacienteData();
+
+            return View(td.ListaPaciente());
         }
 
         // GET: Paciente/Create
-        public ActionResult Create()
+        public ActionResult CadastrarPaciente()
         {
             return View();
         }
@@ -37,33 +46,30 @@ namespace ProjetoTCC.Controllers
 
             return RedirectToAction(nameof(ListaPaciente));
         }
-    }
+    
 
         // GET: Paciente/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditarPaciente(int id)
         {
-            return View();
+        Models.Data.PacienteData pd = new Models.Data.PacienteData();
+
+        return View(pd.DetalhesPaciente(id));
         }
 
         // POST: Paciente/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditarPaciente(int id, Models.Paciente collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+        Models.Data.PacienteData pacienteData = new Models.Data.PacienteData();
+        pacienteData.EditarPaciente(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+        return RedirectToAction(nameof(EditarPaciente));
         }
+        
 
         // GET: Paciente/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeletarPaciente(int id)
         {
             return View();
         }
@@ -71,7 +77,7 @@ namespace ProjetoTCC.Controllers
         // POST: Paciente/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeletarPaciente(int id, IFormCollection collection)
         {
             try
             {

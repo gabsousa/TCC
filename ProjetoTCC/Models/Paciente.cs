@@ -22,7 +22,7 @@ namespace ProjetoTCC.Models
         public int cod_resp { get; set; }
 
         [DisplayName("Sexo do Paciente")]
-        public int sexo_pac { get; set; }
+        public string sexo_pac { get; set; }
 
         [DisplayName("Idade do Paciente")]
         public int idade_pac { get; set; }
