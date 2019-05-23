@@ -102,7 +102,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("INSERIR_CLIENTE");
+            MySqlCommand cmd = new MySqlCommand("ALTERAR_CONSULTA");
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@cod_agenda", agenda.cod_agenda);
