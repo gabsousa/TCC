@@ -106,6 +106,7 @@ namespace ProjetoTCC.Models.Data
             //MySqlConnection con = new MySqlConnection(connectionString);
 
             MySqlCommand cmd = new MySqlCommand("INSERIR_CLIENTE");
+            cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@cod_agenda", agenda.cod_agenda);
             cmd.Parameters.AddWithValue("@dia_consulta", agenda.dia_consulta);
