@@ -102,10 +102,10 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            ////MySqlCommand cmd = new MySqlCommand("update tb_clientes set cod_pac = @cod_pac, nome_pac = @nome_pac, datanasc_pac = @datanasc_pac, sexo_pac = @sexo_pac, idade_pac = @idade_pac where cod_pac = @cod_pac ", msc);
-
+            //MySqlCommand cmd = new MySqlCommand("update tb_clientes set cod_pac = @cod_pac, nome_pac = @nome_pac, datanasc_pac = @datanasc_pac, sexo_pac = @sexo_pac, idade_pac = @idade_pac where cod_pac = @cod_pac ", msc);
             //MySqlConnection con = new MySqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand("INSERIR_CLIENTE");
+
+            MySqlCommand cmd = new MySqlCommand("INSERIR_CLIENTE");
 
             cmd.Parameters.AddWithValue("@cod_agenda", agenda.cod_agenda);
             cmd.Parameters.AddWithValue("@dia_consulta", agenda.dia_consulta);
