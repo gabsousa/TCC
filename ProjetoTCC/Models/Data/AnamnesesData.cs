@@ -17,12 +17,12 @@ namespace ProjetoTCC.Models.Data
             MySqlCommand cmd = new MySqlCommand("INSERIR_ANAMNESES");
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@cod_anamneses", anamneses.cod_anamneses);
-            cmd.Parameters.AddWithValue("@cod_pac", anamneses.cod_pac);
-            cmd.Parameters.AddWithValue("@data_anamneses", anamneses.data_anamneses);
-            cmd.Parameters.AddWithValue("@desc_anammneses", anamneses.desc_anamneses);
-            cmd.Parameters.AddWithValue("@fatosimpo_anamneses", anamneses.fatosimpo_anamneses);
-            cmd.Parameters.AddWithValue("@cod_med", anamneses.cod_med);
+            cmd.Parameters.AddWithValue("@COD_ANAMNESES", anamneses.COD_ANAMNESES);
+            cmd.Parameters.AddWithValue("@COD_PAC", anamneses.COD_PAC);
+            cmd.Parameters.AddWithValue("@DATA_ANAMNESES", anamneses.DATA_ANAMNESES);
+            cmd.Parameters.AddWithValue("@desc_anammneses", anamneses.DESC_ANAMNESES);
+            cmd.Parameters.AddWithValue("@FATOSIMPO_ANAMNESES", anamneses.FATOSIMPO_ANAMNESES);
+            cmd.Parameters.AddWithValue("@COD_MED", anamneses.COD_MED);
 
             cmd.ExecuteNonQuery();
             msc.Close();

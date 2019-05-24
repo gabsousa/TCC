@@ -9,21 +9,21 @@ namespace ProjetoTCC.Models
     public class Anamneses
     {
         [DisplayName("Código Anamneses")]
-        public int cod_anamneses { get; set; }
+        public int COD_ANAMNESES { get; set; }
 
         [DisplayName("Paciente")]
-        public int cod_pac { get; set; }
+        public int COD_PAC { get; set; }
 
         [DisplayName("Data de Cadastro")]
-        public DateTime data_anamneses { get; set; }
+        public DateTime DATA_ANAMNESES { get; set; }
 
         [DisplayName("Descrição da Anamneses")]
-        public string desc_anamneses { get; set; }
+        public string DESC_ANAMNESES { get; set; }
 
         [DisplayName("Fatos Importantes")]
-        public string fatosimpo_anamneses { get; set; }
+        public string FATOSIMPO_ANAMNESES { get; set; }
 
         [DisplayName("Médico")]
-        public int cod_med { get; set; }
+        public int COD_MED { get; set; }
     }
 }
