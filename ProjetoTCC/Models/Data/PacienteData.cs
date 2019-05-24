@@ -58,12 +58,12 @@ namespace ProjetoTCC.Models.Data
             return lista;
         }
 
-        public Paciente DetalhesPaciente(int cod_pac)
+        public Paciente DetalhesPaciente(int COD_PAC)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_PACIENTE" + cod_pac, msc);
+            MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_PACIENTE" + COD_PAC, msc);
             msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
@@ -104,12 +104,12 @@ namespace ProjetoTCC.Models.Data
             msc.Close();
         }
 
-        public void DeletarPaciente(int cod_pac)
+        public void DeletarPaciente(int COD_PAC)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("DELETAR_PACIENTE" + cod_pac, msc);
+            MySqlCommand cmd = new MySqlCommand("DELETAR_PACIENTE" + COD_PAC, msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.ExecuteNonQuery();
