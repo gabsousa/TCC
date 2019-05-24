@@ -1,4 +1,4 @@
-﻿@model ProjetoTCC.Models.Anamneses
+﻿@*@model ProjetoTCC.Models.Anamneses
 
 @{
     ViewData["Title"] = "DeletarAnamneses";
@@ -12,25 +12,25 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.cod_anamneses)
+            @Html.DisplayNameFor(model => model.COD_ANAMNESES)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.cod_anamneses)
+            @Html.DisplayFor(model => model.COD_ANAMNESES)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.cod_pac)
+            @Html.DisplayNameFor(model => model.COD_PAC)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.cod_pac)
+            @Html.DisplayFor(model => model.COD_PAC)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.data_anamneses)
+            @Html.DisplayNameFor(model => model.DATA_ANAMNESES)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.data_anamneses)
+            @Html.DisplayFor(model => model.DATA_ANAMNESES)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.desc_anamneses)
+            @Html.DisplayNameFor(model => model.DESC)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.desc_anamneses)
@@ -47,10 +47,10 @@
         <dd>
             @Html.DisplayFor(model => model.cod_med)
         </dd>
-    </dl>
+    </dl>*@
     
-    <form asp-action="DeletarAnamneses">
+    @*<form asp-action="DeletarAnamneses">
         <input type="submit" value="Delete" class="btn btn-default" /> |
         <a asp-action="Index">Back to List</a>
     </form>
-</div>
+</div>*@

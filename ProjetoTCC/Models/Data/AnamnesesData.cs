@@ -17,12 +17,12 @@ namespace ProjetoTCC.Models.Data
             MySqlCommand cmd = new MySqlCommand("INSERIR_ANAMNESES");
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@cod_anamneses", anamneses.cod_anamneses);
-            cmd.Parameters.AddWithValue("@cod_pac", anamneses.cod_pac);
-            cmd.Parameters.AddWithValue("@data_anamneses", anamneses.data_anamneses);
-            cmd.Parameters.AddWithValue("@desc_anammneses", anamneses.desc_anamneses);
-            cmd.Parameters.AddWithValue("@fatosimpo_anamneses", anamneses.fatosimpo_anamneses);
-            cmd.Parameters.AddWithValue("@cod_med", anamneses.cod_med);
+            cmd.Parameters.AddWithValue("@COD_ANAMNESES", anamneses.COD_ANAMNESES);
+            cmd.Parameters.AddWithValue("@COD_PAC", anamneses.COD_PAC);
+            cmd.Parameters.AddWithValue("@DATA_ANAMNESES", anamneses.DATA_ANAMNESES);
+            cmd.Parameters.AddWithValue("@DESC_ANAMNESES", anamneses.DESC_ANAMNESES);
+            cmd.Parameters.AddWithValue("@FATOIMPO_ANAMNESES", anamneses.FATOIMPO_ANAMNESES);
+            cmd.Parameters.AddWithValue("@COD_MED", anamneses.COD_MED);
 
             cmd.ExecuteNonQuery();
             msc.Close();
@@ -36,12 +36,12 @@ namespace ProjetoTCC.Models.Data
             MySqlCommand cmd = new MySqlCommand("ALTERAR_ANAMNESES");
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@cod_anamneses", anamneses.cod_anamneses);
-            cmd.Parameters.AddWithValue("@cod_pac", anamneses.cod_pac);
-            cmd.Parameters.AddWithValue("@data_anamneses", anamneses.data_anamneses);
-            cmd.Parameters.AddWithValue("@desc_anammneses", anamneses.desc_anamneses);
-            cmd.Parameters.AddWithValue("@fatosimpo_anamneses", anamneses.fatosimpo_anamneses);
-            cmd.Parameters.AddWithValue("@cod_med", anamneses.cod_med);
+            cmd.Parameters.AddWithValue("@COD_ANAMNESES", anamneses.COD_ANAMNESES);
+            cmd.Parameters.AddWithValue("@COD_PAC", anamneses.COD_PAC);
+            cmd.Parameters.AddWithValue("@DATA_ANAMNESES", anamneses.DATA_ANAMNESES);
+            cmd.Parameters.AddWithValue("@DESC_ANAMNESES", anamneses.DESC_ANAMNESES);
+            cmd.Parameters.AddWithValue("@FATOIMPO_ANAMNESES", anamneses.FATOIMPO_ANAMNESES);
+            cmd.Parameters.AddWithValue("@COD_MED", anamneses.COD_MED);
 
             cmd.ExecuteNonQuery();
             msc.Close();
@@ -80,12 +80,12 @@ namespace ProjetoTCC.Models.Data
             {
                 Anamneses item = new Anamneses();
 
-                item.cod_anamneses = int.Parse(dr["cod_anamneses"].ToString());
-                item.cod_pac = int.Parse(dr["cod_pac"].ToString());
-                item.data_anamneses = DateTime.Parse(dr["data_anamneses"].ToString());
-                item.desc_anamneses = dr["desc_anamneses"].ToString();
-                item.fatosimpo_anamneses = dr["fatosimpo_anamneses"].ToString();
-                item.cod_med = int.Parse(dr["cod_med"].ToString());
+                item.COD_ANAMNESES = int.Parse(dr["COD_ANAMNESES"].ToString());
+                item.COD_PAC = int.Parse(dr["COD_PAC"].ToString());
+                item.DATA_ANAMNESES = DateTime.Parse(dr["DATA_ANAMNESES"].ToString());
+                item.DESC_ANAMNESES = dr["DESC_ANAMNESES"].ToString();
+                item.FATOIMPO_ANAMNESES = dr["FATOIMPO_ANAMNESES"].ToString();
+                item.COD_MED = int.Parse(dr["COD_MED"].ToString());
 
                 lista.Add(item);
             }
@@ -112,12 +112,12 @@ namespace ProjetoTCC.Models.Data
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                item.cod_anamneses = int.Parse(ds.Tables[0].Rows[0]["cod_anamneses"].ToString());
-                item.cod_pac = int.Parse(ds.Tables[0].Rows[0]["cod_pac"].ToString());
-                item.data_anamneses = DateTime.Parse(ds.Tables[0].Rows[0]["data_anamneses"].ToString());
-                item.desc_anamneses = ds.Tables[0].Rows[0]["desc_anamneses"].ToString();
-                item.fatosimpo_anamneses = ds.Tables[0].Rows[0]["fatosimpo_anamneses"].ToString();
-                item.cod_med = int.Parse(ds.Tables[0].Rows[0]["cod_med"].ToString());
+                item.COD_ANAMNESES = int.Parse(ds.Tables[0].Rows[0]["COD_ANAMNESES"].ToString());
+                item.COD_PAC = int.Parse(ds.Tables[0].Rows[0]["COD_PAC"].ToString());
+                item.DATA_ANAMNESES = DateTime.Parse(ds.Tables[0].Rows[0]["data_anamneses"].ToString());
+                item.DESC_ANAMNESES = ds.Tables[0].Rows[0]["DATA_ANAMNESES"].ToString();
+                item.FATOIMPO_ANAMNESES = ds.Tables[0].Rows[0]["FATOIMPO_ANAMNESES"].ToString();
+                item.COD_MED = int.Parse(ds.Tables[0].Rows[0]["COD_MED"].ToString());
                 
             }
 
