@@ -36,6 +36,7 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_RESPONSAVEL", msc);
+            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -69,6 +70,7 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_RESPONSAVEL" + COD_RESP, msc);
+            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
 
             DataSet ds = new DataSet();
