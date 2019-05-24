@@ -21,7 +21,7 @@ namespace ProjetoTCC.Models
         public string DESC_ANAMNESES { get; set; }
 
         [DisplayName("Fatos Importantes")]
-        public string FATOIMPO_ANAMNESES { get; set; }
+        public string FATOSIMPO_ANAMNESES { get; set; }
 
         [DisplayName("Médico")]
         public int COD_MED { get; set; }

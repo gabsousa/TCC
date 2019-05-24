@@ -1,56 +1,56 @@
-﻿@*@model ProjetoTCC.Models.Anamneses
+﻿@model ProjetoTCC.Models.Anamneses
 
-@{
-    ViewData["Title"] = "DeletarAnamneses";
-}
+    @{
+        ViewData["Title"] = "DeletarAnamneses";
+    }
 
-<h2>DeletarAnamneses</h2>
+    <h2>DeletarAnamneses</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Anamneses</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.COD_ANAMNESES)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.COD_ANAMNESES)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.COD_PAC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.COD_PAC)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DATA_ANAMNESES)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DATA_ANAMNESES)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DESC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.desc_anamneses)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.fatosimpo_anamneses)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.fatosimpo_anamneses)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.cod_med)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.cod_med)
-        </dd>
-    </dl>*@
-    
-    @*<form asp-action="DeletarAnamneses">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>*@
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Anamneses</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.COD_ANAMNESES)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COD_ANAMNESES)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COD_PAC)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COD_PAC)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DATA_ANAMNESES)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DATA_ANAMNESES)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DESC_ANAMNESES)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DESC_ANAMNESES)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FATOSIMPO_ANAMNESES)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FATOSIMPO_ANAMNESES)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COD_MED)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COD_MED)
+            </dd>
+        </dl>
+
+<form asp-action="DeletarAnamneses">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>

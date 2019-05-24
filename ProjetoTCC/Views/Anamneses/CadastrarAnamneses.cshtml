@@ -1,4 +1,4 @@
-﻿@*@model ProjetoTCC.Models.Anamneses
+﻿@model ProjetoTCC.Models.Anamneses
 
 @{
     ViewData["Title"] = "CadastrarAnamneses";
@@ -13,34 +13,34 @@
         <form asp-action="CadastrarAnamneses">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="cod_anamneses" class="control-label"></label>
-                <input asp-for="cod_anamneses" class="form-control" />
-                <span asp-validation-for="cod_anamneses" class="text-danger"></span>
+                <label asp-for="COD_ANAMNESES" class="control-label"></label>
+                <input asp-for="COD_ANAMNESES" class="form-control" />
+                <span asp-validation-for="COD_ANAMNESES" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="cod_pac" class="control-label"></label>
-                <input asp-for="cod_pac" class="form-control" />
-                <span asp-validation-for="cod_pac" class="text-danger"></span>
+                <label asp-for="COD_PAC" class="control-label"></label>
+                <input asp-for="COD_PAC" class="form-control" />
+                <span asp-validation-for="COD_PAC" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="data_anamneses" class="control-label"></label>
-                <input asp-for="data_anamneses" class="form-control" />
-                <span asp-validation-for="data_anamneses" class="text-danger"></span>
+                <label asp-for="DATA_ANAMNESES" class="control-label"></label>
+                <input asp-for="DATA_ANAMNESES" class="form-control" />
+                <span asp-validation-for="DATA_ANAMNESES" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="desc_anamneses" class="control-label"></label>
-                <input asp-for="desc_anamneses" class="form-control" />
-                <span asp-validation-for="desc_anamneses" class="text-danger"></span>
+                <label asp-for="DESC_ANAMNESES" class="control-label"></label>
+                <input asp-for="DESC_ANAMNESES" class="form-control" />
+                <span asp-validation-for="DESC_ANAMNESES" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="fatosimpo_anamneses" class="control-label"></label>
-                <input asp-for="fatosimpo_anamneses" class="form-control" />
-                <span asp-validation-for="fatosimpo_anamneses" class="text-danger"></span>
+                <label asp-for="FATOSIMPO_ANAMNESES" class="control-label"></label>
+                <input asp-for="FATOSIMPO_ANAMNESES" class="form-control" />
+                <span asp-validation-for="FATOSIMPO_ANAMNESES" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="cod_med" class="control-label"></label>
-                <input asp-for="cod_med" class="form-control" />
-                <span asp-validation-for="cod_med" class="text-danger"></span>
+                <label asp-for="COD_MED" class="control-label"></label>
+                <input asp-for="COD_MED" class="form-control" />
+                <span asp-validation-for="COD_MED" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -55,4 +55,4 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}*@
+}

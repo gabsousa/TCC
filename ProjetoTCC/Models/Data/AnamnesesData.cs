@@ -21,7 +21,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@COD_PAC", anamneses.COD_PAC);
             cmd.Parameters.AddWithValue("@DATA_ANAMNESES", anamneses.DATA_ANAMNESES);
             cmd.Parameters.AddWithValue("@DESC_ANAMNESES", anamneses.DESC_ANAMNESES);
-            cmd.Parameters.AddWithValue("@FATOIMPO_ANAMNESES", anamneses.FATOIMPO_ANAMNESES);
+            cmd.Parameters.AddWithValue("@FATOSIMPO_ANAMNESES", anamneses.FATOSIMPO_ANAMNESES);
             cmd.Parameters.AddWithValue("@COD_MED", anamneses.COD_MED);
 
             cmd.ExecuteNonQuery();
@@ -40,7 +40,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@COD_PAC", anamneses.COD_PAC);
             cmd.Parameters.AddWithValue("@DATA_ANAMNESES", anamneses.DATA_ANAMNESES);
             cmd.Parameters.AddWithValue("@DESC_ANAMNESES", anamneses.DESC_ANAMNESES);
-            cmd.Parameters.AddWithValue("@FATOIMPO_ANAMNESES", anamneses.FATOIMPO_ANAMNESES);
+            cmd.Parameters.AddWithValue("@FATOSIMPO_ANAMNESES", anamneses.FATOSIMPO_ANAMNESES);
             cmd.Parameters.AddWithValue("@COD_MED", anamneses.COD_MED);
 
             cmd.ExecuteNonQuery();
@@ -84,7 +84,7 @@ namespace ProjetoTCC.Models.Data
                 item.COD_PAC = int.Parse(dr["COD_PAC"].ToString());
                 item.DATA_ANAMNESES = DateTime.Parse(dr["DATA_ANAMNESES"].ToString());
                 item.DESC_ANAMNESES = dr["DESC_ANAMNESES"].ToString();
-                item.FATOIMPO_ANAMNESES = dr["FATOIMPO_ANAMNESES"].ToString();
+                item.FATOSIMPO_ANAMNESES = dr["FATOSIMPO_ANAMNESES"].ToString();
                 item.COD_MED = int.Parse(dr["COD_MED"].ToString());
 
                 lista.Add(item);
@@ -116,7 +116,7 @@ namespace ProjetoTCC.Models.Data
                 item.COD_PAC = int.Parse(ds.Tables[0].Rows[0]["COD_PAC"].ToString());
                 item.DATA_ANAMNESES = DateTime.Parse(ds.Tables[0].Rows[0]["data_anamneses"].ToString());
                 item.DESC_ANAMNESES = ds.Tables[0].Rows[0]["DATA_ANAMNESES"].ToString();
-                item.FATOIMPO_ANAMNESES = ds.Tables[0].Rows[0]["FATOIMPO_ANAMNESES"].ToString();
+                item.FATOSIMPO_ANAMNESES = ds.Tables[0].Rows[0]["FATOSIMPO_ANAMNESES"].ToString();
                 item.COD_MED = int.Parse(ds.Tables[0].Rows[0]["COD_MED"].ToString());
                 
             }
