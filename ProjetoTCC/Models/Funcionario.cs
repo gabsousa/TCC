@@ -9,21 +9,21 @@ namespace ProjetoTCC.Models
     public class Funcionario
     {
         [DisplayName("Código do Funcionário")]
-        public int cod_func { get; set; }
+        public int COD_FUNC { get; set; }
 
         [DisplayName("Nome do Funcionário")]
-        public string nome_func { get; set; }
+        public string NOME_FUNC { get; set; }
 
         [DisplayName("Telefone do Funcionário")]
-        public int tel_func { get; set; }
+        public int TEL_FUNC { get; set; }
 
         [DisplayName("Celular do Funcionário")]
-        public int cel_func { get; set; }
+        public int CEL_FUNC { get; set; }
 
         [DisplayName("Email do Funcionário")]
-        public string email_func { get; set; }
+        public string EMAIL_FUNC { get; set; }
 
         [DisplayName("Cargo do Funcionário")]
-        public string cargo_func { get; set; }
+        public string CARGO_FUNC { get; set; }
     }
 }

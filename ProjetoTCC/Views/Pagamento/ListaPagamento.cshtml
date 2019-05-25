@@ -13,28 +13,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.cod_pagto)
+                @Html.DisplayNameFor(model => model.COD_PGTO)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.forma_pgto)
+                @Html.DisplayNameFor(model => model.FORMA_PGTO)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tipo_pgto)
+                @Html.DisplayNameFor(model => model.TIPO_PGTO)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tipo_cartao)
+                @Html.DisplayNameFor(model => model.TIPO_CARTAO)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.qtd_parcela)
+                @Html.DisplayNameFor(model => model.QTD_PARCELA)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.valor)
+                @Html.DisplayNameFor(model => model.VALOR)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.status_pgto)
+                @Html.DisplayNameFor(model => model.STATUS_PGTO)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.obs_pgto)
+                @Html.DisplayNameFor(model => model.OBS_PGTO)
             </th>
             <th></th>
         </tr>
@@ -43,28 +43,28 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.cod_pagto)
+                @Html.DisplayFor(modelItem => item.COD_PGTO)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.forma_pgto)
+                @Html.DisplayFor(modelItem => item.FORMA_PGTO)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tipo_pgto)
+                @Html.DisplayFor(modelItem => item.TIPO_PGTO)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tipo_cartao)
+                @Html.DisplayFor(modelItem => item.TIPO_CARTAO)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.qtd_parcela)
+                @Html.DisplayFor(modelItem => item.QTD_PARCELA)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.valor)
+                @Html.DisplayFor(modelItem => item.VALOR)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.status_pgto)
+                @Html.DisplayFor(modelItem => item.STATUS_PGTO)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.obs_pgto)
+                @Html.DisplayFor(modelItem => item.OBS_PGTO)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

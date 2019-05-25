@@ -37,22 +37,22 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.cod_exame)
+                @Html.DisplayFor(modelItem => item.COD_EXAME)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nome_exame)
+                @Html.DisplayFor(modelItem => item.NOME_EXAME)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.data_exame)
+                @Html.DisplayFor(modelItem => item.DATA_EXAME)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nome_lab)
+                @Html.DisplayFor(modelItem => item.NOME_LAB)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.hora_exame)
+                @Html.DisplayFor(modelItem => item.HORA_EXAME)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.obs_exame)
+                @Html.DisplayFor(modelItem => item.OBS_EXAME)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

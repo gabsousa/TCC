@@ -9,34 +9,34 @@ namespace ProjetoTCC.Models
     public class Medico
     {
         [DisplayName("Código do Médico")]
-        public int cod_med { get; set; }
+        public int COD_MED { get; set; }
 
         [DisplayName("Nome do Médico")]
-        public string nome_med { get; set; }
+        public string NOME_MED { get; set; }
 
         [DisplayName("Telefone do Médico")]
-        public int tel_med { get; set; }
+        public int TEL_MED { get; set; }
 
         [DisplayName("Celular do Médico")]
-        public int cel_med { get; set; }
+        public int CEL_MED { get; set; }
 
         [DisplayName("Email do Médico")]
-        public string email_med { get; set; }
+        public string EMAIL_MED { get; set; }
 
         [DisplayName("CPF do Médico")]
-        public int cpf_med { get; set; }
+        public int CPF_MED { get; set; }
 
         [DisplayName("RG do Médico")]
-        public int rg_med { get; set; }
+        public int RG_MED { get; set; }
 
         [DisplayName("CRM do Médico")]
-        public string crm_med { get; set; }
+        public string CRM_MED { get; set; }
 
         [DisplayName("Validade do CRM")]
-        public DateTime validade_crm { get; set; }
+        public DateTime VALIDADE_CRM { get; set; }
 
         [DisplayName("Sexo do Médico")]
-        public string sexo_med { get; set; }
+        public string SEXO_MED { get; set; }
 
         [DisplayName("Especialidade do Médico")]
         public int cod_espec { get; set; }
