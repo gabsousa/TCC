@@ -14,13 +14,14 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("insert into tb_paciente values (@cod_pac, @nome_pac, @datanasc_pac, @sexo_pac, @idade_pac)", msc);
+            MySqlCommand cmd = new MySqlCommand("INSERIR_PACIENTE)", msc);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@cod_pac", paciente.cod_pac);
-            cmd.Parameters.AddWithValue("@nome_pac", paciente.nome_pac);
-            cmd.Parameters.AddWithValue("@datanasc_pac", paciente.datanasc_pac);
-            cmd.Parameters.AddWithValue("@sexo_pac", paciente.sexo_pac);
-            cmd.Parameters.AddWithValue("@idade_pac", paciente.idade_pac);
+            cmd.Parameters.AddWithValue("@COD_PAC", paciente.COD_PAC);
+            cmd.Parameters.AddWithValue("@NOME_PAC", paciente.NOME_PAC);
+            cmd.Parameters.AddWithValue("@DATANASC_PAC", paciente.DATANASC_PAC);
+            cmd.Parameters.AddWithValue("@SEXO_PAC", paciente.SEXO_PAC);
+            cmd.Parameters.AddWithValue("@IDADE_PAC", paciente.IDADE_PAC);
 
             cmd.ExecuteNonQuery();
             msc.Close();
@@ -32,6 +33,7 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_paciente", msc);
+            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -44,11 +46,11 @@ namespace ProjetoTCC.Models.Data
             {
                 Paciente item = new Paciente();
 
-                item.cod_pac = int.Parse(dr["cod_pac"].ToString());
-                item.nome_pac = dr["nome_pac"].ToString();
-                item.datanasc_pac = DateTime.Parse(dr["datanasc_pac"].ToString());
-                item.sexo_pac = dr["sexo_pac"].ToString();
-                item.idade_pac = int.Parse(dr["idade_pac"].ToString());
+                item.COD_PAC = int.Parse(dr["COD_PAC"].ToString());
+                item.NOME_PAC = dr["NOME_PAC"].ToString();
+                item.DATANASC_PAC = DateTime.Parse(dr["DATANASC_PAC"].ToString());
+                item.SEXO_PAC = dr["SEXO_PAC"].ToString();
+                item.IDADE_PAC = int.Parse(dr["IDADE_PAC"].ToString());
 
                 lista.Add(item);
             }
@@ -56,12 +58,13 @@ namespace ProjetoTCC.Models.Data
             return lista;
         }
 
-        public Paciente DetalhesPaciente(int cod_pac)
+        public Paciente DetalhesPaciente(int COD_PAC)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_paciente where cod_pac = " + cod_pac, msc);
+            MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_PACIENTE" + COD_PAC, msc);
+            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -74,11 +77,11 @@ namespace ProjetoTCC.Models.Data
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                item.cod_pac = int.Parse(ds.Tables[0].Rows[0]["cod_pac"].ToString());
-                item.nome_pac = ds.Tables[0].Rows[0]["nome_pac"].ToString();
-                item.datanasc_pac = DateTime.Parse(ds.Tables[0].Rows[0]["datanasc_pac"].ToString());
-                item.sexo_pac = ds.Tables[0].Rows[0]["sexo_pac"].ToString();
-                item.idade_pac = int.Parse(ds.Tables[0].Rows[0]["idade_pac"].ToString());
+                item.COD_PAC = int.Parse(ds.Tables[0].Rows[0]["COD_PAC"].ToString());
+                item.NOME_PAC = ds.Tables[0].Rows[0]["NOME_PAC"].ToString();
+                item.DATANASC_PAC = DateTime.Parse(ds.Tables[0].Rows[0]["DATANASC_PAC"].ToString());
+                item.SEXO_PAC = ds.Tables[0].Rows[0]["SEXO_PAC"].ToString();
+                item.IDADE_PAC = int.Parse(ds.Tables[0].Rows[0]["IDADE_PAC"].ToString());
             }
 
             return item;
@@ -89,26 +92,27 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("update tb_paciente set cod_pac = @cod_pac, nome_pac = @nome_pac, datanasc_pac = @datanasc_pac, sexo_pac = @sexo_pac, idade_pac = @idade_pac where cod_pac = @cod_pac ", msc);
+            MySqlCommand cmd = new MySqlCommand("ALTERAR_PACIENTE", msc);
 
-            cmd.Parameters.AddWithValue("@cod_pac", paciente.cod_pac);
-            cmd.Parameters.AddWithValue("@nome_pac", paciente.nome_pac);
-            cmd.Parameters.AddWithValue("@datanasc_pac", paciente.datanasc_pac);
-            cmd.Parameters.AddWithValue("@sexo_pac", paciente.sexo_pac);
-            cmd.Parameters.AddWithValue("@idade_pac", paciente.idade_pac);
+            cmd.Parameters.AddWithValue("@COD_PAC", paciente.COD_PAC);
+            cmd.Parameters.AddWithValue("@NOME_PAC", paciente.NOME_PAC);
+            cmd.Parameters.AddWithValue("@DATANASC_PAC", paciente.DATANASC_PAC);
+            cmd.Parameters.AddWithValue("@SEXO_PAC", paciente.SEXO_PAC);
+            cmd.Parameters.AddWithValue("@IDADE_PAC", paciente.IDADE_PAC);
 
             cmd.ExecuteNonQuery();
             msc.Close();
         }
 
-        public void DeletarPaciente(int cod_pac)
+        public void DeletarPaciente(int COD_PAC)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand command = new MySqlCommand("delete from tb_paciente where cod_pac = " + cod_pac, msc);
+            MySqlCommand cmd = new MySqlCommand("DELETAR_PACIENTE" + COD_PAC, msc);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-            command.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
             msc.Close();
         }

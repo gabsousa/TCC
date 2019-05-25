@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoTCC.Models.Data
 {
-    public class RcbPagamento
+    public class RcbPagamentoData
     {
     }
 }
