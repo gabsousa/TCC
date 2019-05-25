@@ -20,7 +20,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@COD_ANAMNESES", anamneses.COD_ANAMNESES);
             cmd.Parameters.AddWithValue("@COD_PAC", anamneses.COD_PAC);
             cmd.Parameters.AddWithValue("@DATA_ANAMNESES", anamneses.DATA_ANAMNESES);
-            cmd.Parameters.AddWithValue("@desc_anammneses", anamneses.DESC_ANAMNESES);
+            cmd.Parameters.AddWithValue("@DESC_ANAMNESES", anamneses.DESC_ANAMNESES);
             cmd.Parameters.AddWithValue("@FATOSIMPO_ANAMNESES", anamneses.FATOSIMPO_ANAMNESES);
             cmd.Parameters.AddWithValue("@COD_MED", anamneses.COD_MED);
 
