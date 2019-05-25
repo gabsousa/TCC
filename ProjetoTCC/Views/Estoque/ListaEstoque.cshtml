@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ProjetoTCC.Models.Estoque>
+
+@{
+    ViewData["Title"] = "ListaEstoque";
+}
+
+<h2>ListaEstoque</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.COD_PROD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOME_PROD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QNT_PROD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DATA_VALIDADE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOME_FORNEC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DATA_ENTRADA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DATA_RETIRADA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HORA_RETIRADA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RESP_RETIRADA)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.COD_PROD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOME_PROD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QNT_PROD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATA_VALIDADE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOME_FORNEC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATA_ENTRADA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATA_RETIRADA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HORA_RETIRADA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RESP_RETIRADA)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

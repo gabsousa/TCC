@@ -1,10 +1,10 @@
-﻿@model IEnumerable<ProjetoTCC.Models.Exame>
+﻿@model IEnumerable<ProjetoTCC.Models.Anamneses>
 
 @{
-    ViewData["Title"] = "ListaExame";
+    ViewData["Title"] = "ListaAnamneses";
 }
 
-<h2>ListaExame</h2>
+<h2>ListaAnamneses</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,22 +13,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.COD_EXAME)
+                @Html.DisplayNameFor(model => model.COD_ANAMNESES)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NOME_EXAME)
+                @Html.DisplayNameFor(model => model.COD_PAC)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DATA_EXAME)
+                @Html.DisplayNameFor(model => model.DATA_ANAMNESES)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NOME_LAB)
+                @Html.DisplayNameFor(model => model.DESC_ANAMNESES)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HORA_EXAME)
+                @Html.DisplayNameFor(model => model.FATOSIMPO_ANAMNESES)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OBS_EXAME)
+                @Html.DisplayNameFor(model => model.COD_MED)
             </th>
             <th></th>
         </tr>
@@ -37,22 +37,22 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.cod_exame)
+                @Html.DisplayFor(modelItem => item.COD_ANAMNESES)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nome_exame)
+                @Html.DisplayFor(modelItem => item.COD_PAC)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.data_exame)
+                @Html.DisplayFor(modelItem => item.DATA_ANAMNESES)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nome_lab)
+                @Html.DisplayFor(modelItem => item.DESC_ANAMNESES)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.hora_exame)
+                @Html.DisplayFor(modelItem => item.FATOSIMPO_ANAMNESES)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.obs_exame)
+                @Html.DisplayFor(modelItem => item.COD_MED)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

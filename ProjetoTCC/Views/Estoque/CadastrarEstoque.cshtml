@@ -1,0 +1,73 @@
+﻿@model ProjetoTCC.Models.Estoque
+
+@{
+    ViewData["Title"] = "CadastrarEstoque";
+}
+
+<h2>CadastrarEstoque</h2>
+
+<h4>Estoque</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CadastrarEstoque">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="COD_PROD" class="control-label"></label>
+                <input asp-for="COD_PROD" class="form-control" />
+                <span asp-validation-for="COD_PROD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NOME_PROD" class="control-label"></label>
+                <input asp-for="NOME_PROD" class="form-control" />
+                <span asp-validation-for="NOME_PROD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QNT_PROD" class="control-label"></label>
+                <input asp-for="QNT_PROD" class="form-control" />
+                <span asp-validation-for="QNT_PROD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DATA_VALIDADE" class="control-label"></label>
+                <input asp-for="DATA_VALIDADE" class="form-control" />
+                <span asp-validation-for="DATA_VALIDADE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NOME_FORNEC" class="control-label"></label>
+                <input asp-for="NOME_FORNEC" class="form-control" />
+                <span asp-validation-for="NOME_FORNEC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DATA_ENTRADA" class="control-label"></label>
+                <input asp-for="DATA_ENTRADA" class="form-control" />
+                <span asp-validation-for="DATA_ENTRADA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DATA_RETIRADA" class="control-label"></label>
+                <input asp-for="DATA_RETIRADA" class="form-control" />
+                <span asp-validation-for="DATA_RETIRADA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HORA_RETIRADA" class="control-label"></label>
+                <input asp-for="HORA_RETIRADA" class="form-control" />
+                <span asp-validation-for="HORA_RETIRADA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RESP_RETIRADA" class="control-label"></label>
+                <input asp-for="RESP_RETIRADA" class="form-control" />
+                <span asp-validation-for="RESP_RETIRADA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

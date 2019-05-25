@@ -9,30 +9,30 @@ namespace ProjetoTCC.Models
     public class Estoque
     {
         [DisplayName("Código do Produto")]
-        public int cod_prod { get; set; }
+        public int COD_PROD { get; set; }
 
         [DisplayName("Nome do Produto")]
-        public string nome_prod { get; set; }
+        public string NOME_PROD { get; set; }
 
         [DisplayName("Quantidade do Produto")]
-        public int qtd_prod { get; set; }
+        public int QNT_PROD { get; set; }
 
         [DisplayName("Data de Validade do Produto")]
-        public int data_validade { get; set; }
+        public DateTime DATA_VALIDADE { get; set; }
 
         [DisplayName("Nome do Fornecedor")]
-        public string nome_fornec { get; set; }
+        public string NOME_FORNEC { get; set; }
 
         [DisplayName("Data da Entrada do Produto")]
-        public int data_entrada { get; set; }
+        public DateTime DATA_ENTRADA { get; set; }
 
         [DisplayName("Data da Retirada do Produto")]
-        public int data_saida { get; set; }
+        public DateTime DATA_RETIRADA { get; set; }
 
         [DisplayName("Hora da Retirada")]
-        public DateTime hora_retirada { get; set; }
+        public DateTime HORA_RETIRADA { get; set; }
 
         [DisplayName("Responsáel Pela Retirada")]
-        public string resp_retirada { get; set; }
+        public string RESP_RETIRADA { get; set; }
     }
 }
