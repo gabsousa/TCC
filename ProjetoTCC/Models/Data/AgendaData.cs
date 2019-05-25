@@ -38,6 +38,7 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("bd_clinicare.tb_clientes", msc);
+            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -72,6 +73,7 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_AGENDA" + COD_AGENDA, msc);
+            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -125,9 +127,10 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand command = new MySqlCommand("delete from tb_clientes where COD_AGENDA = " + COD_AGENDA, msc);
+            MySqlCommand cmd = new MySqlCommand("delete from tb_clientes where COD_AGENDA = " + COD_AGENDA, msc);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-            command.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
             msc.Close();
         }
