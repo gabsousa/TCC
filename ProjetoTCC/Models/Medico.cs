@@ -30,7 +30,7 @@ namespace ProjetoTCC.Models
         public int RG_MED { get; set; }
 
         [DisplayName("CRM do Médico")]
-        public string CRM_MED { get; set; }
+        public string CRM { get; set; }
 
         [DisplayName("Validade do CRM")]
         public DateTime VALIDADE_CRM { get; set; }
@@ -38,7 +38,10 @@ namespace ProjetoTCC.Models
         [DisplayName("Sexo do Médico")]
         public string SEXO_MED { get; set; }
 
-        [DisplayName("Especialidade do Médico")]
-        public int cod_espec { get; set; }
+        [DisplayName("Especialidade do Médico")] //FOREIGN KEY
+        public int COD_ESPEC { get; set; }
+
+        [DisplayName("Código do Cargo")] // FOREIGN KEY
+        public int COD_CARGO { get; set; }
     }
 }

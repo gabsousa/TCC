@@ -14,7 +14,6 @@ namespace ProjetoTCC.Models
         [DisplayName("Nome do Paciente")]
         public string NOME_PAC { get; set; }
         
-
         [DisplayName("Data de Nascimento")]
         public DateTime DATANASC_PAC { get; set; }
 
@@ -26,6 +25,5 @@ namespace ProjetoTCC.Models
 
         [DisplayName("Idade do Paciente")]
         public int IDADE_PAC { get; set; }
-        
     }
 }

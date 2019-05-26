@@ -21,8 +21,15 @@ namespace ProjetoTCC.Controllers
             return View();
         }
 
+        public ActionResult ListaMedico()
+        {
+            Models.Data.MedicoData td = new Models.Data.MedicoData();
+
+            return View(td.ListaMedico());
+        }
+
         // GET: Medico/Create
-        public ActionResult Create()
+        public ActionResult CadastrarMedico()
         {
             return View();
         }
@@ -30,18 +37,12 @@ namespace ProjetoTCC.Controllers
         // POST: Medico/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult CadastrarMedico(Models.Medico collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Models.Data.MedicoData medicoData = new Models.Data.MedicoData();
+            medicoData.CadastrarMedico(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaMedico));
         }
 
         // GET: Medico/Edit/5

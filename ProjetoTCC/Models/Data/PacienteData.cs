@@ -14,7 +14,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("INSERIR_PACIENTE)", msc);
+            MySqlCommand cmd = new MySqlCommand("INSERIR_PACIENTE", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_PAC", paciente.COD_PAC);

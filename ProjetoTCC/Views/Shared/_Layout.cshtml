@@ -26,35 +26,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ProjetoTCC</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">CliniCare</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Agenda <span class="caret"></span>
-                        </a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastrar<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Código de Agendamento", "CadastrarAgenda", "Agenda")</li>
-                            <li>@Html.ActionLink("Dia da Consulta", "Agenda Dia da Consulta", "Agenda")</li>
-                            <li>@Html.ActionLink("Hora da Consulta", "Agenda Hora da Consulta", "Agenda")</li>
-                            <li>@Html.ActionLink("Código do Médico", "Agenda Código do Médico", "Agenda")</li>
-                            <li>@Html.ActionLink("Código do Paciente", "Agenda Código do Paciente", "Agenda")</li>
-                            <li>@Html.ActionLink("Confirmação da Agenda", "Agenda Confirmação da Agenda", "Agenda")</li>
-                            <li>@Html.ActionLink("Observação da Agenda", "AgendaObservação da Agenda", "Agenda")</li>
-                            <li>@Html.ActionLink("Responsável Pelo Agendamento", "Agenda Responsável Pelo Agendamento", "Agenda")</li>
-                            <li>@Html.ActionLink("Data de Retorno da Cosulta", "Agenda Data de Retorno da Cosulta", "Agenda")</li>
-                          
-                        </ul>
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Cadastrar <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Paciente", "CadastrarPaciente", "Cadastro")</li>
-                            <li>@Html.ActionLink("Medico", "CadastrarMedico", "Cadastro")</li>
-                            <li>@Html.ActionLink("Exames", "CadastrarExame", "Cadastro")</li>
-                            <li>@Html.ActionLink("Anamneses", "CadastrarAnamneses", "CadastrarAnamneses")</li>
+                            <li><a asp-area="" asp-controller="Paciente" asp-action="CadastrarPaciente">Paciente</a></li>
+                            <li><a asp-area="" asp-controller="Medico" asp-action="CadastrarMedico">Médico</a></li>
+                            <li><a asp-area="" asp-controller="Exame" asp-action="CadastrarExame">Exames</a></li>
+                            <li><a asp-area="" asp-controller="Anamneses" asp-action="CadastrarAnamneses">Anamneses</a></li>
                         </ul>
                     </li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Agenda">Agenda<span class="caret"></span></a></li>
@@ -74,7 +56,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2019 - ProjetoTCC</p>
+            <p>&copy; 2019 - Omega IT. Todos os diretos reservados.</p>
         </footer>
     </div>
 
