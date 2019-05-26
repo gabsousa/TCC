@@ -12,7 +12,7 @@ namespace ProjetoTCC.Models
         public int COD_PGTO { get; set; }
 
         [DisplayName("Código do Serviço")]
-        public int cod_serv { get; set; }
+        public int COD_SERV { get; set; }
 
         [DisplayName("Forma de Pagamento")]
         public string FORMA_PGTO { get; set; }
