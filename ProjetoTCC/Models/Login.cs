@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace ProjetoTCC.Models
     public class Login
     {
         /*[DisplayName("Usuário")]
-        public int cod_func { get; set; }
+        public int COD_FUNC { get; set; }
 
         [DisplayName("Nome do Funcionário")]
         public string nome_func { get; set; }

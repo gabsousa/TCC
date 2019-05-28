@@ -24,6 +24,12 @@ namespace ProjetoTCC.Models
         public string EMAIL_FUNC { get; set; }
 
         [DisplayName("Cargo do Funcionário")]
-        public string CARGO_FUNC { get; set; }
+        public int COD_CARGO { get; set; }
+
+        [DisplayName("Login do Funcionário")]
+        public string LOGIN { get; set; }
+
+        [DisplayName("Senha do Funcionário")]
+        public string SENHA { get; set; }
     }
 }

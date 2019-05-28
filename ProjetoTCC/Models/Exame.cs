@@ -26,7 +26,7 @@ namespace ProjetoTCC.Models
         [DisplayName("Hora do Exame")]
         public DateTime HORA_EXAME { get; set; }
 
-        [DisplayName("Arquivo do Exame")]
+        [DisplayName("Arquivo do Exame")]  //NÃO ESTA DECLARADA NO LAYOUT
         public Byte[] ARQ_EXAME { get; set; }
        
         [DisplayName("Médico")] //FOREIGN KEY
