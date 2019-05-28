@@ -9,12 +9,12 @@ namespace ProjetoTCC.Models
     public class EspMedico
     {
         [DisplayName("Código da Especialidade")]
-        public int cod_espec { get; set; }
+        public int COD_ESPEC { get; set; }
 
         [DisplayName("Tipo de Especialidade")]
-        public string tipo_espec { get; set; }
+        public string TIPO_ESPEC { get; set; }
 
         [DisplayName("Descrição da Especialidade")]
-        public string descricao_espec { get; set; }
+        public string DESC_ESPEC { get; set; }
     }
 }

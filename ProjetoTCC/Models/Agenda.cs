@@ -18,10 +18,10 @@ namespace ProjetoTCC.Models
         public DateTime HORA_CONSULTA { get; set; }
 
         [DisplayName("Código do Médico")]
-        public int COD_MED { get; set; }
+        public int COD_MED { get; set; } //FOREIGN KEY
      
         [DisplayName("Código do Paciente")]
-        public int COD_PAC { get; set; }
+        public int COD_PAC { get; set; } //FOREIGN KEY
 
         [DisplayName("Confirmação da Agenda")]
         public string CONFIRMACAO_AGENDA { get; set; }
