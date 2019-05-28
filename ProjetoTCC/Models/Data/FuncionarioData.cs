@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace ProjetoTCC.Models.Data
 {
-    public class Funcionario
+    public class FuncionarioData
     {
-        /*public void CadastrarFuncionario(Funcionario funcionario)
+        public void CadastrarFuncionario(Funcionario funcionario)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("INSERIR_FUNCIONARIO)", msc);
+            MySqlCommand cmd = new MySqlCommand("INSERIR_FUNCIONARIO", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_FUNC", funcionario.COD_FUNC);
@@ -28,9 +28,9 @@ namespace ProjetoTCC.Models.Data
 
             cmd.ExecuteNonQuery();
             msc.Close();
-        }*/
+        }
 
-        public List<Exame> ListaFuncionario()
+        public List<Funcionario> ListaFuncionario()
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
@@ -43,21 +43,20 @@ namespace ProjetoTCC.Models.Data
 
             msc.Close();
 
-            List<Exame> lista = new List<Exame>();
+            List<Funcionario> lista = new List<Funcionario>();
 
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                Exame item = new Exame();
+                Funcionario item = new Funcionario();
 
-                item.COD_EXAME = int.Parse(dr["COD_EXAME"].ToString());
-                item.COD_PAC = int.Parse(dr["COD_PAC"].ToString());
-                item.NOME_EXAME = dr["NOME_EXAME"].ToString();
-                item.DATA_EXAME = DateTime.Parse(dr["DATA_EXAME"].ToString());
-                item.NOME_LAB = dr["NOME_LAB"].ToString();
-                item.HORA_EXAME = DateTime.Parse(dr["HORA_EXAME"].ToString());
-                //item.ARQ_EXAME = Byte[].Parse(dr["ARQ_EXAME"].ToString());
-                item.COD_MED = int.Parse(dr["COD_MED"].ToString());
-                item.OBS_EXAME = dr["OBS_EXAME"].ToString();
+                item.COD_FUNC = int.Parse(dr["COD_FUNC"].ToString());
+                item.NOME_FUNC = dr["NOME_FUNC"].ToString();
+                item.TEL_FUNC = int.Parse(dr["TEL_FUNC"].ToString());
+                item.CEL_FUNC = int.Parse(dr["CEL_FUNC"].ToString());
+                item.EMAIL_FUNC = dr["EMAIL_FUNC"].ToString();
+                item.COD_CARGO = int.Parse(dr["COD_CARGO"].ToString());
+                item.LOGIN = dr["LOGIN"].ToString();
+                item.SENHA = dr["SENHA"].ToString();
 
                 lista.Add(item);
             }
@@ -65,12 +64,12 @@ namespace ProjetoTCC.Models.Data
             return lista;
         }
 
-        public Exame DetalhesExame(int COD_EXAME)
+        public Funcionario DetalhesFuncionario(int COD_FUNC)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_EXAME" + COD_EXAME, msc);
+            MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_FUNC" + COD_FUNC, msc);
             msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
 
@@ -79,54 +78,52 @@ namespace ProjetoTCC.Models.Data
 
             msc.Close();
 
-            List<Exame> lista = new List<Exame>();
+            List<Funcionario> lista = new List<Funcionario>();
 
-            Exame item = new Exame();
+            Funcionario item = new Funcionario();
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                item.COD_EXAME = int.Parse(ds.Tables[0].Rows[0]["COD_EXAME"].ToString());
-                item.COD_PAC = int.Parse(ds.Tables[0].Rows[0]["COD_PAC"].ToString());
-                item.NOME_EXAME = ds.Tables[0].Rows[0]["NOME_EXAME"].ToString();
-                item.DATA_EXAME = DateTime.Parse(ds.Tables[0].Rows[0]["DATA_EXAME"].ToString());
-                item.NOME_LAB = ds.Tables[0].Rows[0]["NOME_LAB"].ToString();
-                item.HORA_EXAME = DateTime.Parse(ds.Tables[0].Rows[0]["HORA_EXAME"].ToString());
-                //item.ARQ_EXAME = ds.Tables[0].Rows[0]["ARQ_EXAME"].ToString();
-                item.COD_MED = int.Parse(ds.Tables[0].Rows[0]["COD_MED"].ToString());
-                item.OBS_EXAME = ds.Tables[0].Rows[0]["OBS_EXAME"].ToString();
+                item.COD_FUNC = int.Parse(ds.Tables[0].Rows[0]["COD_FUNC"].ToString());
+                item.NOME_FUNC = ds.Tables[0].Rows[0]["TEL_FUNC"].ToString();
+                item.TEL_FUNC = int.Parse(ds.Tables[0].Rows[0]["TEL_FUNC"].ToString());
+                item.CEL_FUNC = int.Parse(ds.Tables[0].Rows[0]["CEL_FUNC"].ToString());
+                item.EMAIL_FUNC = ds.Tables[0].Rows[0]["EMAIL_FUNC"].ToString();
+                item.COD_CARGO = int.Parse(ds.Tables[0].Rows[0]["COD_CARGO"].ToString());
+                item.LOGIN = ds.Tables[0].Rows[0]["LOGIN"].ToString();
+                item.SENHA = ds.Tables[0].Rows[0]["SENHA"].ToString();
             }
 
             return item;
         }
 
-        public void EditarExame(Exame exame)
+        public void EditarFuncionario(Funcionario funcionario)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("ALTERAR_EXAME");
+            MySqlCommand cmd = new MySqlCommand("ALTERAR_FUNCIONARIO");
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@COD_EXAME", exame.COD_EXAME);
-            cmd.Parameters.AddWithValue("@COD_PAC", exame.COD_PAC);
-            cmd.Parameters.AddWithValue("@NOME_EXAME", exame.NOME_EXAME);
-            cmd.Parameters.AddWithValue("@DATA_EXAME", exame.DATA_EXAME);
-            cmd.Parameters.AddWithValue("@NOME_LAB", exame.NOME_LAB);
-            cmd.Parameters.AddWithValue("@HORA_EXAME", exame.HORA_EXAME);
-            cmd.Parameters.AddWithValue("@ARQ_EXAME", exame.ARQ_EXAME);
-            cmd.Parameters.AddWithValue("@COD_MED", exame.COD_MED);
-            cmd.Parameters.AddWithValue("@OBS_EXAME", exame.OBS_EXAME);
+            cmd.Parameters.AddWithValue("@COD_FUNC", funcionario.COD_FUNC);
+            cmd.Parameters.AddWithValue("@NOME_FUNC", funcionario.NOME_FUNC);
+            cmd.Parameters.AddWithValue("@TEL_FUNC", funcionario.TEL_FUNC);
+            cmd.Parameters.AddWithValue("@CEL_FUNC", funcionario.CEL_FUNC);
+            cmd.Parameters.AddWithValue("@EMAIL_FUNC", funcionario.EMAIL_FUNC);
+            cmd.Parameters.AddWithValue("@COD_CARGO", funcionario.COD_CARGO);
+            cmd.Parameters.AddWithValue("@LOGIN", funcionario.LOGIN);
+            cmd.Parameters.AddWithValue("@SENHA", funcionario.SENHA);
 
             cmd.ExecuteNonQuery();
             msc.Close();
         }
 
-        public void DeletarExame(int COD_EXAME)
+        public void DeletarFuncionario(int COD_FUNC)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("DELETAR_EXAME" + COD_EXAME, msc);
+            MySqlCommand cmd = new MySqlCommand("DELETAR_FUNCIONARIO" + COD_FUNC, msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.ExecuteNonQuery();

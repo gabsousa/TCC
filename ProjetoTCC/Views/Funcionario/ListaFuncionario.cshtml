@@ -28,7 +28,13 @@
                 @Html.DisplayNameFor(model => model.EMAIL_FUNC)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CARGO_FUNC)
+                @Html.DisplayNameFor(model => model.COD_CARGO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LOGIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SENHA)
             </th>
             <th></th>
         </tr>
@@ -52,7 +58,13 @@
                 @Html.DisplayFor(modelItem => item.EMAIL_FUNC)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CARGO_FUNC)
+                @Html.DisplayFor(modelItem => item.COD_CARGO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOGIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SENHA)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
