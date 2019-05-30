@@ -10,12 +10,12 @@ namespace ProjetoTCC.Models.Data
 {
     public class AgendaData
     {
-        public void CadastarAgenda(Agenda agenda)
+        public void CadastrarAgenda(Agenda agenda)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("insert into tb_clientes values (@COD_AGENDA, @DIA_CONSULTA, @HORA_CONSULTA, @COD_MED, @COD_PAC, @CONFIRMACAO_AGENDA, @OBS_AGENDA, @RESP_AGENDAMENTO, @DATA_RETORNO)", msc);
+            MySqlCommand cmd = new MySqlCommand("INSERIR_AGENDA", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_AGENDA", agenda.COD_AGENDA);

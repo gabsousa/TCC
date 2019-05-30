@@ -21,8 +21,15 @@ namespace ProjetoTCC.Controllers
             return View();
         }
 
+        public ActionResult ListaExame()
+        {
+            Models.Data.ExameData td = new Models.Data.ExameData();
+
+            return View(td.ListaExame());
+        }
+
         // GET: Exame/Create
-        public ActionResult Create()
+        public ActionResult CadastrarExame()
         {
             return View();
         }
@@ -30,18 +37,12 @@ namespace ProjetoTCC.Controllers
         // POST: Exame/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult CadastrarExame(Models.Exame collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Models.Data.ExameData exameData = new Models.Data.ExameData();
+            exameData.CadastrarExame(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaExame));
         }
 
         // GET: Exame/Edit/5

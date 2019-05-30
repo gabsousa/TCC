@@ -9,7 +9,7 @@ namespace ProjetoTCC.Models.Data
 {
     public class ExameData
     {
-        public void CadastarExame(Exame exame)
+        public void CadastrarExame(Exame exame)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
