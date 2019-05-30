@@ -4,77 +4,73 @@
     ViewData["Title"] = "DeletarMedico";
 }
 
-<h2>DeletarMedico</h2>
+<h2>Deletar Medico</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h4>Medico</h4>
+<hr />
 <div>
-    <h4>Medico</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.COD_MED)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.COD_MED)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.NOME_MED)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NOME_MED)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TEL_MED)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TEL_MED)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CEL_MED)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CEL_MED)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EMAIL_MED)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EMAIL_MED)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CPF_MED)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CPF_MED)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RG_MED)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RG_MED)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CRM)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CRM)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.VALIDADE_CRM)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.VALIDADE_CRM)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SEXO_MED)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SEXO_MED)
-        </dd>
-    </dl>
-    
-    <form asp-action="DeletarMedico">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+    <div class="dl-horizontal">
+
+        <form asp-action="DeletarMedico">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="COD_MED" class="control-label"></label>
+                <input asp-for="COD_MED" class="form-control" />
+                <span asp-validation-for="COD_MED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NOME_MED" class="control-label"></label>
+                <input asp-for="NOME_MED" class="form-control" />
+                <span asp-validation-for="NOME_MED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TEL_MED" class="control-label"></label>
+                <input asp-for="TEL_MED" class="form-control" />
+                <span asp-validation-for="TEL_MED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CEL_MED" class="control-label"></label>
+                <input asp-for="CEL_MED" class="form-control" />
+                <span asp-validation-for="CEL_MED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EMAIL_MED" class="control-label"></label>
+                <input asp-for="EMAIL_MED" class="form-control" />
+                <span asp-validation-for="EMAIL_MED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CPF_MED" class="control-label"></label>
+                <input asp-for="CPF_MED" class="form-control" />
+                <span asp-validation-for="CPF_MED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RG_MED" class="control-label"></label>
+                <input asp-for="RG_MED" class="form-control" />
+                <span asp-validation-for="RG_MED" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CRM" class="control-label"></label>
+                <input asp-for="CRM" class="form-control" />
+                <span asp-validation-for="CRM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VALIDADE_CRM" class="control-label"></label>
+                <input asp-for="VALIDADE_CRM" class="form-control" />
+                <span asp-validation-for="VALIDADE_CRM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SEXO_MED" class="control-label"></label>
+                <input asp-for="SEXO_MED" class="form-control" />
+                <span asp-validation-for="SEXO_MED" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
 </div>
