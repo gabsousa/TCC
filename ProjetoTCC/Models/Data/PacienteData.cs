@@ -20,6 +20,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@COD_PAC", paciente.COD_PAC);
             cmd.Parameters.AddWithValue("@NOME_PAC", paciente.NOME_PAC);
             cmd.Parameters.AddWithValue("@DATANASC_PAC", paciente.DATANASC_PAC);
+            cmd.Parameters.AddWithValue("@COD_RESP", paciente.COD_RESP);
             cmd.Parameters.AddWithValue("@SEXO_PAC", paciente.SEXO_PAC);
             cmd.Parameters.AddWithValue("@IDADE_PAC", paciente.IDADE_PAC);
 

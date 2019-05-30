@@ -14,7 +14,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("INSERIR_MEDICO)", msc);
+            MySqlCommand cmd = new MySqlCommand("INSERIR_MEDICO", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_MED", medico.COD_MED);
@@ -26,7 +26,8 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@CRM", medico.CRM);
             cmd.Parameters.AddWithValue("@VALIDADE_CRM", medico.VALIDADE_CRM);
             cmd.Parameters.AddWithValue("@SEXO_MED", medico.SEXO_MED);
-
+            cmd.Parameters.AddWithValue("@COD_ESPEC", medico.COD_ESPEC);
+            cmd.Parameters.AddWithValue("@COD_CARGO", medico.COD_CARGO);
             cmd.ExecuteNonQuery();
             msc.Close();
         }
@@ -59,6 +60,8 @@ namespace ProjetoTCC.Models.Data
                 item.CRM = dr["CRM"].ToString();
                 item.VALIDADE_CRM = DateTime.Parse(dr["VALIDADE_CRM"].ToString());
                 item.SEXO_MED = dr["SEXO_MED"].ToString();
+                item.COD_ESPEC = int.Parse(dr["COD_ESPEC"].ToString());
+                item.COD_CARGO = int.Parse(dr["COD_CARGO"].ToString());
 
                 lista.Add(item);
             }
@@ -94,6 +97,8 @@ namespace ProjetoTCC.Models.Data
                 item.CPF_MED = int.Parse(ds.Tables[0].Rows[0]["CPF_MED"].ToString());
                 item.CRM = ds.Tables[0].Rows[0]["CRM"].ToString();
                 item.VALIDADE_CRM = DateTime.Parse(ds.Tables[0].Rows[0]["VALIDADE_CRM"].ToString());
+                item.COD_ESPEC = int.Parse(ds.Tables[0].Rows[0]["COD_ESPEC"].ToString());
+                item.COD_CARGO = int.Parse(ds.Tables[0].Rows[0]["COD_CARGO"].ToString());
             }
 
             return item;
@@ -116,6 +121,8 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@CRM", medico.CRM);
             cmd.Parameters.AddWithValue("@VALIDADE_CRM", medico.VALIDADE_CRM);
             cmd.Parameters.AddWithValue("@SEXO_MED", medico.SEXO_MED);
+            cmd.Parameters.AddWithValue("@COD_ESPEC", medico.COD_ESPEC);
+            cmd.Parameters.AddWithValue("@COD_CARGO", medico.COD_CARGO);
 
             cmd.ExecuteNonQuery();
             msc.Close();

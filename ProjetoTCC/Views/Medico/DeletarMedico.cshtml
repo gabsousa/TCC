@@ -71,10 +71,22 @@
         <dd>
             @Html.DisplayFor(model => model.SEXO_MED)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.COD_ESPEC)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.COD_ESPEC)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.COD_CARGO)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.COD_CARGO)
+        </dd>
     </dl>
     
     <form asp-action="DeletarMedico">
         <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index">Voltar para a lista</a>
     </form>
 </div>

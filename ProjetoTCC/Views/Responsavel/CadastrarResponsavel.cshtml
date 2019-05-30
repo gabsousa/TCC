@@ -4,6 +4,11 @@
     ViewData["Title"] = "CadastrarResponsavel";
 }
 
+
+
+
+
+
 <h2>CadastrarResponsavel</h2>
 
 <h4>Responsavel</h4>
@@ -56,6 +61,29 @@
                 <label asp-for="CPF_RESP" class="control-label"></label>
                 <input asp-for="CPF_RESP" class="form-control" />
                 <span asp-validation-for="CPF_RESP" class="text-danger"></span>
+            </div>
+            <div>
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "AtlantaPort",
+                        Value = "AtlantaPort"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "NewJersyTerminal",
+                        Value = "NewJersyTerminal",
+                        Selected = true
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "AWS",
+                        Value = "AWS"
+                    });
+                }
+
+                @Html.DropDownList("yourDropName", listItems, new { @class = "form-control" })
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
