@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -21,8 +22,15 @@ namespace ProjetoTCC.Controllers
             return View();
         }
 
+        public ActionResult ListaAgenda(int id)
+        {
+            Models.Data.AgendaData td = new Models.Data.AgendaData();
+
+            return View(td.ListaAgenda());
+        }
+
         // GET: Agenda/Create
-        public ActionResult Create()
+        public ActionResult CadastrarAgenda()
         {
             return View();
         }
@@ -30,18 +38,12 @@ namespace ProjetoTCC.Controllers
         // POST: Agenda/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Models.Agenda collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Models.Data.AgendaData agendaData = new Models.Data.AgendaData();
+            agendaData.CadastrarAgenda(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaAgenda));
         }
 
         // GET: Agenda/Edit/5

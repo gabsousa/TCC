@@ -21,8 +21,15 @@ namespace ProjetoTCC.Controllers
             return View();
         }
 
+        public ActionResult ListaEstoque()
+        {
+            Models.Data.EstoqueData td = new Models.Data.EstoqueData();
+
+            return View(td.ListaEstoque());
+        }
+
         // GET: Estoque/Create
-        public ActionResult Create()
+        public ActionResult CadastrarEstoque()
         {
             return View();
         }
@@ -30,18 +37,12 @@ namespace ProjetoTCC.Controllers
         // POST: Estoque/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult CadastrarEstoque(Models.Estoque collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Models.Data.EstoqueData estoqueData = new Models.Data.EstoqueData();
+            estoqueData.CadastrarEstoque(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaEstoque));
         }
 
         // GET: Estoque/Edit/5

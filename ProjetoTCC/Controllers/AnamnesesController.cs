@@ -21,8 +21,15 @@ namespace ProjetoTCC.Controllers
             return View();
         }
 
+        public ActionResult ListaAnamneses(int id)
+        {
+            Models.Data.AnamnesesData td = new Models.Data.AnamnesesData();
+
+            return View(td.ListaAnamneses());
+        }
+
         // GET: Anamneses/Create
-        public ActionResult Create()
+        public ActionResult CadastrarAnamneses()
         {
             return View();
         }
@@ -30,18 +37,12 @@ namespace ProjetoTCC.Controllers
         // POST: Anamneses/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult CadastrarAnamneses(Models.Anamneses collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Models.Data.AnamnesesData anamnesesData = new Models.Data.AnamnesesData();
+            anamnesesData.CadastrarAnamneses(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaAnamneses));
         }
 
         // GET: Anamneses/Edit/5
