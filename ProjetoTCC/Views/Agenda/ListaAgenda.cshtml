@@ -61,9 +61,9 @@
                 @Html.DisplayFor(modelItem => item.DATA_RETORNO)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "EditarAgenda", new { id=item.COD_AGENDA }) |
+                @Html.ActionLink("Detalhes", "DetalhesAgenda", new { id = item.COD_AGENDA }) |
+                @Html.ActionLink("Deletar", "DeletarAgenda", new { id = item.COD_AGENDA })
             </td>
         </tr>
 }

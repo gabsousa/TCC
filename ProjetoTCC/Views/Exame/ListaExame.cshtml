@@ -67,9 +67,9 @@
                 @Html.DisplayFor(modelItem => item.OBS_EXAME)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "EditarExame", new { id=item.COD_EXAME }) |
+                @Html.ActionLink("Detalhes", "DetalhesExame", new { id=item.COD_EXAME }) |
+                @Html.ActionLink("Deletar", "DeletarExame", new { id=item.COD_EXAME })
             </td>
         </tr>
 }

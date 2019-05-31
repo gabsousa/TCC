@@ -73,9 +73,9 @@
                 @Html.DisplayFor(modelItem => item.RESP_RETIRADA)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "EditarEstoque", new { id=item.COD_PROD }) |
+                @Html.ActionLink("Detalhes", "DetalhesEstoque", new { id = item.COD_PROD }) |
+                @Html.ActionLink("Deletar", "DeletarEstoque", new { id = item.COD_PROD })
             </td>
         </tr>
 }

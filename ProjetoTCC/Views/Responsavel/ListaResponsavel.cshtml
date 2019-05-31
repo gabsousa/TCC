@@ -73,9 +73,9 @@
                 @Html.DisplayFor(modelItem => item.CPF_RESP)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "EditarResposavel", new { id=item.COD_RESP }) |
+                @Html.ActionLink("Detalhes", "DetalhesResponsavel", new { id = item.COD_RESP }) |
+                @Html.ActionLink("Deletar", "DeletarResponsavel", new { id = item.COD_RESP })
             </td>
         </tr>
 }

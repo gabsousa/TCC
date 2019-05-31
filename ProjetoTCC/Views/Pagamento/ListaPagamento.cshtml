@@ -67,9 +67,9 @@
                 @Html.DisplayFor(modelItem => item.OBS_PGTO)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "EditarPagamento", new { id=item.COD_PGTO }) |
+                @Html.ActionLink("Detalhes", "DetalhesPagamento", new { id = item.COD_PGTO }) |
+                @Html.ActionLink("Deletar", "DeletarPagamento", new { id = item.COD_PGTO })
             </td>
         </tr>
 }

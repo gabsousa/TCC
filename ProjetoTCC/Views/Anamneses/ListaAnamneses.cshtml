@@ -55,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.COD_MED)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "EditarAnamneses", new { id=item.COD_ANAMNESES }) |
+                @Html.ActionLink("Detalhes", "DetalhesAnamneses", new { id = item.COD_ANAMNESES }) |
+                @Html.ActionLink("Deletar", "DeletarAnamneses", new { id = item.COD_ANAMNESES })
             </td>
         </tr>
 }
