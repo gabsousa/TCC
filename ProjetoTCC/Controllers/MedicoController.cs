@@ -16,9 +16,11 @@ namespace ProjetoTCC.Controllers
         }
 
         // GET: Medico/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetalhesMedico(int id)
         {
-            return View();
+            Models.Data.MedicoData md = new Models.Data.MedicoData();
+
+            return View(md.DetalhesMedico(id));
         }
 
         public ActionResult ListaMedico()
@@ -39,56 +41,48 @@ namespace ProjetoTCC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CadastrarMedico(Models.Medico collection)
         {
-            Models.Data.MedicoData medicoData = new Models.Data.MedicoData();
-            medicoData.CadastrarMedico(collection);
+            Models.Data.MedicoData md = new Models.Data.MedicoData();
+            md.CadastrarMedico(collection);
 
             return RedirectToAction(nameof(ListaMedico));
         }
 
         // GET: Medico/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditarMedico(int id)
         {
-            return View();
+            Models.Data.MedicoData md = new Models.Data.MedicoData();
+            
+            return View(md.DetalhesMedico(id));
         }
 
         // POST: Medico/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditarMedico(Models.Medico collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Models.Data.MedicoData md = new Models.Data.MedicoData();
+            md.EditarMedico(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaMedico));
         }
 
         // GET: Medico/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeletarMedico(int id)
         {
-            return View();
+            Models.Data.MedicoData md = new Models.Data.MedicoData();
+
+            return View(md.DetalhesMedico(id));
         }
 
         // POST: Medico/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeletarMedico(int id, IFormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Models.Data.MedicoData md = new Models.Data.MedicoData();
+            md.DeletarMedico(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaMedico));
         }
     }
 }
