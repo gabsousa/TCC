@@ -20,6 +20,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@COD_PROD", estoque.COD_PROD);
             cmd.Parameters.AddWithValue("@NOME_PROD", estoque.NOME_PROD);
             cmd.Parameters.AddWithValue("@QNT_PROD", estoque.QNT_PROD);
+            cmd.Parameters.AddWithValue("@QNT_PROD", estoque.DATA_VALIDADE);
             cmd.Parameters.AddWithValue("@NOME_FORNEC", estoque.NOME_FORNEC);
             cmd.Parameters.AddWithValue("@DATA_ENTRADA", estoque.DATA_ENTRADA);
             cmd.Parameters.AddWithValue("@DATA_RETIRADA", estoque.DATA_RETIRADA);
@@ -30,20 +31,23 @@ namespace ProjetoTCC.Models.Data
             msc.Close();
         }
 
-        public void EditarAnamneses(Anamneses anamneses)
+        public void EditarAnamneses(Estoque estoque)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("ALTERAR_ANAMNESES");
+            MySqlCommand cmd = new MySqlCommand("ALTERAR_ESTOQUE");
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@COD_ANAMNESES", anamneses.COD_ANAMNESES);
-            cmd.Parameters.AddWithValue("@COD_PAC", anamneses.COD_PAC);
-            cmd.Parameters.AddWithValue("@DATA_ANAMNESES", anamneses.DATA_ANAMNESES);
-            cmd.Parameters.AddWithValue("@DESC_ANAMNESES", anamneses.DESC_ANAMNESES);
-            cmd.Parameters.AddWithValue("@FATOSIMPO_ANAMNESES", anamneses.FATOSIMPO_ANAMNESES);
-            cmd.Parameters.AddWithValue("@COD_MED", anamneses.COD_MED);
+            cmd.Parameters.AddWithValue("@COD_PROD", estoque.COD_PROD);
+            cmd.Parameters.AddWithValue("@NOME_PROD", estoque.NOME_PROD);
+            cmd.Parameters.AddWithValue("@QNT_PROD", estoque.QNT_PROD);
+            cmd.Parameters.AddWithValue("@QNT_PROD", estoque.DATA_VALIDADE);
+            cmd.Parameters.AddWithValue("@NOME_FORNEC", estoque.NOME_FORNEC);
+            cmd.Parameters.AddWithValue("@DATA_ENTRADA", estoque.DATA_ENTRADA);
+            cmd.Parameters.AddWithValue("@DATA_RETIRADA", estoque.DATA_RETIRADA);
+            cmd.Parameters.AddWithValue("@HORA_RETIRADA", estoque.HORA_RETIRADA);
+            cmd.Parameters.AddWithValue("@RESP_RETIRADA", estoque.RESP_RETIRADA);
 
             cmd.ExecuteNonQuery();
             msc.Close();
