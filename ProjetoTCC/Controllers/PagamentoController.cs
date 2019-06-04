@@ -10,19 +10,21 @@ namespace ProjetoTCC.Controllers
     public class PagamentoController : Controller
     {
         // GET: Pagamento
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             return View();
         }
 
         // GET: Pagamento/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetalhesPagamento(int id)
         {
-            return View();
+            Models.Data.PagamentoData pd = new Models.Data.PagamentoData();
+
+            return View(pd.DetalhesPagamento(id));
         }
 
         // GET: Pagamento/Create
-        public ActionResult Create()
+        public ActionResult CadastrarPagamento()
         {
             return View();
         }
@@ -30,64 +32,50 @@ namespace ProjetoTCC.Controllers
         // POST: Pagamento/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult CadastrarPagamento(Models.Pagamento collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Models.Data.PagamentoData pd = new Models.Data.PagamentoData();
+            pd.CadastrarPagamento(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaPagamento));
         }
 
         // GET: Pagamento/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditarPagamento(int id)
         {
-            return View();
+            Models.Data.PagamentoData pd = new Models.Data.PagamentoData();
+
+            return View(pd.DetalhesPagamento(id));
         }
 
         // POST: Pagamento/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditarPagamento(Models.Pagamento collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Models.Data.PagamentoData pd = new Models.Data.PagamentoData();
+            pd.EditarPagamento(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaPagamento));
         }
 
         // GET: Pagamento/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeletarPagamento(int id)
         {
-            return View();
+            Models.Data.PagamentoData pd = new Models.Data.PagamentoData();
+
+            return View(pd.DetalhesPagamento(id));
         }
 
         // POST: Pagamento/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeletarPagamento(int id, IFormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Models.Data.PagamentoData pd = new Models.Data.PagamentoData();
+            pd.DeletarPagamento(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+            return RedirectToAction(nameof(ListaPagamento));
+        }*/
     }
 }
