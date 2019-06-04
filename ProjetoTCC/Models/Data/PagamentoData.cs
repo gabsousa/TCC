@@ -31,5 +31,77 @@ namespace ProjetoTCC.Models.Data
 
             msc.Close();
         }
+
+        public List<Pagamento> ListaPagamento()
+        {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_pagamento", msc);
+            //    MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_PAGAMENTO", msc);
+            //    msda.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            msc.Close();
+
+            List<Pagamento> lista = new List<Pagamento>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                Pagamento item = new Pagamento();
+
+                item.COD_PGTO = int.Parse(dr["COD_PGTO"].ToString());
+                item.COD_SERV = int.Parse(dr["COD_SERV"].ToString());
+                item.FORMA_PGTO = dr["FORMA_PGTO"].ToString();
+                item.TIPO_PGTO = dr["TIPO_PGTO"].ToString();
+                item.TIPO_CARTAO = dr["TIPO_CARTAO"].ToString();
+                item.QTD_PARCELA = int.Parse(dr["QTD_PARCELA"].ToString());
+                item.VALOR = decimal.Parse(dr["VALOR"].ToString());
+                item.STATUS_PGTO = dr["STATUS_PGTO"].ToString();
+                item.OBS_PGTO = dr["OBS_PGTO"].ToString();
+                
+
+                lista.Add(item);
+            }
+
+            return lista;
+        }
+
+        public Pagamento DetalhesPagamento(int COD_PGTO)
+        {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
+
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_pagamento where COD_PGTO = " + COD_PGTO, msc);
+            //    MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_PAGAMENTO" + COD_GTO, msc);
+            //    msda.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+
+            DataSet ds = new DataSet();
+            msda.Fill(ds);
+
+            msc.Close();
+
+            List<Pagamento> lista = new List<Pagamento>();
+
+            Pagamento item = new Pagamento();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                item.COD_PGTO = int.Parse(ds.Tables[0].Rows[0]["COD_MED"].ToString());
+                item.COD_SERV = int.Parse(ds.Tables[0].Rows[0]["NOME_MED"].ToString());
+                item.FORMA_PGTO = ds.Tables[0].Rows[0]["TEL_MED"].ToString();
+                item.TIPO_PGTO = ds.Tables[0].Rows[0]["CEL_MED"].ToString();
+                item.TIPO_CARTAO = ds.Tables[0].Rows[0]["EMAIL_MED"].ToString();
+                item.QTD_PARCELA = int.Parse(ds.Tables[0].Rows[0]["CPF_MED"].ToString());
+                item.VALOR = decimal.Parse(ds.Tables[0].Rows[0]["CRM"].ToString());
+                item.STATUS_PGTO = ds.Tables[0].Rows[0]["VALIDADE_CRM"].ToString();
+                item.OBS_PGTO = ds.Tables[0].Rows[0]["COD_ESPEC"].ToString(); 
+            }
+
+            return item;
+        }
     }
 }
