@@ -90,18 +90,53 @@ namespace ProjetoTCC.Models.Data
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                item.COD_PGTO = int.Parse(ds.Tables[0].Rows[0]["COD_MED"].ToString());
-                item.COD_SERV = int.Parse(ds.Tables[0].Rows[0]["NOME_MED"].ToString());
-                item.FORMA_PGTO = ds.Tables[0].Rows[0]["TEL_MED"].ToString();
-                item.TIPO_PGTO = ds.Tables[0].Rows[0]["CEL_MED"].ToString();
-                item.TIPO_CARTAO = ds.Tables[0].Rows[0]["EMAIL_MED"].ToString();
-                item.QTD_PARCELA = int.Parse(ds.Tables[0].Rows[0]["CPF_MED"].ToString());
-                item.VALOR = decimal.Parse(ds.Tables[0].Rows[0]["CRM"].ToString());
-                item.STATUS_PGTO = ds.Tables[0].Rows[0]["VALIDADE_CRM"].ToString();
-                item.OBS_PGTO = ds.Tables[0].Rows[0]["COD_ESPEC"].ToString(); 
+                item.COD_PGTO = int.Parse(ds.Tables[0].Rows[0]["COD_PGTO"].ToString());
+                item.COD_SERV = int.Parse(ds.Tables[0].Rows[0]["COD_SERV"].ToString());
+                item.FORMA_PGTO = ds.Tables[0].Rows[0]["FORMA_PGTO"].ToString();
+                item.TIPO_PGTO = ds.Tables[0].Rows[0]["TIPO_PGTO"].ToString();
+                item.TIPO_CARTAO = ds.Tables[0].Rows[0]["TIPO_CARTAO"].ToString();
+                item.QTD_PARCELA = int.Parse(ds.Tables[0].Rows[0]["QTD_PARCELA"].ToString());
+                item.VALOR = decimal.Parse(ds.Tables[0].Rows[0]["VALOR"].ToString());
+                item.STATUS_PGTO = ds.Tables[0].Rows[0]["STATUS_PGTO"].ToString();
+                item.OBS_PGTO = ds.Tables[0].Rows[0]["OBS_PGTO"].ToString(); 
             }
 
             return item;
+        }
+
+        public void EditarPagamento(Pagamento pagamento)
+        {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
+
+            MySqlCommand cmd = new MySqlCommand("ALTERAR_PAGAMENTO", msc);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@COD_PGTO", pagamento.COD_PGTO);
+            cmd.Parameters.AddWithValue("@COD_SERV", pagamento.COD_SERV);
+            cmd.Parameters.AddWithValue("@FORMA_PGTO", pagamento.FORMA_PGTO);
+            cmd.Parameters.AddWithValue("@TIPO_PGTO", pagamento.TIPO_PGTO);
+            cmd.Parameters.AddWithValue("@TIPO_CARTAO", pagamento.TIPO_CARTAO);
+            cmd.Parameters.AddWithValue("@QTD_PARCELA", pagamento.QTD_PARCELA);
+            cmd.Parameters.AddWithValue("@VALOR", pagamento.VALOR);
+            cmd.Parameters.AddWithValue("@STATUS_PGTO", pagamento.STATUS_PGTO);
+            cmd.Parameters.AddWithValue("@OBS_PGTO", pagamento.OBS_PGTO);
+            cmd.ExecuteNonQuery();
+
+            msc.Close();
+        }
+
+        public void DeletarPagamento(int COD_PGTO)
+        {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
+
+            MySqlCommand cmd = new MySqlCommand("DELETAR_PAGAMENTO", msc);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.ExecuteNonQuery();
+
+            msc.Close();
         }
     }
 }

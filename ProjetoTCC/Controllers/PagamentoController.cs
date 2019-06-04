@@ -10,9 +10,16 @@ namespace ProjetoTCC.Controllers
     public class PagamentoController : Controller
     {
         // GET: Pagamento
-        /*public ActionResult Index()
+        public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult ListaPagamento()
+        {
+            Models.Data.PagamentoData pd = new Models.Data.PagamentoData();
+
+            return View(pd.ListaPagamento());
         }
 
         // GET: Pagamento/Details/5
@@ -76,6 +83,6 @@ namespace ProjetoTCC.Controllers
             pd.DeletarPagamento(id);
 
             return RedirectToAction(nameof(ListaPagamento));
-        }*/
+        }
     }
 }
