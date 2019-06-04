@@ -14,7 +14,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("INSERIR_ESTOQUE");
+            MySqlCommand cmd = new MySqlCommand("INSERIR_ESTOQUE", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_PROD", estoque.COD_PROD);
@@ -31,12 +31,12 @@ namespace ProjetoTCC.Models.Data
             msc.Close();
         }
 
-        public void EditarAnamneses(Estoque estoque)
+        public void EditarEstoque(Estoque estoque)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("ALTERAR_ESTOQUE");
+            MySqlCommand cmd = new MySqlCommand("ALTERAR_ESTOQUE", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_PROD", estoque.COD_PROD);
@@ -53,7 +53,7 @@ namespace ProjetoTCC.Models.Data
             msc.Close();
         }
 
-        public void DeletarAnamneses(Estoque estoque)
+        public void DeletarEstoque(int COD_PROD)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
@@ -71,6 +71,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
+            //MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_estoque", msc);
             MySqlDataAdapter msda = new MySqlDataAdapter("bd_clinicare.CONSULTAR_ESTOQUE", msc);
             msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
@@ -107,6 +108,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
+            //MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_estoque where COD_PROD = " + COD_ESTOQUE, msc);
             MySqlDataAdapter msda = new MySqlDataAdapter("bd_clinicare.CONSULTAR_ESTOQUE" + COD_PROD, msc);
             msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 

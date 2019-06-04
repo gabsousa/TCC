@@ -17,16 +17,18 @@ namespace ProjetoTCC.Controllers
         }
 
         // GET: Agenda/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetalhesAgenda(int id)
         {
-            return View();
+            Models.Data.AgendaData ad = new Models.Data.AgendaData();
+
+            return View(ad.DetalhesAgenda(id));
         }
 
-        public ActionResult ListaAgenda(int id)
+        public ActionResult ListaAgenda()
         {
-            Models.Data.AgendaData td = new Models.Data.AgendaData();
+            Models.Data.AgendaData ad = new Models.Data.AgendaData();
 
-            return View(td.ListaAgenda());
+            return View(ad.ListaAgenda());
         }
 
         // GET: Agenda/Create
@@ -38,58 +40,50 @@ namespace ProjetoTCC.Controllers
         // POST: Agenda/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Models.Agenda collection)
+        public ActionResult CadastrarAgenda(Models.Agenda collection)
         {
-            Models.Data.AgendaData agendaData = new Models.Data.AgendaData();
-            agendaData.CadastrarAgenda(collection);
+            Models.Data.AgendaData ad = new Models.Data.AgendaData();
+            ad.CadastrarAgenda(collection);
 
             return RedirectToAction(nameof(ListaAgenda));
         }
 
         // GET: Agenda/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditarAgenda(int id)
         {
-            return View();
+            Models.Data.AgendaData ad = new Models.Data.AgendaData();
+
+            return View(ad.DetalhesAgenda(id));
         }
 
         // POST: Agenda/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditarAgenda(Models.Agenda collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Models.Data.AgendaData ad = new Models.Data.AgendaData();
+            ad.EditarAgenda(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(EditarAgenda));
         }
 
         // GET: Agenda/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeletarAgenda(int id)
         {
-            return View();
+            Models.Data.AgendaData ad = new Models.Data.AgendaData();
+
+            return View(ad.DetalhesAgenda(id));
         }
 
         // POST: Agenda/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeletarAgenda(int id, IFormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Models.Data.AgendaData fd = new Models.Data.AgendaData();
+            fd.DeletarAgenda(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaAgenda));
         }
     }
 }

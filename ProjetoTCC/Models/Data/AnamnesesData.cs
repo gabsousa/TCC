@@ -14,7 +14,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("INSERIR_ANAMNESES");
+            MySqlCommand cmd = new MySqlCommand("INSERIR_ANAMNESES", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_ANAMNESES", anamneses.COD_ANAMNESES);
@@ -33,7 +33,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("ALTERAR_ANAMNESES");
+            MySqlCommand cmd = new MySqlCommand("ALTERAR_ANAMNESES" + msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_ANAMNESES", anamneses.COD_ANAMNESES);
@@ -47,12 +47,12 @@ namespace ProjetoTCC.Models.Data
             msc.Close();
         }
 
-        public void DeletarAnamneses(Anamneses anamneses)
+        public void DeletarAnamneses(int COD_ANAMNESES)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("DELETAR_ANAMNESES");
+            MySqlCommand cmd = new MySqlCommand("DELETAR_ANAMNESES", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.ExecuteNonQuery();
@@ -93,13 +93,14 @@ namespace ProjetoTCC.Models.Data
             return lista;
         }
 
-        public Anamneses DetalhesAnamneses(int cod_anamneses)
+        public Anamneses DetalhesAnamneses(int COD_ANAMNESES)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("bd_clinicare.CONSULTAR_ANAMNESES" + cod_anamneses, msc);
-            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_anamneses where COD_ANAMNESES = " + COD_ANAMNESES, msc);
+            // MySqlDataAdapter msda = new MySqlDataAdapter("bd_clinicare.CONSULTAR_ANAMNESES" + COD_ANAMNESES, msc);
+            //msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -118,7 +119,7 @@ namespace ProjetoTCC.Models.Data
                 item.DESC_ANAMNESES = ds.Tables[0].Rows[0]["DATA_ANAMNESES"].ToString();
                 item.FATOSIMPO_ANAMNESES = ds.Tables[0].Rows[0]["FATOSIMPO_ANAMNESES"].ToString();
                 item.COD_MED = int.Parse(ds.Tables[0].Rows[0]["COD_MED"].ToString());
-                
+
             }
 
             return item;

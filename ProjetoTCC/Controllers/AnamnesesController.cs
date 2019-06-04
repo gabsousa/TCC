@@ -16,16 +16,18 @@ namespace ProjetoTCC.Controllers
         }
 
         // GET: Anamneses/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetalhesAnamneses(int id)
         {
-            return View();
+            Models.Data.AnamnesesData ad = new Models.Data.AnamnesesData();
+
+            return View(ad.DetalhesAnamneses(id));
         }
 
-        public ActionResult ListaAnamneses(int id)
+        public ActionResult ListaAnamneses()
         {
-            Models.Data.AnamnesesData td = new Models.Data.AnamnesesData();
+            Models.Data.AnamnesesData ad = new Models.Data.AnamnesesData();
 
-            return View(td.ListaAnamneses());
+            return View(ad.ListaAnamneses());
         }
 
         // GET: Anamneses/Create
@@ -39,56 +41,48 @@ namespace ProjetoTCC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CadastrarAnamneses(Models.Anamneses collection)
         {
-            Models.Data.AnamnesesData anamnesesData = new Models.Data.AnamnesesData();
-            anamnesesData.CadastrarAnamneses(collection);
+            Models.Data.AnamnesesData ad = new Models.Data.AnamnesesData();
+            ad.CadastrarAnamneses(collection);
 
             return RedirectToAction(nameof(ListaAnamneses));
         }
 
         // GET: Anamneses/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditarAnameneses(int id)
         {
-            return View();
+            Models.Data.AnamnesesData ad = new Models.Data.AnamnesesData();
+
+            return View(ad.DetalhesAnamneses(id));
         }
 
         // POST: Anamneses/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditarAnameneses(Models.Anamneses collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Models.Data.AnamnesesData ad = new Models.Data.AnamnesesData();
+            ad.EditarAnamneses(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(EditarAnameneses));
         }
 
         // GET: Anamneses/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeletarAnamneses(int id)
         {
-            return View();
+            Models.Data.AnamnesesData ad = new Models.Data.AnamnesesData();
+
+            return View(ad.DetalhesAnamneses(id));
         }
 
         // POST: Anamneses/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeletarAnamneses(int id, IFormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Models.Data.AnamnesesData ad = new Models.Data.AnamnesesData();
+            ad.DeletarAnamneses(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaAnamneses));
         }
     }
 }

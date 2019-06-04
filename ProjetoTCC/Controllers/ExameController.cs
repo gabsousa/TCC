@@ -16,16 +16,18 @@ namespace ProjetoTCC.Controllers
         }
 
         // GET: Exame/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetalhesExame(int id)
         {
-            return View();
+            Models.Data.ExameData ed = new Models.Data.ExameData();
+
+            return View(ed.DetalhesExame(id));
         }
 
         public ActionResult ListaExame()
         {
-            Models.Data.ExameData td = new Models.Data.ExameData();
+            Models.Data.ExameData ed = new Models.Data.ExameData();
 
-            return View(td.ListaExame());
+            return View(ed.ListaExame());
         }
 
         // GET: Exame/Create
@@ -39,56 +41,48 @@ namespace ProjetoTCC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CadastrarExame(Models.Exame collection)
         {
-            Models.Data.ExameData exameData = new Models.Data.ExameData();
-            exameData.CadastrarExame(collection);
+            Models.Data.ExameData ed = new Models.Data.ExameData();
+            ed.CadastrarExame(collection);
 
             return RedirectToAction(nameof(ListaExame));
         }
 
         // GET: Exame/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditarExame(int id)
         {
-            return View();
+            Models.Data.ExameData ed = new Models.Data.ExameData();
+
+            return View(ed.DetalhesExame(id));
         }
 
         // POST: Exame/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditarExame(Models.Exame collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Models.Data.ExameData ed = new Models.Data.ExameData();
+            ed.EditarExame(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(EditarExame));
         }
 
         // GET: Exame/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeletarExame(int id)
         {
-            return View();
+            Models.Data.ExameData ed = new Models.Data.ExameData();
+
+            return View(ed.DetalhesExame(id));
         }
 
         // POST: Exame/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeletarExame(int id, IFormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Models.Data.ExameData ed = new Models.Data.ExameData();
+            ed.DeletarExame(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaExame));
         }
     }
 }

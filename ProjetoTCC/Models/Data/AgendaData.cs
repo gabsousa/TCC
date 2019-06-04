@@ -105,7 +105,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("ALTERAR_CONSULTA");
+            MySqlCommand cmd = new MySqlCommand("ALTERAR_CONSULTA", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_AGENDA", agenda.COD_AGENDA);

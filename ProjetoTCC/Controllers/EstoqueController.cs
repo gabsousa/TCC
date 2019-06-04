@@ -16,16 +16,18 @@ namespace ProjetoTCC.Controllers
         }
 
         // GET: Estoque/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetalhesEstoque(int id)
         {
-            return View();
+            Models.Data.EstoqueData ed = new Models.Data.EstoqueData();
+
+            return View(ed.DetalhesEstoque(id));
         }
 
         public ActionResult ListaEstoque()
         {
-            Models.Data.EstoqueData td = new Models.Data.EstoqueData();
+            Models.Data.EstoqueData ed = new Models.Data.EstoqueData();
 
-            return View(td.ListaEstoque());
+            return View(ed.ListaEstoque());
         }
 
         // GET: Estoque/Create
@@ -39,56 +41,48 @@ namespace ProjetoTCC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CadastrarEstoque(Models.Estoque collection)
         {
-            Models.Data.EstoqueData estoqueData = new Models.Data.EstoqueData();
-            estoqueData.CadastrarEstoque(collection);
+            Models.Data.EstoqueData ed = new Models.Data.EstoqueData();
+            ed.CadastrarEstoque(collection);
 
             return RedirectToAction(nameof(ListaEstoque));
         }
 
         // GET: Estoque/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditarEstoque(int id)
         {
-            return View();
+            Models.Data.EstoqueData ed = new Models.Data.EstoqueData();
+
+            return View(ed.DetalhesEstoque(id));
         }
 
         // POST: Estoque/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditarEstoque(int id, Models.Estoque collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Models.Data.EstoqueData ed = new Models.Data.EstoqueData();
+            ed.EditarEstoque(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaEstoque));
         }
 
         // GET: Estoque/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeletarEstoque(int id)
         {
-            return View();
+            Models.Data.EstoqueData ed = new Models.Data.EstoqueData();
+
+            return View(ed.DetalhesEstoque(id));
         }
 
         // POST: Estoque/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeletarEstoque(int id, IFormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Models.Data.EstoqueData md = new Models.Data.EstoqueData();
+            md.DeletarEstoque(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaEstoque));
         }
     }
 }
