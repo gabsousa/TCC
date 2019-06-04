@@ -16,13 +16,22 @@ namespace ProjetoTCC.Controllers
         }
 
         // GET: Funcionario/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetalhesFuncionario(int id)
         {
-            return View();
+            Models.Data.FuncionarioData fd = new Models.Data.FuncionarioData();
+
+            return View(fd.DetalhesFuncionario(id));
+        }
+
+        public ActionResult ListaFuncionario()
+        {
+            Models.Data.FuncionarioData fd = new Models.Data.FuncionarioData();
+
+            return View(fd.ListaFuncionario());
         }
 
         // GET: Funcionario/Create
-        public ActionResult Create()
+        public ActionResult CadastrarFuncionario()
         {
             return View();
         }
@@ -30,64 +39,50 @@ namespace ProjetoTCC.Controllers
         // POST: Funcionario/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult CadastrarFuncionario(Models.Funcionario collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Models.Data.FuncionarioData fd = new Models.Data.FuncionarioData();
+            fd.CadastrarFuncionario(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaFuncionario));
         }
 
         // GET: Funcionario/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditarFuncionario(int id)
         {
-            return View();
+            Models.Data.FuncionarioData fd = new Models.Data.FuncionarioData();
+
+            return View(fd.DetalhesFuncionario(id));
         }
 
         // POST: Funcionario/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditarFuncionario(Models.Funcionario collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Models.Data.FuncionarioData fd = new Models.Data.FuncionarioData();
+            fd.EditarFuncionario(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(EditarFuncionario));
         }
 
         // GET: Funcionario/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeletarFuncionario(int id)
         {
-            return View();
+            Models.Data.FuncionarioData fd = new Models.Data.FuncionarioData();
+
+            return View(fd.DetalhesFuncionario(id));
         }
 
         // POST: Funcionario/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeletarFuncionario(int id, IFormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Models.Data.FuncionarioData fd = new Models.Data.FuncionarioData();
+            fd.DeletarFuncionario(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaFuncionario));
         }
     }
 }

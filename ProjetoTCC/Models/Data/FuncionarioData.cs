@@ -102,7 +102,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("ALTERAR_FUNCIONARIO");
+            MySqlCommand cmd = new MySqlCommand("ALTERAR_FUNCIONARIO", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_FUNC", funcionario.COD_FUNC);
