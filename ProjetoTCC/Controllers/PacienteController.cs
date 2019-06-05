@@ -18,16 +18,16 @@ namespace ProjetoTCC.Controllers
         // GET: Paciente/Details/5
         public ActionResult DetalhesPaciente(int id)
         {
-            Models.Data.PacienteData cd = new Models.Data.PacienteData();
+            Models.Data.PacienteData pd = new Models.Data.PacienteData();
 
-            return View(cd.DetalhesPaciente(id));
+            return View(pd.DetalhesPaciente(id));
         }
 
         public ActionResult ListaPaciente()
         {
-            Models.Data.PacienteData td = new Models.Data.PacienteData();
+            Models.Data.PacienteData pd = new Models.Data.PacienteData();
 
-            return View(td.ListaPaciente());
+            return View(pd.ListaPaciente());
         }
 
         // GET: Paciente/Create
@@ -59,10 +59,10 @@ namespace ProjetoTCC.Controllers
         // POST: Paciente/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditarPaciente(int id, Models.Paciente collection)
+        public ActionResult EditarPaciente(Models.Paciente collection)
         {
-        Models.Data.PacienteData pacienteData = new Models.Data.PacienteData();
-        pacienteData.EditarPaciente(collection);
+        Models.Data.PacienteData pd = new Models.Data.PacienteData();
+        pd.EditarPaciente(collection);
 
         return RedirectToAction(nameof(EditarPaciente));
         }
@@ -71,7 +71,9 @@ namespace ProjetoTCC.Controllers
         // GET: Paciente/Delete/5
         public ActionResult DeletarPaciente(int id)
         {
-            return View();
+            Models.Data.PacienteData pd = new Models.Data.PacienteData();
+
+            return View(pd.DetalhesPaciente(id));
         }
 
         // POST: Paciente/Delete/5
@@ -79,16 +81,10 @@ namespace ProjetoTCC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletarPaciente(int id, IFormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Models.Data.PacienteData pd = new Models.Data.PacienteData();
+            pd.DeletarPaciente(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaPaciente));
         }
     }
 }
