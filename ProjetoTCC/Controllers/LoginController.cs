@@ -9,6 +9,10 @@ namespace ProjetoTCC.Controllers
 {
     public class LoginController : Controller
     {
+        public ActionResult TelaLogin()
+        {
+            return View();
+        }
         // GET: Login
         public ActionResult Index()
         {
