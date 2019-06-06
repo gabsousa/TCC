@@ -7,5 +7,6 @@ namespace ProjetoTCC.Models.Data
 {
     public class EspMedicoData
     {
+
     }
 }
