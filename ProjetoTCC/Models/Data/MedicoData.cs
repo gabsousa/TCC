@@ -40,9 +40,8 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_medico", msc);
-            //    MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_MEDICO", msc);
-            //    msda.SelectCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_MEDICO", msc);
+            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -81,8 +80,8 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_medico where COD_MED = " + COD_MED, msc);
-            //    MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_MEDICO" + COD_MED, msc);
-            //    msda.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_MEDICO", msc);
+            //msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
 
             DataSet ds = new DataSet();
@@ -111,6 +110,7 @@ namespace ProjetoTCC.Models.Data
             }
 
             return item;
+
         }
 
         public void EditarMedico(Medico medico)
