@@ -20,6 +20,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@COD_PROD", estoque.COD_PROD);
             cmd.Parameters.AddWithValue("@NOME_PROD", estoque.NOME_PROD);
             cmd.Parameters.AddWithValue("@QNT_PROD", estoque.QNT_PROD);
+            cmd.Parameters.AddWithValue("@DATA_VALIDADE", estoque.DATA_VALIDADE);
             cmd.Parameters.AddWithValue("@NOME_FORNEC", estoque.NOME_FORNEC);
             cmd.Parameters.AddWithValue("@DATA_ENTRADA", estoque.DATA_ENTRADA);
             cmd.Parameters.AddWithValue("@DATA_RETIRADA", estoque.DATA_RETIRADA);
@@ -41,7 +42,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@COD_PROD", estoque.COD_PROD);
             cmd.Parameters.AddWithValue("@NOME_PROD", estoque.NOME_PROD);
             cmd.Parameters.AddWithValue("@QNT_PROD", estoque.QNT_PROD);
-            cmd.Parameters.AddWithValue("@QNT_PROD", estoque.DATA_VALIDADE);
+            cmd.Parameters.AddWithValue("@DATA_VALIDADE", estoque.DATA_VALIDADE);
             cmd.Parameters.AddWithValue("@NOME_FORNEC", estoque.NOME_FORNEC);
             cmd.Parameters.AddWithValue("@DATA_ENTRADA", estoque.DATA_ENTRADA);
             cmd.Parameters.AddWithValue("@DATA_RETIRADA", estoque.DATA_RETIRADA);
