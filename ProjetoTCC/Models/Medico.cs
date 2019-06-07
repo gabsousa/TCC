@@ -43,11 +43,5 @@ namespace ProjetoTCC.Models
 
         [DisplayName("Código do Cargo")] // FOREIGN KEY
         public int COD_CARGO { get; set; }
-
-        [DisplayName("Login")]
-        public string LOGIN_MED { get; set; }
-
-        [DisplayName("Senha")]
-        public string SENHA_MED { get; set; }
     }
 }
