@@ -47,12 +47,6 @@
             @Html.DisplayFor(model => model.CPF_MED)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.RG_MED)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RG_MED)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.CRM)
         </dt>
         <dd>
@@ -86,5 +80,5 @@
 </div>
 <div>
     @Html.ActionLink("Editar", "EditarMedico", new { id = Model.COD_MED }) |
-    <a asp-action="Index">Voltar para a lista</a>
+    <a asp-action="ListaMedico">Voltar para a lista</a>
 </div>

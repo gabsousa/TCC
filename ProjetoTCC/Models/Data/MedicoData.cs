@@ -76,9 +76,6 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_medico where COD_MED = " + COD_MED, msc);
-            //MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_MEDICO", msc);
-            //msda.SelectCommand.CommandType = CommandType.StoredProcedure;
-
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -99,6 +96,7 @@ namespace ProjetoTCC.Models.Data
                 item.CPF_MED = int.Parse(ds.Tables[0].Rows[0]["CPF_MED"].ToString());
                 item.CRM = ds.Tables[0].Rows[0]["CRM"].ToString();
                 item.VALIDADE_CRM = DateTime.Parse(ds.Tables[0].Rows[0]["VALIDADE_CRM"].ToString());
+                item.SEXO_MED = ds.Tables[0].Rows[0]["SEXO_MED"].ToString();
                 item.COD_ESPEC = int.Parse(ds.Tables[0].Rows[0]["COD_ESPEC"].ToString());
                 item.COD_CARGO = int.Parse(ds.Tables[0].Rows[0]["COD_CARGO"].ToString());
             }

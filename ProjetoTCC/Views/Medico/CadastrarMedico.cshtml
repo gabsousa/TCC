@@ -68,11 +68,6 @@
                 <span asp-validation-for="CPF_MED" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RG_MED" class="control-label"></label>
-                <input asp-for="RG_MED" class="form-control" />
-                <span asp-validation-for="RG_MED" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="CRM" class="control-label"></label>
                 <input asp-for="CRM" class="form-control" />
                 <span asp-validation-for="CRM" class="text-danger"></span>
@@ -84,30 +79,36 @@
             </div>
             <div class="form-group">
                 <label asp-for="SEXO_MED" class="control-label"></label>
-                <input asp-for="SEXO_MED" class="form-control" />
-                <span asp-validation-for="SEXO_MED" class="text-danger"></span>
+                @{
+                    ViewBag.Title = "Título";
+                    List<SelectListItem> l1 = new List<SelectListItem>();
+                    l1.Add(new SelectListItem() { Text = "M", Value = "M" });
+                    l1.Add(new SelectListItem() { Text = "F", Value = "F" });
+                }
+
+                @Html.DropDownList("SEXO_MED", l1, "Selecione")
             </div>
             <div class="form-group">
                 <label asp-for="COD_ESPEC" class="control-label"></label>
                 @{
                     ViewBag.Title = "Título";
-                    List<SelectListItem> l1 = new List<SelectListItem>();
-                    l1.Add(new SelectListItem() { Text = "Psicólogo", Value = "1" });
-                    l1.Add(new SelectListItem() { Text = "Clínico Geral", Value = "2" });
+                    List<SelectListItem> l2 = new List<SelectListItem>();
+                    l2.Add(new SelectListItem() { Text = "Psicólogo", Value = "1" });
+                    l2.Add(new SelectListItem() { Text = "Clínico Geral", Value = "2" });
                 }
 
-                @Html.DropDownList("COD_ESPEC", l1, "Selecione")
+                @Html.DropDownList("COD_ESPEC", l2, "Selecione")
             </div>
             <div class="form-group">
                 <label asp-for="COD_CARGO" class="control-label"></label>
                 @{
                     ViewBag.Title = "Título";
-                    List<SelectListItem> l2 = new List<SelectListItem>();
-                    l2.Add(new SelectListItem() { Text = "Médico", Value = "1" });
-                    l2.Add(new SelectListItem() { Text = "Funcionário", Value = "2" });
+                    List<SelectListItem> l3 = new List<SelectListItem>();
+                    l3.Add(new SelectListItem() { Text = "Médico", Value = "1" });
+                    l3.Add(new SelectListItem() { Text = "Funcionário", Value = "2" });
                 }
 
-                @Html.DropDownList("COD_CARGO", l2, "Selecione")
+                @Html.DropDownList("COD_CARGO", l3, "Selecione")
             </div>
 
             <div class="checkbox">
@@ -115,7 +116,6 @@
             </div>
             <button type="submit" class="btn btn-success">Cadastrar <i class="glyphicon glyphicon-send"></i></button>
 
-            
         </form>
     </div>
 </div>

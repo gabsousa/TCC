@@ -26,9 +26,6 @@ namespace ProjetoTCC.Models
         [DisplayName("CPF do Médico")]
         public int CPF_MED { get; set; }
 
-        [DisplayName("RG do Médico")]
-        public int RG_MED { get; set; }
-
         [DisplayName("CRM do Médico")]
         public string CRM { get; set; }
 
