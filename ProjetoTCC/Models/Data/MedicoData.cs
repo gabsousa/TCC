@@ -28,8 +28,6 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@SEXO_MED", medico.SEXO_MED);
             cmd.Parameters.AddWithValue("@COD_ESPEC", medico.COD_ESPEC);
             cmd.Parameters.AddWithValue("@COD_CARGO", medico.COD_CARGO);
-            cmd.Parameters.AddWithValue("@LOGIN_MED", medico.LOGIN_MED);
-            cmd.Parameters.AddWithValue("@SENHA_MED", medico.SENHA_MED);
             cmd.ExecuteNonQuery();
 
             msc.Close();
@@ -40,9 +38,8 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_medico", msc);
-            //    MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_MEDICO", msc);
-            //    msda.SelectCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_MEDICO", msc);
+            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -66,8 +63,6 @@ namespace ProjetoTCC.Models.Data
                 item.SEXO_MED = dr["SEXO_MED"].ToString();
                 item.COD_ESPEC = int.Parse(dr["COD_ESPEC"].ToString());
                 item.COD_CARGO = int.Parse(dr["COD_CARGO"].ToString());
-                item.LOGIN_MED = dr["LOGIN_MED"].ToString();
-                item.SENHA_MED = dr["SENHA_MED"].ToString();
 
                 lista.Add(item);
             }
@@ -81,8 +76,8 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_medico where COD_MED = " + COD_MED, msc);
-            //    MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_MEDICO" + COD_MED, msc);
-            //    msda.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_MEDICO", msc);
+            //msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
 
             DataSet ds = new DataSet();
@@ -106,11 +101,10 @@ namespace ProjetoTCC.Models.Data
                 item.VALIDADE_CRM = DateTime.Parse(ds.Tables[0].Rows[0]["VALIDADE_CRM"].ToString());
                 item.COD_ESPEC = int.Parse(ds.Tables[0].Rows[0]["COD_ESPEC"].ToString());
                 item.COD_CARGO = int.Parse(ds.Tables[0].Rows[0]["COD_CARGO"].ToString());
-                item.LOGIN_MED = ds.Tables[0].Rows[0]["LOGIN_MED"].ToString();
-                item.SENHA_MED = ds.Tables[0].Rows[0]["SENHA_MED"].ToString();
             }
 
             return item;
+
         }
 
         public void EditarMedico(Medico medico)
@@ -132,8 +126,6 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@SEXO_MED", medico.SEXO_MED);
             cmd.Parameters.AddWithValue("@COD_ESPEC", medico.COD_ESPEC);
             cmd.Parameters.AddWithValue("@COD_CARGO", medico.COD_CARGO);
-            cmd.Parameters.AddWithValue("@LOGIN_MED", medico.COD_CARGO);
-            cmd.Parameters.AddWithValue("@SENHA_MED", medico.COD_CARGO);
             cmd.ExecuteNonQuery();
 
             msc.Close();
@@ -144,9 +136,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("DELETAR_MEDICO", msc);
-            cmd.CommandType = CommandType.StoredProcedure;
-
+            MySqlCommand cmd = new MySqlCommand("call DELETAR_MEDICO (" + COD_MED + ");", msc);
             cmd.ExecuteNonQuery();
 
             msc.Close();
