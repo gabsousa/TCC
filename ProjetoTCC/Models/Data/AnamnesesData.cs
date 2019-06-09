@@ -23,41 +23,12 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@DESC_ANAMNESES", anamneses.DESC_ANAMNESES);
             cmd.Parameters.AddWithValue("@FATOSIMPO_ANAMNESES", anamneses.FATOSIMPO_ANAMNESES);
             cmd.Parameters.AddWithValue("@COD_MED", anamneses.COD_MED);
-
             cmd.ExecuteNonQuery();
+
             msc.Close();
         }
 
-        public void EditarAnamneses(Anamneses anamneses)
-        {
-            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
-            msc.Open();
-
-            MySqlCommand cmd = new MySqlCommand("ALTERAR_ANAMNESES" + msc);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.AddWithValue("@COD_ANAMNESES", anamneses.COD_ANAMNESES);
-            cmd.Parameters.AddWithValue("@COD_PAC", anamneses.COD_PAC);
-            cmd.Parameters.AddWithValue("@DATA_ANAMNESES", anamneses.DATA_ANAMNESES);
-            cmd.Parameters.AddWithValue("@DESC_ANAMNESES", anamneses.DESC_ANAMNESES);
-            cmd.Parameters.AddWithValue("@FATOSIMPO_ANAMNESES", anamneses.FATOSIMPO_ANAMNESES);
-            cmd.Parameters.AddWithValue("@COD_MED", anamneses.COD_MED);
-
-            cmd.ExecuteNonQuery();
-            msc.Close();
-        }
-
-        public void DeletarAnamneses(int COD_ANAMNESES)
-        {
-            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
-            msc.Open();
-
-            MySqlCommand cmd = new MySqlCommand("DELETAR_ANAMNESES", msc);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.ExecuteNonQuery();
-            msc.Close();
-        }
+        
 
 
         public List<Anamneses> ListaAnamneses()
@@ -65,7 +36,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("bd_clinicare.CONSULTAR_ANAMNESES", msc);
+            MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_ANAMNESES", msc);
             msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
 
@@ -99,9 +70,7 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_anamneses where COD_ANAMNESES = " + COD_ANAMNESES, msc);
-            // MySqlDataAdapter msda = new MySqlDataAdapter("bd_clinicare.CONSULTAR_ANAMNESES" + COD_ANAMNESES, msc);
-            //msda.SelectCommand.CommandType = CommandType.StoredProcedure;
-
+            
             DataSet ds = new DataSet();
             msda.Fill(ds);
 
@@ -123,6 +92,36 @@ namespace ProjetoTCC.Models.Data
             }
 
             return item;
+        }
+
+        public void EditarAnamneses(Anamneses anamneses)
+        {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
+
+            MySqlCommand cmd = new MySqlCommand("ALTERAR_ANAMNESES" + msc);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@COD_ANAMNESES", anamneses.COD_ANAMNESES);
+            cmd.Parameters.AddWithValue("@COD_PAC", anamneses.COD_PAC);
+            cmd.Parameters.AddWithValue("@DATA_ANAMNESES", anamneses.DATA_ANAMNESES);
+            cmd.Parameters.AddWithValue("@DESC_ANAMNESES", anamneses.DESC_ANAMNESES);
+            cmd.Parameters.AddWithValue("@FATOSIMPO_ANAMNESES", anamneses.FATOSIMPO_ANAMNESES);
+            cmd.Parameters.AddWithValue("@COD_MED", anamneses.COD_MED);
+            cmd.ExecuteNonQuery();
+
+            msc.Close();
+        }
+
+        public void DeletarAnamneses(int COD_ANAMNESES)
+        {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
+
+            MySqlCommand cmd = new MySqlCommand("call DELETAR_ANAMNESES (" + COD_ANAMNESES + ");", msc);
+            
+            cmd.ExecuteNonQuery();
+            msc.Close();
         }
     }
 }

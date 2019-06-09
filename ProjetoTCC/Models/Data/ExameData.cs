@@ -36,7 +36,6 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            //MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_exame", msc);
             MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_EXAME", msc);
             msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
@@ -72,11 +71,8 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            //MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_exame where COD_EXAME = " + COD_EXAME, msc);
-            MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_EXAME" + COD_EXAME, msc);
-            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_exame where COD_EXAME = " + COD_EXAME, msc);
+            
             DataSet ds = new DataSet();
             msda.Fill(ds);
 
@@ -129,9 +125,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("DELETAR_EXAME" + COD_EXAME, msc);
-            cmd.CommandType = CommandType.StoredProcedure;
-
+            MySqlCommand cmd = new MySqlCommand("call DELETAR_EXAME (" + COD_EXAME + ");", msc);
             cmd.ExecuteNonQuery();
 
             msc.Close();
