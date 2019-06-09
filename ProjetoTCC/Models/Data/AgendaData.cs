@@ -27,8 +27,8 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@OBS_AGENDA", agenda.OBS_AGENDA);
             cmd.Parameters.AddWithValue("@RESP_AGENDAMENTO", agenda.RESP_AGENDAMENTO);
             cmd.Parameters.AddWithValue("@DATA_RETORNO", agenda.DATA_RETORNO);
-
             cmd.ExecuteNonQuery();
+
             msc.Close();
         }
 
@@ -37,7 +37,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("bd_clinicare.tb_clientes", msc);
+            MySqlDataAdapter msda = new MySqlDataAdapter("LISTA_AGENDA", msc);
             msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
@@ -72,7 +72,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_AGENDA" + COD_AGENDA, msc);
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_agenda where COD_AGENDA = " + COD_AGENDA, msc);
             msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
@@ -117,8 +117,8 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@OBS_AGENDA", agenda.OBS_AGENDA);
             cmd.Parameters.AddWithValue("@RESP_AGENDAMENTO", agenda.RESP_AGENDAMENTO);
             cmd.Parameters.AddWithValue("@DATA_RETORNO", agenda.DATA_RETORNO);
-
             cmd.ExecuteNonQuery();
+
             msc.Close();
         }
 
@@ -127,8 +127,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("delete from tb_clientes where COD_AGENDA = " + COD_AGENDA, msc);
-            cmd.CommandType = CommandType.StoredProcedure;
+            MySqlCommand cmd = new MySqlCommand("call DELETAR_AGENDA (" + COD_AGENDA + ");", msc);
 
             cmd.ExecuteNonQuery();
 
