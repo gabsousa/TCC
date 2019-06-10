@@ -69,10 +69,8 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_RESPONSAVEL" + COD_RESP, msc);
-            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_responsavel where COD_RESP = " + COD_RESP, msc);
+            
             DataSet ds = new DataSet();
             msda.Fill(ds);
 
@@ -113,8 +111,8 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@CEL_RESP", responsavel.CEL_RESP);
             cmd.Parameters.AddWithValue("@EMAIL_RESP", responsavel.EMAIL_RESP);
             cmd.Parameters.AddWithValue("@CPF_RESP", responsavel.CPF_RESP);
-
             cmd.ExecuteNonQuery();
+
             msc.Close();
         }
 
@@ -123,9 +121,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("DELETAR_RESPONSAVEL" + COD_RESP, msc);
-            cmd.CommandType = CommandType.StoredProcedure;
-
+            MySqlCommand cmd = new MySqlCommand("call DELETAR_RESPONSAVEL (" + COD_RESP + ");" + COD_RESP, msc);
             cmd.ExecuteNonQuery();
 
             msc.Close();

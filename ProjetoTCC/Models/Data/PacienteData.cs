@@ -33,7 +33,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_paciente", msc);
+            MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_PACIENTE", msc);
             msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
@@ -64,8 +64,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_PACIENTE" + COD_PAC, msc);
-            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_paciente where COD_PAC = " + COD_PAC, msc);
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -94,14 +93,15 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlCommand cmd = new MySqlCommand("ALTERAR_PACIENTE", msc);
+            cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@COD_PAC", paciente.COD_PAC);
             cmd.Parameters.AddWithValue("@NOME_PAC", paciente.NOME_PAC);
             cmd.Parameters.AddWithValue("@DATANASC_PAC", paciente.DATANASC_PAC);
             cmd.Parameters.AddWithValue("@SEXO_PAC", paciente.SEXO_PAC);
             cmd.Parameters.AddWithValue("@IDADE_PAC", paciente.IDADE_PAC);
-
             cmd.ExecuteNonQuery();
+
             msc.Close();
         }
 
@@ -110,9 +110,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("DELETAR_PACIENTE" + COD_PAC, msc);
-            cmd.CommandType = CommandType.StoredProcedure;
-
+            MySqlCommand cmd = new MySqlCommand("call DELETAR_PACIENTE(" + COD_PAC + ");", msc);
             cmd.ExecuteNonQuery();
 
             msc.Close();

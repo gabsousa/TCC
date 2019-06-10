@@ -37,9 +37,8 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_pagamento", msc);
-            //    MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_PAGAMENTO", msc);
-            //    msda.SelectCommand.CommandType = CommandType.StoredProcedure;
+            MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_PAGAMENTO", msc);
+            msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -75,10 +74,7 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_pagamento where COD_PGTO = " + COD_PGTO, msc);
-            //    MySqlDataAdapter msda = new MySqlDataAdapter("CONSULTAR_PAGAMENTO" + COD_GTO, msc);
-            //    msda.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-
+           
             DataSet ds = new DataSet();
             msda.Fill(ds);
 
@@ -131,9 +127,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("DELETAR_PAGAMENTO", msc);
-            cmd.CommandType = CommandType.StoredProcedure;
-
+            MySqlCommand cmd = new MySqlCommand("call DELETAR_PAGAMENTO (" + COD_PGTO + ");", msc);
             cmd.ExecuteNonQuery();
 
             msc.Close();
