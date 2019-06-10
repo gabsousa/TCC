@@ -117,7 +117,7 @@ namespace ProjetoTCC.Models.Data
             msc.Close();
         }
 
-        public void DeletarFucnionario (int COD_FUNC)
+        public void DeletarFuncionario (int COD_FUNC)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
