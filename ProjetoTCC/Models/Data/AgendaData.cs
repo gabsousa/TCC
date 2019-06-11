@@ -37,7 +37,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("LISTA_AGENDA", msc);
+            MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_AGENDA", msc);
             msda.SelectCommand.CommandType = CommandType.StoredProcedure;
 
             DataSet ds = new DataSet();

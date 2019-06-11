@@ -31,39 +31,25 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastrar<!--span class="caret"></!--span--></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros</a>
                         <ul class="dropdown-menu">
-                            <li><a asp-area="" asp-controller="Paciente" asp-action="CadastrarPaciente">Paciente</a></li>
-                            <li><a asp-area="" asp-controller="Medico" asp-action="CadastrarMedico">Médico</a></li>
-                            <li><a asp-area="" asp-controller="Exame" asp-action="CadastrarExame">Exames</a></li>
-                            <li><a asp-area="" asp-controller="Anamneses" asp-action="CadastrarAnamneses">Anamneses</a></li>
-                            <li><a asp-area="" asp-controller="Estoque" asp-action="CadastrarEstoque">Estoque</a></li>
+                            <li><a asp-area="" asp-controller="Paciente" asp-action="ListaPaciente">Paciente</a></li>
+                            <li><a asp-area="" asp-controller="Medico" asp-action="ListaMedico">Médico</a></li>
                         </ul>
                     </li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Agenda">Agenda</a></li>
-
+                    <li><a asp-area="" asp-controller="Agenda" asp-action="ListaAgenda">Agenda</a></li>
                     <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consultar<!--span class="caret"></!--span--></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prontuário</a>
                         <ul class="dropdown-menu">
-                            <li><a asp-area="" asp-controller="Paciente" asp-action="DetalhesPaciente">Paciente</a></li>
-                            <li><a asp-area="" asp-controller="Medico" asp-action="DetalhesMedico">Médico</a></li>
-                            <li><a asp-area="" asp-controller="Exame" asp-action="DetalhesExame">Exames</a></li>
-                            <li><a asp-area="" asp-controller="Anamneses" asp-action="DetalhesAnamneses">Anamneses</a></li>
+                            <li><a asp-area="" asp-controller="Exame" asp-action="ListaExame">Exames</a></li>
+                            <li><a asp-area="" asp-controller="Anamneses" asp-action="ListaAnamneses">Anamneses</a></li>
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Estoque</a>
-                        <ul class="dropdown-menu">
-                            <li><a asp-area="" asp-controller="Cadastrar" asp-action="CadastrarEstoque">Cadastrar</a></li>
-                            <li><a asp-area="" asp-controller="Deletar" asp-action="DeletarEstoque">Deletar</a></li>
-                            <li><a asp-area="" asp-controller="Detalhes" asp-action="DetalhesEstoque">Detalhes</a></li>
-                            <li><a asp-area="" asp-controller="Editar" asp-action="EditarEstoque">Editar</a></li>
-                        </ul>
-                    </li>
+                    <li><a asp-area="" asp-controller="Pagamento" asp-action="ListaPagamento">Pagamentos</a></li>
 
-                    <li><a asp-area="" asp-controller="Home" asp-action="Pagamento">Pagamento</a></li>
-                    
+                    <li><a asp-area="" asp-controller="Estoque" asp-action="ListaEstoque">Estoque</a></li>
+
                 </ul>
             </div>
         </div>
