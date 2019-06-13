@@ -5,67 +5,225 @@
 }
 
 <h2>ListaAgenda</h2>
+<link rel="stylesheet" href="~/css/listaAgenda.css"/>
 
-<p>
-    <a asp-action="CadastrarAgenda">Nova Agenda</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.COD_AGENDA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DIA_CONSULTA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HORA_CONSULTA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CONFIRMACAO_AGENDA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OBS_AGENDA)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RESP_AGENDAMENTO)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DATA_RETORNO)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.COD_AGENDA)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DIA_CONSULTA)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HORA_CONSULTA)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CONFIRMACAO_AGENDA)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OBS_AGENDA)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RESP_AGENDAMENTO)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DATA_RETORNO)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "EditarAgenda", new { id=item.COD_AGENDA }) |
-                @Html.ActionLink("Detalhes", "DetalhesAgenda", new { id = item.COD_AGENDA }) |
-                @Html.ActionLink("Deletar", "DeletarAgenda", new { id = item.COD_AGENDA })
-            </td>
-        </tr>
-}
-    </tbody>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <div class="row">
+        <div class="panel filterable">
+            <div class="panel-heading.">
+                <div class="pull-right">
+
+                </div>
+            </div>
+            <table class="tablenb">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.COD_AGENDA)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DIA_CONSULTA)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.HORA_CONSULTA)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CONFIRMACAO_AGENDA)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.OBS_AGENDA)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RESP_AGENDAMENTO)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DATA_RETORNO)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-center">Foto</td>
+                            <td>Nome</td>
+                            <td>@Html.DisplayFor(modelItem => item.COD_AGENDA)</td>
+                            <td class="text-center">Sexo</td>
+                            <td class="text-center">Data de Nascimento</td>
+                            <td class="text-center">Peso</td>
+                            <td class="text-center">Altura</td>
+                            <td class="text-center">Dan</td>
+                            <td class="text-center">Informação</td>
+                            <td class="text-center">Editar</td>
+                            <td class="text-center">Excluir</td>
+                        </tr>
+                    }</tbody>
+                     <tr>
+                        <td class="text-center"><button type="button" class="btn btn-primary btn-sm " data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-picture fa-3x" aria-hidden="true"></span></button></td>
+                        <td>Jessica</td>
+                        <td>Laje</td>
+                        <td class="text-center">M</td>
+                        <td class="text-center">26.09.2009</td>
+                        <td class="text-center">30 kg</td>
+                        <td class="text-center">8,2</td>
+                        <td class="text-center"></td>
+                        <td class="text-center">Info</td>
+                        <th class="text-center"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edytuj">Editar</a></button></th>
+                        <th class="text-center"><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#usun">Excluir</a></button></th>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><button type="button" class="btn btn-primary btn-sm img-circle" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-picture" aria-label="true"></span></button></td>
+                        <td>Adam</td>
+                        <td>Kowalski</td>
+                        <td class="text-center">M</td>
+                        <td class="text-center">26.09.2009</td>
+                        <td class="text-center">30 kg</td>
+                        <td class="text-center">8,2</td>
+                        <td class="text-center"></td>
+                        <td class="text-center">Info</td>
+                        <td class="text-center"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edytuj">Edytuj</a></button></td>
+                        <td class="text-center"><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#usun">Usuń</a></button></td>
+                    </tr>
 </table>
+        </div>
+    </div>
+    <!-- Modal Dodaj -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Editar -->
+    <div class="modal fade" id="edytuj" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal USUŃ -->
+    <div class="modal fade" id="usun" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <h2>ListaAgenda</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.COD_AGENDA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DIA_CONSULTA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HORA_CONSULTA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CONFIRMACAO_AGENDA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OBS_AGENDA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RESP_AGENDAMENTO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DATA_RETORNO)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.COD_AGENDA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DIA_CONSULTA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HORA_CONSULTA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CONFIRMACAO_AGENDA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OBS_AGENDA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RESP_AGENDAMENTO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DATA_RETORNO)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarAgenda", new { id = item.COD_AGENDA }) |
+                        @Html.ActionLink("Detalhes", "DetalhesAgenda", new { id = item.COD_AGENDA }) |
+                        @Html.ActionLink("Deletar", "DeletarAgenda", new { id = item.COD_AGENDA })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
