@@ -25,11 +25,6 @@ namespace ProjetoTCC.Models
 
         [DisplayName("Cargo do Funcionário")]
         public int COD_CARGO { get; set; }
-
-        [DisplayName("Login do Funcionário")]
-        public string LOGIN { get; set; }
-
-        [DisplayName("Senha do Funcionário")]
-        public string SENHA { get; set; }
     }
+
 }

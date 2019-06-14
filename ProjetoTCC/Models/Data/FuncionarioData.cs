@@ -23,10 +23,8 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@CEL_FUNC", funcionario.CEL_FUNC);
             cmd.Parameters.AddWithValue("@EMAIL_FUNC", funcionario.EMAIL_FUNC);
             cmd.Parameters.AddWithValue("@COD_CARGO", funcionario.COD_CARGO);
-            cmd.Parameters.AddWithValue("@LOGIN", funcionario.LOGIN);
-            cmd.Parameters.AddWithValue("@SENHA", funcionario.SENHA);
-
             cmd.ExecuteNonQuery();
+
             msc.Close();
         }
 
@@ -55,8 +53,6 @@ namespace ProjetoTCC.Models.Data
                 item.CEL_FUNC = int.Parse(dr["CEL_FUNC"].ToString());
                 item.EMAIL_FUNC = dr["EMAIL_FUNC"].ToString();
                 item.COD_CARGO = int.Parse(dr["COD_CARGO"].ToString());
-                item.LOGIN = dr["LOGIN"].ToString();
-                item.SENHA = dr["SENHA"].ToString();
 
                 lista.Add(item);
             }
@@ -88,8 +84,6 @@ namespace ProjetoTCC.Models.Data
                 item.CEL_FUNC = int.Parse(ds.Tables[0].Rows[0]["CEL_FUNC"].ToString());
                 item.EMAIL_FUNC = ds.Tables[0].Rows[0]["EMAIL_FUNC"].ToString();
                 item.COD_CARGO = int.Parse(ds.Tables[0].Rows[0]["COD_CARGO"].ToString());
-                item.LOGIN = ds.Tables[0].Rows[0]["LOGIN"].ToString();
-                item.SENHA = ds.Tables[0].Rows[0]["SENHA"].ToString();
             }
 
             return item;
@@ -110,10 +104,8 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@CEL_FUNC", funcionario.CEL_FUNC);
             cmd.Parameters.AddWithValue("@EMAIL_FUNC", funcionario.EMAIL_FUNC);
             cmd.Parameters.AddWithValue("@COD_CARGO", funcionario.COD_CARGO);
-            cmd.Parameters.AddWithValue("@LOGIN", funcionario.LOGIN);
-            cmd.Parameters.AddWithValue("@SENHA", funcionario.SENHA);
-
             cmd.ExecuteNonQuery();
+
             msc.Close();
         }
 
