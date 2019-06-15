@@ -20,6 +20,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@COD_RESP", responsavel.COD_RESP);
             cmd.Parameters.AddWithValue("@NOME_RESP", responsavel.NOME_RESP);
             cmd.Parameters.AddWithValue("@RESP_DOIS", responsavel.RESP_DOIS);
+            cmd.Parameters.AddWithValue("@COD_END", responsavel.COD_END);
             cmd.Parameters.AddWithValue("@TEL_RESP", responsavel.TEL_RESP);
             cmd.Parameters.AddWithValue("@TEL_DOIS", responsavel.TEL_DOIS);
             cmd.Parameters.AddWithValue("@CEL_RESP", responsavel.CEL_RESP);
@@ -52,6 +53,7 @@ namespace ProjetoTCC.Models.Data
                 item.COD_RESP = int.Parse(dr["COD_RESP"].ToString());
                 item.NOME_RESP = dr["NOME_RESP"].ToString();
                 item.RESP_DOIS = dr["RESP_DOIS"].ToString();
+                item.TEL_RESP = int.Parse(dr["COD_END"].ToString());
                 item.TEL_RESP = int.Parse(dr["TEL_RESP"].ToString());
                 item.TEL_DOIS = int.Parse(dr["TEL_DOIS"].ToString());
                 item.CEL_RESP = int.Parse(dr["CEL_RESP"].ToString());
@@ -85,6 +87,7 @@ namespace ProjetoTCC.Models.Data
                 item.COD_RESP = int.Parse(ds.Tables[0].Rows[0]["COD_RESP"].ToString());
                 item.NOME_RESP = ds.Tables[0].Rows[0]["NOME_RESP"].ToString();
                 item.RESP_DOIS = ds.Tables[0].Rows[0]["RESP_DOIS"].ToString();
+                item.CEL_RESP = int.Parse(ds.Tables[0].Rows[0]["COD_END"].ToString());
                 item.TEL_RESP = int.Parse(ds.Tables[0].Rows[0]["TEL_RESP"].ToString());
                 item.TEL_DOIS = int.Parse(ds.Tables[0].Rows[0]["TEL_DOIS"].ToString());
                 item.CEL_RESP = int.Parse(ds.Tables[0].Rows[0]["CEL_RESP"].ToString());
@@ -106,6 +109,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@COD_RESP", responsavel.COD_RESP);
             cmd.Parameters.AddWithValue("@NOME_RESP", responsavel.NOME_RESP);
             cmd.Parameters.AddWithValue("@RESP_DOIS", responsavel.RESP_DOIS);
+            cmd.Parameters.AddWithValue("@COD_END", responsavel.COD_END);
             cmd.Parameters.AddWithValue("@TEL_RESP", responsavel.TEL_RESP);
             cmd.Parameters.AddWithValue("@TEL_DOIS", responsavel.TEL_DOIS);
             cmd.Parameters.AddWithValue("@CEL_RESP", responsavel.CEL_RESP);
