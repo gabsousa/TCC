@@ -24,10 +24,9 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@NOME_FORNEC", estoque.NOME_FORNEC);
             cmd.Parameters.AddWithValue("@DATA_ENTRADA", estoque.DATA_ENTRADA);
             cmd.Parameters.AddWithValue("@DATA_RETIRADA", estoque.DATA_RETIRADA);
-            cmd.Parameters.AddWithValue("@HORA_RETIRADA", estoque.HORA_RETIRADA);
             cmd.Parameters.AddWithValue("@RESP_RETIRADA", estoque.RESP_RETIRADA);
-
             cmd.ExecuteNonQuery();
+
             msc.Close();
         }
              
@@ -59,7 +58,6 @@ namespace ProjetoTCC.Models.Data
                 item.NOME_FORNEC = dr["NOME_FORNEC"].ToString();
                 item.DATA_ENTRADA = DateTime.Parse(dr["DATA_ENTRADA"].ToString());
                 item.DATA_RETIRADA = DateTime.Parse(dr["DATA_RETIRADA"].ToString());
-                item.HORA_RETIRADA = DateTime.Parse(dr["HORA_RETIRADA"].ToString());
                 item.RESP_RETIRADA = dr["RESP_RETIRADA"].ToString();
 
                 lista.Add(item);
@@ -94,7 +92,6 @@ namespace ProjetoTCC.Models.Data
                 item.NOME_FORNEC = ds.Tables[0].Rows[0]["NOME_FORNEC"].ToString();
                 item.DATA_ENTRADA = DateTime.Parse(ds.Tables[0].Rows[0]["DATA_ENTRADA"].ToString());
                 item.DATA_RETIRADA = DateTime.Parse(ds.Tables[0].Rows[0]["DATA_RETIRADA"].ToString());
-                item.HORA_RETIRADA = DateTime.Parse(ds.Tables[0].Rows[0]["HORA_RETIRADA"].ToString());
                 item.RESP_RETIRADA = ds.Tables[0].Rows[0]["RESP_RETIRADA"].ToString();
 
             }
@@ -117,7 +114,6 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@NOME_FORNEC", estoque.NOME_FORNEC);
             cmd.Parameters.AddWithValue("@DATA_ENTRADA", estoque.DATA_ENTRADA);
             cmd.Parameters.AddWithValue("@DATA_RETIRADA", estoque.DATA_RETIRADA);
-            cmd.Parameters.AddWithValue("@HORA_RETIRADA", estoque.HORA_RETIRADA);
             cmd.Parameters.AddWithValue("@RESP_RETIRADA", estoque.RESP_RETIRADA);
 
             cmd.ExecuteNonQuery();

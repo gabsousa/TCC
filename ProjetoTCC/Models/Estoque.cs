@@ -29,9 +29,6 @@ namespace ProjetoTCC.Models
         [DisplayName("Data da Retirada do Produto")]
         public DateTime DATA_RETIRADA { get; set; }
 
-        [DisplayName("Hora da Retirada")]
-        public DateTime HORA_RETIRADA { get; set; }
-
         [DisplayName("Responsáel Pela Retirada")]
         public string RESP_RETIRADA { get; set; }
     }
