@@ -27,5 +27,8 @@ namespace ProjetoTCC.Models
 
         [DisplayName("Idade do Paciente")]
         public int IDADE_PAC { get; set; }
+
+        [DisplayName("Codigo do Responsavel")]
+        public int COD_END { get; set; }
     }
 }
