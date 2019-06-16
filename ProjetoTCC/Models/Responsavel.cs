@@ -35,7 +35,10 @@ namespace ProjetoTCC.Models
         [DisplayName("CPF do Responsável")]
         public int CPF_RESP { get; set; }
 
-//      [DisplayName("Imagem do Responsável")]
-//      public ????
+        [DisplayName("Codigo Login")]
+        public string COD_LOGIN { get; set; }
+            
+        //      [DisplayName("Imagem do Responsável")]
+        //      public ????
     }
 }

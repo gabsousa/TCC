@@ -48,7 +48,7 @@ namespace ProjetoTCC.Models.Data
                 Funcionario item = new Funcionario();
 
                 item.COD_FUNC = int.Parse(dr["COD_FUNC"].ToString());
-                item.NOME_FUNC = dr["NOME_FUNC"].ToString();
+                item.NOME_FUNC = dr["NOME_FUNC"].ToString();    
                 item.TEL_FUNC = int.Parse(dr["TEL_FUNC"].ToString());
                 item.CEL_FUNC = int.Parse(dr["CEL_FUNC"].ToString());
                 item.EMAIL_FUNC = dr["EMAIL_FUNC"].ToString();

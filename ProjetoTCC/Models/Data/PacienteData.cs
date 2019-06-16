@@ -23,8 +23,9 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@COD_RESP", paciente.COD_RESP);
             cmd.Parameters.AddWithValue("@SEXO_PAC", paciente.SEXO_PAC);
             cmd.Parameters.AddWithValue("@IDADE_PAC", paciente.IDADE_PAC);
-
+            cmd.Parameters.AddWithValue("@COD_END", paciente.COD_END);
             cmd.ExecuteNonQuery();
+
             msc.Close();
         }
 
@@ -52,6 +53,7 @@ namespace ProjetoTCC.Models.Data
                 item.DATANASC_PAC = DateTime.Parse(dr["DATANASC_PAC"].ToString());
                 item.SEXO_PAC = dr["SEXO_PAC"].ToString();
                 item.IDADE_PAC = int.Parse(dr["IDADE_PAC"].ToString());
+                //item.COD_END = int.Parse(dr["COD_END"].ToString());
 
                 lista.Add(item);
             }
@@ -82,6 +84,7 @@ namespace ProjetoTCC.Models.Data
                 item.DATANASC_PAC = DateTime.Parse(ds.Tables[0].Rows[0]["DATANASC_PAC"].ToString());
                 item.SEXO_PAC = ds.Tables[0].Rows[0]["SEXO_PAC"].ToString();
                 item.IDADE_PAC = int.Parse(ds.Tables[0].Rows[0]["IDADE_PAC"].ToString());
+                //item.COD_END = int.Parse(ds.Tables[0].Rows[0]["COD_END"].ToString());
             }
 
             return item;
@@ -100,6 +103,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@DATANASC_PAC", paciente.DATANASC_PAC);
             cmd.Parameters.AddWithValue("@SEXO_PAC", paciente.SEXO_PAC);
             cmd.Parameters.AddWithValue("@IDADE_PAC", paciente.IDADE_PAC);
+            //cmd.Parameters.AddWithValue("@COD_END", paciente.COD_END);
             cmd.ExecuteNonQuery();
 
             msc.Close();

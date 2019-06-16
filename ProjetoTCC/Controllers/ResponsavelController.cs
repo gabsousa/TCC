@@ -16,13 +16,22 @@ namespace ProjetoTCC.Controllers
         }
 
         // GET: Responsavel/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetalhesResponsavel(int id)
         {
-            return View();
+            Models.Data.ResponsavelData rd = new Models.Data.ResponsavelData();
+
+            return View(rd.DetalhesResponsavel(id));
+        }
+
+        public ActionResult ListaResponsavel()
+        {
+            Models.Data.ResponsavelData rd = new Models.Data.ResponsavelData();
+
+            return View(rd.ListaResponsavel());
         }
 
         // GET: Responsavel/Create
-        public ActionResult Create()
+        public ActionResult CadastrarResponsavel()
         {
             return View();
         }
@@ -30,64 +39,51 @@ namespace ProjetoTCC.Controllers
         // POST: Responsavel/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult CadastrarResponsavel(Models.Responsavel collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            Models.Data.ResponsavelData rd = new Models.Data.ResponsavelData();
+            rd.CadastarResponsavel(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaResponsavel));
         }
 
+
         // GET: Responsavel/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditarResponsavel(int id)
         {
-            return View();
+            Models.Data.ResponsavelData rd = new Models.Data.ResponsavelData();
+
+            return View(rd.DetalhesResponsavel(id));
         }
 
         // POST: Responsavel/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult EditarResponsavel(Models.Responsavel collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            Models.Data.ResponsavelData rd = new Models.Data.ResponsavelData();
+            rd.EditarResponsavel(collection);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(EditarResponsavel));
         }
 
         // GET: Responsavel/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeletarResponsavel(int id)
         {
-            return View();
+            Models.Data.ResponsavelData rd = new Models.Data.ResponsavelData();
+
+            return View(rd.DetalhesResponsavel(id));
         }
 
         // POST: Responsavel/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeletarResponsavel(int id, IFormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Models.Data.ResponsavelData rd = new Models.Data.ResponsavelData();
+            rd.DeletarResponsavel(id);
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(ListaResponsavel));
         }
     }
 }
