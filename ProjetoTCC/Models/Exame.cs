@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,13 +28,26 @@ namespace ProjetoTCC.Models
         [DisplayName("Hora do Exame")]
         public DateTime HORA_EXAME { get; set; }
 
-        [DisplayName("Arquivo do Exame")]  //NÃO ESTA DECLARADA NO LAYOUT
-        public Byte[] ARQ_EXAME { get; set; }
+        //[DisplayName("Arquivo do Exame")]  //NÃO ESTA DECLARADA NO LAYOUT
+        //public Byte[] ARQ_EXAME { get; set; }
        
         [DisplayName("Médico")] //FOREIGN KEY
         public int COD_MED { get; set; }
 
         [DisplayName("Observação do Exame")]
         public string OBS_EXAME { get; set; }
+
+        //[Key]
+        //[DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOpt ion.Identity)]
+        //public int SubCategoryId { get; set; }
+        //[Required]
+        //public string SubCategoryName { get; set; }
+
+        //// Foreign key 
+        //[Display(Name = "Category")]
+        //public int CategoryId { get; set; }
+
+        //[ForeignKey("CategoryId")]
+        //public virtual Category Categories { get; set; }
     }
 }

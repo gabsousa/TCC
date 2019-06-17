@@ -28,7 +28,7 @@ namespace ProjetoTCC.Models
         [DisplayName("Idade do Paciente")]
         public int IDADE_PAC { get; set; }
 
-        [DisplayName("Codigo do Responsavel")]
+        [DisplayName("Codigo do Responsavel")] //Foreign key
         public int COD_END { get; set; }
     }
 }

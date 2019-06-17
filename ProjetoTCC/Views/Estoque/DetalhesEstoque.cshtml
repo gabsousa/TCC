@@ -10,12 +10,12 @@
     <h4>Estoque</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.COD_PROD)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.COD_PROD)
-        </dd>
+        </dd>*@
         <dt>
             @Html.DisplayNameFor(model => model.NOME_PROD)
         </dt>
@@ -61,6 +61,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Editar", "EditarEstoque", new { id = Model.COD_PROD }) |
+    @Html.ActionLink("Editar", "EditarEstoque", new { id = Model.NOME_PROD }) |
     <a asp-action="Index">Voltar para a lista</a>
 </div>

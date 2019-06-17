@@ -12,9 +12,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.COD_PROD)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.NOME_PROD)
             </th>
@@ -42,9 +42,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.COD_PROD)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.NOME_PROD)
             </td>
@@ -67,9 +67,9 @@
                 @Html.DisplayFor(modelItem => item.RESP_RETIRADA)
             </td>
             <td>
-                @Html.ActionLink("Editar", "EditarEstoque", new { id=item.COD_PROD }) |
-                @Html.ActionLink("Detalhes", "DetalhesEstoque", new { id = item.COD_PROD }) |
-                @Html.ActionLink("Deletar", "DeletarEstoque", new { id = item.COD_PROD })
+                @Html.ActionLink("Editar", "EditarEstoque", new { id=item.NOME_PROD }) |
+                @Html.ActionLink("Detalhes", "DetalhesEstoque", new { id = item.NOME_PROD }) |
+                @Html.ActionLink("Deletar", "DeletarEstoque", new { id = item.NOME_PROD })
             </td>
         </tr>
 }

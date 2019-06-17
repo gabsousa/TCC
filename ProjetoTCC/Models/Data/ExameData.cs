@@ -23,7 +23,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@DATA_EXAME", exame.DATA_EXAME);
             cmd.Parameters.AddWithValue("@NOME_LAB", exame.NOME_LAB);
             cmd.Parameters.AddWithValue("@HORA_EXAME", exame.HORA_EXAME);
-            cmd.Parameters.AddWithValue("@ARQ_EXAME", exame.ARQ_EXAME);
+            //cmd.Parameters.AddWithValue("@ARQ_EXAME", exame.ARQ_EXAME);
             cmd.Parameters.AddWithValue("@COD_MED", exame.COD_MED);
             cmd.Parameters.AddWithValue("@OBS_EXAME", exame.OBS_EXAME);
 
@@ -112,7 +112,7 @@ namespace ProjetoTCC.Models.Data
             cmd.Parameters.AddWithValue("@DATA_EXAME", exame.DATA_EXAME);
             cmd.Parameters.AddWithValue("@NOME_LAB", exame.NOME_LAB);
             cmd.Parameters.AddWithValue("@HORA_EXAME", exame.HORA_EXAME);
-            cmd.Parameters.AddWithValue("@ARQ_EXAME", exame.ARQ_EXAME);
+            //cmd.Parameters.AddWithValue("@ARQ_EXAME", exame.ARQ_EXAME);
             cmd.Parameters.AddWithValue("@COD_MED", exame.COD_MED);
             cmd.Parameters.AddWithValue("@OBS_EXAME", exame.OBS_EXAME);
 

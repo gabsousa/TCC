@@ -8,8 +8,8 @@ namespace ProjetoTCC.Models
 {
     public class Estoque
     {
-        [DisplayName("Código do Produto")]
-        public int COD_PROD { get; set; }
+        //[DisplayName("Código do Produto")]
+        //public int COD_PROD { get; set; }
 
         [DisplayName("Nome do Produto")]
         public string NOME_PROD { get; set; }

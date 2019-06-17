@@ -17,7 +17,7 @@ namespace ProjetoTCC.Models.Data
             MySqlCommand cmd = new MySqlCommand("INSERIR_ESTOQUE", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@COD_PROD", estoque.COD_PROD);
+            //cmd.Parameters.AddWithValue("@COD_PROD", estoque.COD_PROD);
             cmd.Parameters.AddWithValue("@NOME_PROD", estoque.NOME_PROD);
             cmd.Parameters.AddWithValue("@QNT_PROD", estoque.QNT_PROD);
             cmd.Parameters.AddWithValue("@DATA_VALIDADE", estoque.DATA_VALIDADE);
@@ -51,7 +51,7 @@ namespace ProjetoTCC.Models.Data
             {
                 Estoque item = new Estoque();
 
-                item.COD_PROD = int.Parse(dr["COD_PROD"].ToString());
+                //item.COD_PROD = int.Parse(dr["COD_PROD"].ToString());
                 item.NOME_PROD = dr["NOME_PROD"].ToString();
                 item.QNT_PROD = int.Parse(dr["QNT_PROD"].ToString());
                 item.DATA_VALIDADE = DateTime.Parse(dr["DATA_VALIDADE"].ToString());
@@ -85,7 +85,7 @@ namespace ProjetoTCC.Models.Data
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                item.COD_PROD = int.Parse(ds.Tables[0].Rows[0]["COD_PROD"].ToString());
+                //item.COD_PROD = int.Parse(ds.Tables[0].Rows[0]["COD_PROD"].ToString());
                 item.NOME_PROD = ds.Tables[0].Rows[0]["NOME_PROD"].ToString();
                 item.QNT_PROD = int.Parse(ds.Tables[0].Rows[0]["QNT_PROD"].ToString());
                 item.DATA_VALIDADE = DateTime.Parse(ds.Tables[0].Rows[0]["DATA_VALIDADE"].ToString());
@@ -107,7 +107,7 @@ namespace ProjetoTCC.Models.Data
             MySqlCommand cmd = new MySqlCommand("ALTERAR_ESTOQUE", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@COD_PROD", estoque.COD_PROD);
+            //cmd.Parameters.AddWithValue("@COD_PROD", estoque.COD_PROD);
             cmd.Parameters.AddWithValue("@NOME_PROD", estoque.NOME_PROD);
             cmd.Parameters.AddWithValue("@QNT_PROD", estoque.QNT_PROD);
             cmd.Parameters.AddWithValue("@DATA_VALIDADE", estoque.DATA_VALIDADE);
@@ -120,12 +120,12 @@ namespace ProjetoTCC.Models.Data
             msc.Close();
         }
 
-        public void DeletarEstoque(int COD_PROD)
+        public void DeletarEstoque(int NOME_PROD)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("call DELETAR_ESTOQUE (" + COD_PROD + ");", msc);
+            MySqlCommand cmd = new MySqlCommand("call DELETAR_ESTOQUE (" + NOME_PROD + ");", msc);
             cmd.ExecuteNonQuery();
 
             msc.Close();
