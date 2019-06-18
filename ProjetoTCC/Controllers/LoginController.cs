@@ -13,6 +13,12 @@ namespace ProjetoTCC.Controllers
         {
             return View();
         }
+
+        public ActionResult TelaMenu()
+        {
+            return View();
+        }
+
         // GET: Login
         public ActionResult Index()
         {
