@@ -12,4 +12,10 @@
     <PackageReference Include="MySql.Data.Entity" Version="6.10.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Login\TelaMenu.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>
