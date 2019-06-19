@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "CadastrarMedico";
 }
+
 <link href="~/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="~/js/bootstrap.min.js"></script>
 <script src="~/js/jquery-1.11.1.min.js"></script>
@@ -32,24 +33,69 @@
         <div class="page-content inset">
             <div class="row">
                 <div class="col-md-12">
-                    <p class="well lead">Cadastro de Cliente</p>
+                    <p class="well lead">Cadastro de Médico</p>
                     <div class="container">
                         <div class="row">
                             <!-- div da esquerda -->
-                            <!-- Text input CNPJ e Razao Social-->
+
                             <div class="col-sm-8 contact-form">
                                 <!-- div da direita -->
                                 <form id="contact" method="post" class="form" role="form">
                                     <div class="row">
-                                        <div class="col-xs-6 col-md-3 form-group">
-                                            <input class="form-control" id="inputCNPJ" name="CNPJ" placeholder="CNPJ" type="text" required autofocus />
+                                        <div class="col-xs-6 col-md-12 form-group">
+                                            <input asp-for="NOME_MED" class="form-control" placeholder="Nome" />
+                                            <span asp-validation-for="NOME_MED" class="text-danger"></span>
                                         </div>
-                                        <div class="col-xs-4 col-md-9 form-group">
-                                            <input class="form-control" id="inputrazaosocial" name="razaocosial" placeholder="Razão Social" type="text" />
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="TEL_MED" class="form-control" placeholder="Telefone" />
+                                            <span asp-validation-for="TEL_MED" class="text-danger"></span>
                                         </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="CEL_MED" class="form-control" placeholder="Celular" />
+                                            <span asp-validation-for="CEL_MED" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-12 form-group">
+                                            <input asp-for="EMAIL_MED" class="form-control" placeholder="email@exemplo.com" />
+                                            <span asp-validation-for="EMAIL_MED" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-6 form-group">
+                                            <input asp-for="CPF_MED" class="form-control" placeholder="CPF" />
+                                            <span asp-validation-for="CPF_MED" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-6 form-group">
+                                            <input asp-for="CRM" class="form-control" placeholder="CRM" />
+                                            <span asp-validation-for="CRM" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-6 form-group">
+                                            <input asp-for="VALIDADE_CRM" type="date" class="form-control" placeholder="Validade do CRM" />
+                                            <span asp-validation-for="VALIDADE_CRM" class="text-danger"></span>
+                                        </div>
+
+                                        <label class="control-label col-sm-1">Gênero</label>
+                                        <div class="col-sm-1">
+                                            <label class="radio-inline">
+                                                <input type="radio" asp-for="SEXO_MED" value="F">Feminino
+                                                <input type="radio" asp-for="SEXO_MED" value="M">Masculino
+                                            </label>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <select class="form-control" id="selectbasic" name="selectestado">
+                                                <option>Selecione</option>
+                                                <option>AC</option>
+                                                <option>AL</option>
+                                            </select>
+                                        </div>
+
                                     </div> <!-- fim row -->
                                     <!-- Text input endereco-->
-                                    <div class="col-xs-4 col-md-12 form-group">
+                                    <div class="col-xs-4 col-md-3 form-group">
                                         <div class="controls">
                                             <input class="form-control" id="inputendereco" name="endereco" placeholder="Endereço" type="text">
                                         </div>
@@ -63,67 +109,34 @@
                                         <div class="col-xs-4 col-md-3 form-group">
                                             <select class="form-control" id="selectbasic" name="selectestado">
                                                 <option>Selecione</option>
-                                                <option>AC</option>
-                                                <option>AL</option>
-                                                <option>AP</option>
-                                                <option>AM</option>
-                                                <option>BA</option>
-                                                <option>CE</option>
-                                                <option>DF</option>
-                                                <option>ES</option>
-                                                <option>GO</option>
-                                                <option>MA</option>
-                                                <option>MT</option>
-                                                <option>MS</option>
-                                                <option>MG</option>
-                                                <option>PA</option>
-                                                <option>PB</option>
-                                                <option>PR</option>
-                                                <option>PE</option>
-                                                <option>PI</option>
-                                                <option>RJ</option>
-                                                <option>RN</option>
-                                                <option>RS</option>
-                                                <option>RO</option>
-                                                <option>RR</option>
-                                                <option>SC</option>
-                                                <option>SP</option>
-                                                <option>SE</option>
-                                                <option>TO</option>
                                             </select>
                                         </div>
-                                        <div class="col-xs-6 col-md-3 form-group">
-                                            <input class="form-control" id="inputtelefone" name="telefone" placeholder="Telefone" type="text" />
-                                        </div>
-                                        <div class="col-xs-4 col-md-3 form-group">
-                                            <input class="form-control" id="inputcontato" name="contato" placeholder="Contato" type="text" />
-                                        </div>
-                                        <div class="col-xs-4 col-md-6 form-group">
-                                            <input class="form-control" id="inputemail" name="email" placeholder="E-mail" type="text" />
-                                        </div>
-                                    </div><!--fim Text input cidade e estado-->
-                                    <div class="col-xs-4 col-md-12 form-group">
+                                    </div>
+
+                                    <div class="col-xs-4 col-md-3 form-group">
                                         <div class="controls">
-                                            <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+                                            <select class="form-control">
+                                                <option>Especialidade</option>
+                                                <option value="1">Psicólogo</option>
+                                                <option value="2">Clínico Geral</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <br />
 
                                     <div class="row">
                                         <div class="col-xs-12 col-md-12 form-group">
-                                            <button class="btn btn-primary pull-right" type="submit">Salvar</button>
-                                            <button class="btn btn-primary pull-right" type="submit">Limpar</button>
-                                            <!--<button class="btn btn-primary pull-right" type="submit">Enviar</button>-->
+                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                            <button type="submit" class="btn btn-primary">Limpar</button>
                                         </div>
                                     </div>
                                 </form>
                             </div> <!-- fim div da direita -->
                         </div> <!-- fim div da esquerda -->
                     </div>
-                    <p class="well lead">An Experiment using the sidebar (<a href="http://animeshmanglik.name">animeshmanglik.name</a>)</p>
+                    <p class="well lead">Desenvolvido por OMEGA IT</a></p>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
