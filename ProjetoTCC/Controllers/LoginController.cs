@@ -11,19 +11,14 @@ namespace ProjetoTCC.Controllers
     public class LoginController : Controller
     {
        
-        public ActionResult LoginFunc()
+        public ActionResult TelaLogin()
         {
-
-            HttpContext.Session.SetString("Test", "Session Value");
             return View();
         }
 
         public ActionResult TelaMenu()
         {
-            ViewBag.Sessionv = HttpContext.Session.GetString("Test");
-            ViewData["Message"] = "Testando tela";
-
-            return View();
+             return View();
         }
 
         // GET: Login
