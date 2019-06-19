@@ -89,17 +89,17 @@
                                     <!-- Text input endereco-->
                                     <div class="col-xs-4 col-md-3 form-group">
                                         <div class="controls">
-                                            <select class="form-control">
+                                            <select asp-for="COD_CARGO" class="form-control">
                                                 <option>Cargo</option>
-                                                <option value="1">Funcionário</option>
-                                                <option value="2">Médico</option>
+                                                <option value="1">Médico</option>
+                                                <option value="2">Funcionário</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="col-xs-4 col-md-3 form-group">
                                         <div class="controls">
-                                            <select class="form-control">
+                                            <select asp-for="COD_ESPEC" class="form-control">
                                                 <option>Especialidade</option>
                                                 <option value="1">Psicólogo</option>
                                                 <option value="2">Clínico Geral</option>
