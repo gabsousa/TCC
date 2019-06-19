@@ -4,18 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Session;
 
 namespace ProjetoTCC.Controllers
 {
     public class LoginController : Controller
     {
-        public ActionResult TelaLogin()
+       
+        public ActionResult LoginFunc()
         {
+
+            HttpContext.Session.SetString("Test", "Session Value");
             return View();
         }
 
         public ActionResult TelaMenu()
         {
+            ViewBag.Sessionv = HttpContext.Session.GetString("Test");
+            ViewData["Message"] = "Testando tela";
+
             return View();
         }
 
@@ -101,3 +108,4 @@ namespace ProjetoTCC.Controllers
         }
     }
 }
+
