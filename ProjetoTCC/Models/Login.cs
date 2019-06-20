@@ -9,10 +9,13 @@ namespace ProjetoTCC.Models
     public class Login
     {
         [DisplayName("Usuário")]
-        public int LOGIN { get; set; }
+        public string LOGIN { get; set; }
+
+        [DisplayName("Senha do Funcionário")]
+        public string SENHA { get; }
 
         [DisplayName("Nome do Funcionário")]
-        public string SENHA { get; set; }
+        public string NOME { get; set; }
 
         //[DisplayName("Telefone do Funcionário")]
         //public int COD_PAC { get; set; }

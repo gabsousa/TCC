@@ -69,6 +69,11 @@ namespace ProjetoTCC.Controllers
         // GET: Anamneses/Delete/5
         public ActionResult DeletarAnamneses(int id)
         {
+
+            //if(user != null)
+
+            //HttpContext.Session.SetString("login", user );
+
             Models.Data.AnamnesesData ad = new Models.Data.AnamnesesData();
 
             return View(ad.DetalhesAnamneses(id));

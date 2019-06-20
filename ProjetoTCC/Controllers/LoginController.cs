@@ -13,12 +13,27 @@ namespace ProjetoTCC.Controllers
        
         public ActionResult TelaLogin()
         {
+            //HttpContext.Session.SetString("Login", Models.Data.);
+            //HttpContext.Session.SetString("Nome_Usuario", classeLogin.NOME);
+
             return View();
         }
 
         public ActionResult TelaMenu()
         {
-             return View();
+
+            //chamar método que retorna se usuário é valido ou não
+
+            //se usuário for válido preenhcer a session
+
+            Models.Login classeLogin = new Models.Login();
+            classeLogin.LOGIN = "gabriela";
+            classeLogin.NOME = "Gabriela Aguiar";
+
+            HttpContext.Session.SetString("Login", classeLogin.LOGIN);
+            HttpContext.Session.SetString("Nome_Usuario", classeLogin.NOME);
+
+            return View();
         }
 
         // GET: Login
