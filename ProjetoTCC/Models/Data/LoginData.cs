@@ -47,6 +47,8 @@ namespace ProjetoTCC.Models.Data
             }
         }
 
+
+
         public string RetornaNomeFunc(string LOGIN)
         {
             Login login = new Login();

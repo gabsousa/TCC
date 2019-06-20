@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoTCC.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace ProjetoTCC.Controllers
 {
@@ -12,6 +13,8 @@ namespace ProjetoTCC.Controllers
     {
         public IActionResult Index()
         {
+          
+        //    HttpContext.Session.SetString("Login", null);
             return View();
         }
 

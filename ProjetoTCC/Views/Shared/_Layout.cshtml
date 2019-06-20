@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,20 +12,36 @@
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-          asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
-    
+
 
     <partial name="_CookieConsentPartial" />
 
     <div class="appointment now">
         @RenderBody()
+
+
+
+
+        @if (Context.Session.GetString("Login") != null)
+        {
+            <label>Olá Prezado usuário  @Context.Session.GetString("Nome_Usuario")</label>
+        }
+        else
+        {
+            <label>Usuário não logado</label>
+            if (Context.Request.Path.ToString() != "/Home/Index")
+            {
+                Context.Response.Redirect("../Home/Index");
+            }
+        }
         <hr />
-       
+
     </div>
 
     <environment include="Development">
