@@ -19,16 +19,52 @@ namespace ProjetoTCC.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime DATANASC_PAC { get; set; }
 
-        [DisplayName("Responsável")]
-        public int COD_RESP { get; set; }
-
         [DisplayName("Sexo do Paciente")]
         public string SEXO_PAC { get; set; }
 
         [DisplayName("Idade do Paciente")]
         public int IDADE_PAC { get; set; }
 
-        [DisplayName("Codigo do Responsavel")] //Foreign key
-        public int COD_END { get; set; }
+        [DisplayName("Nome do Responsável")]
+        public string NOME_RESP { get; set; }
+
+        [DisplayName("Nome do Responsável 2")]
+        public string RESP_DOIS { get; set; }
+
+        [DisplayName("Telefone do Responsável")]
+        public int TEL_RESP { get; set; }
+
+        [DisplayName("Telefone Opcional")]
+        public int TEL_DOIS { get; set; }
+
+        [DisplayName("Celular do Responsável")]
+        public int CEL_RESP { get; set; }
+
+        [DisplayName("Email do Responsável")]
+        public string EMAIL_RESP { get; set; }
+
+        [DisplayName("CPF do Responsável")]
+        public int CPF_RESP { get; set; }
+
+        [DisplayName("Rua")]
+        public string RUA_PAC { get; set; }
+
+        [DisplayName("Município")]
+        public string MUN_PAC { get; set; }
+
+        [DisplayName("UF")]
+        public string UF_PAC { get; set; }
+
+        [DisplayName("Número")]
+        public int NUM_PAC { get; set; }
+
+        [DisplayName("CEP")]
+        public int CEP_PAC { get; set; }
+
+        [DisplayName("Bairro")]
+        public string BAIRRO_PAC { get; set; }
+
+        [DisplayName("Codigo Login")]
+        public string COD_LOGIN { get; set; }
     }
 }
