@@ -48,7 +48,7 @@
                                         </div>
 
                                         <div class="col-xs-4 col-md-3 form-group">
-                                            <input asp-for="TEL_MED" class="form-control" placeholder="Telefone" />
+                                            <input asp-for="TEL_MED" class="form-control" placeholder="Telefone" data-mask="(00) 00000-0000" />
                                             <span asp-validation-for="TEL_MED" class="text-danger"></span>
                                         </div>
 
@@ -85,37 +85,21 @@
                                             </label>
                                         </div>
 
-                                        <div class="col-xs-4 col-md-3 form-group">
-                                            <select class="form-control" id="selectbasic" name="selectestado">
-                                                <option>Selecione</option>
-                                                <option>AC</option>
-                                                <option>AL</option>
-                                            </select>
-                                        </div>
-
                                     </div> <!-- fim row -->
                                     <!-- Text input endereco-->
                                     <div class="col-xs-4 col-md-3 form-group">
                                         <div class="controls">
-                                            <input class="form-control" id="inputendereco" name="endereco" placeholder="Endereço" type="text">
-                                        </div>
-                                    </div><!--fim control-group-->
-                                    <br> <!--pulando uma linha -->
-                                    <!-- Text input cidade e estado-->
-                                    <div class="row">
-                                        <div class="col-xs-6 col-md-9 form-group">
-                                            <input class="form-control" id="inputcidade" name="cidade" placeholder="Cidade" type="text" />
-                                        </div>
-                                        <div class="col-xs-4 col-md-3 form-group">
-                                            <select class="form-control" id="selectbasic" name="selectestado">
-                                                <option>Selecione</option>
+                                            <select asp-for="COD_CARGO" class="form-control">
+                                                <option>Cargo</option>
+                                                <option value="1">Médico</option>
+                                                <option value="2">Funcionário</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="col-xs-4 col-md-3 form-group">
                                         <div class="controls">
-                                            <select class="form-control">
+                                            <select asp-for="COD_ESPEC" class="form-control">
                                                 <option>Especialidade</option>
                                                 <option value="1">Psicólogo</option>
                                                 <option value="2">Clínico Geral</option>
