@@ -114,7 +114,7 @@ namespace ProjetoTCC.Models.Data
                 item.CPF_RESP = int.Parse(ds.Tables[0].Rows[0]["CPF_RESP"].ToString());
                 item.RUA_PAC = ds.Tables[0].Rows[0]["RUA_PAC"].ToString();
                 item.MUN_PAC = ds.Tables[0].Rows[0]["MUN_PAC"].ToString();
-                item.UF_PAC = ds.Tables[0].Rows[0]["UF_PAC "].ToString();
+                item.UF_PAC = ds.Tables[0].Rows[0]["UF_PAC"].ToString();
                 item.NUM_PAC = int.Parse(ds.Tables[0].Rows[0]["NUM_PAC"].ToString());
                 item.CEP_PAC = int.Parse(ds.Tables[0].Rows[0]["CEP_PAC"].ToString());
                 item.BAIRRO_PAC = ds.Tables[0].Rows[0]["BAIRRO_PAC"].ToString();

@@ -46,16 +46,9 @@
                                             <input asp-for="NOME_PAC" class="form-control" placeholder="Nome" />
                                             <span asp-validation-for="NOME_PAC" class="text-danger"></span>
                                         </div>
-                                        
-                                        @*
-                                            <div class="col-xs-4 col-md-3 form-group">
-                                                <input asp-for="COD_RESP" class="form-control" placeholder="Telefone" data-mask="(00) 00000-0000" />
-                                                <span asp-validation-for="COD_RESP" class="text-danger"></span>
-                                            </div>
-                                        *@
 
-                                        <div class="col-xs-4 col-md-12 form-group">
-                                            <input asp-for="DATANASC_PAC" type="time" class="form-control" />
+                                        <div class="col-xs-4 col-md-4 form-group">
+                                            <input asp-for="DATANASC_PAC" type="date" class="form-control" />
                                             <span asp-validation-for="DATANASC_PAC" class="text-danger"></span>
                                         </div>
 
@@ -70,6 +63,73 @@
                                                 <input type="radio" asp-for="SEXO_PAC" value="F">Feminino
                                                 <input type="radio" asp-for="SEXO_PAC" value="M">Masculino
                                             </label>
+                                            <br />
+                                            <br />
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-6 form-group" style="margin-left">
+                                            <input asp-for="NOME_RESP" class="form-control" placeholder="Nome do Responsável" />
+                                            <span asp-validation-for="NOME_RESP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="TEL_RESP" class="form-control" placeholder="Telefone" />
+                                            <span asp-validation-for="TEL_RESP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="CEL_RESP" class="form-control" placeholder="Celular" />
+                                            <span asp-validation-for="CEL_RESP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-6 form-group">
+                                            <input asp-for="RESP_DOIS" class="form-control" placeholder="Nome do Responsável 2" />
+                                            <span asp-validation-for="RESP_DOIS" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="TEL_DOIS" data-mask="(00) 00000-0000" class="form-control" placeholder="Telefone 2" />
+                                            <span asp-validation-for="TEL_DOIS" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-10 form-group">
+                                            <input asp-for="EMAIL_RESP" class="form-control" placeholder="email@exemplo.com" />
+                                            <span asp-validation-for="EMAIL_RESP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-4 form-group">
+                                            <input asp-for="CPF_RESP" class="form-control" placeholder="CPF do Responsável" />
+                                            <span asp-validation-for="CPF_RESP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-10 form-group">
+                                            <input asp-for="RUA_PAC" class="form-control" placeholder="Rua" />
+                                            <span asp-validation-for="RUA_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-2 form-group">
+                                            <input asp-for="NUM_PAC" class="form-control" placeholder="Número" />
+                                            <span asp-validation-for="NUM_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-4 form-group">
+                                            <input asp-for="MUN_PAC" class="form-control" placeholder="Município" />
+                                            <span asp-validation-for="MUN_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-2 form-group">
+                                            <input asp-for="UF_PAC" class="form-control" placeholder="UF" />
+                                            <span asp-validation-for="UF_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="CEP_PAC" class="form-control" placeholder="CEP" />
+                                            <span asp-validation-for="CEP_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-4 form-group">
+                                            <input asp-for="BAIRRO_PAC" class="form-control" placeholder="Bairro" />
+                                            <span asp-validation-for="BAIRRO_PAC" class="text-danger"></span>
                                         </div>
 
                                     </div> <!-- fim row -->
