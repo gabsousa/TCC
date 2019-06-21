@@ -4,54 +4,241 @@
     ViewData["Title"] = "CadastrarFuncionario";
 }
 
-<h2>CadastrarFuncionario</h2>
+<link href="~/css/bootstrap2.min.css" rel="stylesheet" id="bootstrap-css">
+<script type="text/javascript" src="~/js/bootstrap2.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="~/js/jquery-1.11.1.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<h4>Funcionario</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CadastrarFuncionario">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="COD_FUNC" class="control-label"></label>
-                <input asp-for="COD_FUNC" class="form-control" />
-                <span asp-validation-for="COD_FUNC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NOME_FUNC" class="control-label"></label>
-                <input asp-for="NOME_FUNC" class="form-control" />
-                <span asp-validation-for="NOME_FUNC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TEL_FUNC" class="control-label"></label>
-                <input asp-for="TEL_FUNC" class="form-control" />
-                <span asp-validation-for="TEL_FUNC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CEL_FUNC" class="control-label"></label>
-                <input asp-for="CEL_FUNC" class="form-control" />
-                <span asp-validation-for="CEL_FUNC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EMAIL_FUNC" class="control-label"></label>
-                <input asp-for="EMAIL_FUNC" class="form-control" />
-                <span asp-validation-for="EMAIL_FUNC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="COD_CARGO" class="control-label"></label>
-                <input asp-for="COD_CARGO" class="form-control" />
-                <span asp-validation-for="COD_CARGO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Cadastrar" class="btn btn-default" />
-            </div>
-        </form>
+<nav>
+    <!-- Menu Toggle btn-->
+    <div class="menu-toggle">
+        <h3>Menu</h3>
+        <button type="button" id="menu-btn">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
     </div>
-</div>
+    <!-- Responsive Menu Structure-->
+    <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+    <ul id="respMenu" class="ace-responsive-menu" data-menu-style="vertical">
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="title">Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Sobre nós</span>
 
-<div>
-    <a asp-action="Index">Voltar para a lista</a>
-</div>
+            </a>
+            <!-- Level Two-->
+            <ul>
+                <li>
+                    <a href="#">Sub Item One</a>
+                </li>
+                <li>
+                    <a href="#">Sub Item Two</a>
+                </li>
+                <li>
+                    <a href="#">Sub Item Three</a>
+                </li>
+                <li>
+                    <a href="#">Sub Item Four</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Cadastro de serviços</span>
+            </a>
+            <!-- Level Two-->
+            <ul>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        Sub Item One
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-database" aria-hidden="true"></i>
+                        Sub Item Two
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-amazon" aria-hidden="true"></i>
+                        Sub Item Three
+                    </a>
+                    <!-- Level Three-->
+                    <ul>
+                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Sub Item Link 1</a></li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-diamond" aria-hidden="true"></i>Sub Item Link 2
+                            </a>
+                            <!-- Level Four-->
+                            <ul>
+                                <li><a href="#"><i class="fa fa-trash" aria-hidden="true"></i>Sub Item Link 1</a></li>
+                                <li><a href="#"><i class="fa fa-dashcube" aria-hidden="true"></i>Sub Item Link 2</a></li>
+                                <li><a href="#"><i class="fa fa-dropbox" aria-hidden="true"></i>Sub Item Link 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Sub Item Link 3</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-database" aria-hidden="true"></i>
+                        Sub Item Four
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="" href="javascript:;">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                <span class="title">Serviços</span>
+
+            </a>
+            <ul>
+                <li>
+                    <a href="#">
+                        Sub Item One
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        Sub Item Two
+                    </a>
+                    <ul>
+                        <li><a href="#">Sub Item Link 1</a></li>
+                        <li><a href="#">Sub Item Link 2</a></li>
+                        <li><a href="#">Sub Item Link 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        Sub Item Three
+                    </a>
+                    <ul>
+                        <li><a href="#">Sub Item Link 1</a></li>
+                        <li><a href="#">Sub Item Link 1</a></li>
+                        <li><a href="#">Sub Item Link 1</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        Sub Item Four
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+                <span class="title">Lista</span>
+            </a>
+        </li>
+        <li class="last ">
+            <a href="javascript:;">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span class="title">Contatos</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#respMenu").aceResponsiveMenu({
+            resizeWidth: '768', // Set the same in Media query
+            animationSpeed: 'fast', //slow, medium, fast
+            accoridonExpAll: false //Expands all the accordion menu on click
+        });
+    });
+
+
+</script>
+
+<!------ Include the above in your HEAD tag ---------->
+<style>
+    section {
+        display: inline-block;
+    }
+</style>
+
+<section>
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="well lead">Cadastro de Médico</p>
+                    <div class="container">
+                        <div class="row">
+                            <!-- div da esquerda -->
+
+                            <div class="col-sm-8 contact-form">
+                                <!-- div da direita -->
+                                <form id="contact" method="post" class="form" role="form">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-12 form-group">
+                                            <input asp-for="NOME_FUNC" class="form-control" placeholder="Nome" />
+                                            <span asp-validation-for="NOME_FUNC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="TEL_FUNC" class="form-control" placeholder="Telefone" data-mask="(00) 00000-0000" />
+                                            <span asp-validation-for="TEL_FUNC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="CEL_FUNC" class="form-control" placeholder="Celular" />
+                                            <span asp-validation-for="CEL_FUNC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-12 form-group">
+                                            <input asp-for="EMAIL_FUNC" class="form-control" placeholder="email@exemplo.com" />
+                                            <span asp-validation-for="EMAIL_FUNC" class="text-danger"></span>
+                                        </div>
+                                       
+
+                                       
+                                    </div> <!-- fim row -->
+                                    <div class="col-xs-4 col-md-3 form-group">
+                                        <div class="controls" >
+                                            <select asp-for="COD_CARGO" class="form-control" >
+                                                <option>Cargo</option>
+                                                <option value="1">Médico</option>
+                                                <option value="2">Funcionário</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 form-group">
+                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                            <button type="submit" class="btn btn-primary">Limpar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> <!-- fim div da direita -->
+                        </div> <!-- fim div da esquerda -->
+                    </div>
+                    <p class="well lead">Desenvolvido por OMEGA IT</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
