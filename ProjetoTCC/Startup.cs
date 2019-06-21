@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +35,23 @@ namespace ProjetoTCC
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //services.AddDistributedMemoryCache();
             services.AddSession();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+           .AddCookie(opt =>
+           {
+               opt.LoginPath = new PathString("/Conta/Login");
+               opt.LogoutPath = new PathString("/Conta/Logout");
+               opt.AccessDeniedPath = new PathString("/Erros/AcessoNegado");
+               opt.Cookie = new CookieBuilder()
+               {
+                   Name = ".NomeCookie",
+                   Expiration = new System.TimeSpan(0, 120, 0),
+                    //Se tiver um domínio...
+                    //Domain = ".site.com.br",
+                };
+           });
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +68,8 @@ namespace ProjetoTCC
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseSession();  
+            app.UseSession();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

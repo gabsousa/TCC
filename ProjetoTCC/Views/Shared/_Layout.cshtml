@@ -25,7 +25,7 @@
     <div class="appointment now">
         @RenderBody()
 
-        @if (Context.Session.GetString("Login") != null)
+        @*@if (Context.Session.GetString("Login") != null)
         {
             <label>Olá Prezado usuário  @Context.Session.GetString("Nome_Usuario")</label>
         }
@@ -34,9 +34,9 @@
             <label>Usuário não logado</label>
             if (Context.Request.Path.ToString() != "/Home/Index")
             {
-                Context.Response.Redirect("../Home/Index");
+                Context.Response.Redirect("../Login/TelaLogin");
             }
-        }
+        }*@
         <hr />
 
     </div>

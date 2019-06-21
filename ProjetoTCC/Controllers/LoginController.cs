@@ -37,25 +37,31 @@ namespace ProjetoTCC.Controllers
             return View();
         }
 
-        //public ActionResult VerificarLogin()
-        //{
-        //    //aA.TestarUsuario(u);
+        public ActionResult VerificarLogin(Login u)
+        {
+            Models.Data.LoginData ld = new Models.Data.LoginData();
+            ld.TestarLogin(u);
 
-        //    //if (u.LOGIN !=null && u.ds_SENHA !=null)
-        //    //{
-        //    //    FormsAuthentication.SetAuthCookie(u.LOGIN, false);
-        //    //    Session["usuarioLogado"] = u.LOGIN.ToString();
-        //    //    Session["senhaLogado"] = u.ds_SENHA.ToString();
+            //aA.TestarLogin(u);
 
-        //    //    return RedirectToaction("TelaMenu", "Login");
-        //    //}
-        //    //else
-        //    //{
-        //    //    return RedirectToAction("Login", "Login");
-        //    //}
+            if (u.LOGIN != null && u.SENHA != null)
+            {
+                //FormsAuthentication.SetAuthCookie(u.LOGIN, false);
+                HttpContext.Session.SetString("Login", u.LOGIN);
+                HttpContext.Session.SetString("Nome_Usuario", u.NOME);
 
-        //    //return View();
-        //}
+                //Session["usuarioLogado"] = u.LOGIN.ToString();
+                //Session["senhaLogado"] = u.SENHA.ToString();
+
+                return RedirectToAction("TelaMenu", "Login");
+            }
+            else
+            {
+                return RedirectToAction("TelaLogin", "Login");
+            }
+
+            return View();
+        }
 
         // GET: Login
         public ActionResult Index()

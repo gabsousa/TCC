@@ -17,9 +17,7 @@
     <!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="~/css/styles.css">
 </head>
-<body>
-@using (Html.BeginForm("VerficiarLogin", "LOGIN", FormMethod.Post))
-{ 
+<body> 
     <div class="container">
         <div class="d-flex justify-content-center h-100">
             <div class="card">
@@ -37,14 +35,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="login">
-
+                            <input type="text" class="form-control" placeholder="login" (m=> m.LOGIN)>
+                            @*@Html.TextBoxFor(m => m.LOGIN)*@
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="senha">
+                            <input type="password" class="form-control" placeholder="senha" m => m.LOGIN>
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Lembrar Senha
@@ -62,7 +60,6 @@
             </div>
         </div>
     </div>
-}
 </body>
 </html>
 

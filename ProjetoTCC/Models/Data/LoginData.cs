@@ -10,27 +10,64 @@ namespace ProjetoTCC.Models.Data
     public class LoginData
     {
 
-        public void LoginFunc(Login login)
+        //public void LoginFunc(Login login)
+        //{
+        //    MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+        //    msc.Open();
+
+        //    MySqlCommand cmd = new MySqlCommand("INSERIR_LOGIN", msc);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.Parameters.AddWithValue("@LOGIN", login.LOGIN);
+        //    cmd.Parameters.AddWithValue("@SENHA", login.SENHA);
+        //    cmd.Parameters.AddWithValue("@COD_PAC", login.COD_PAC);
+        //    cmd.Parameters.AddWithValue("@COD_MED", login.COD_MED);
+        //    cmd.Parameters.AddWithValue("@COD_RESP", login.COD_RESP);
+        //    cmd.Parameters.AddWithValue("@COD_FUNC", login.COD_FUNC);
+        //    cmd.ExecuteReader();
+
+        //    msc.Close();
+
+        //}
+
+        public Login TestarLogin(Login login)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("INSERIR_LOGIN", msc);
+            //MySqlCommand cmd = new MySqlCommand("select * from tbUsuario where nm_usuario = @Usuario and ds_senha = @Senha",
+
+            MySqlCommand cmd = new MySqlCommand("select * from tb_login where LOGIN = @LOGIN and SENHA = @SENHA", msc);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@LOGIN", login.LOGIN);
-            cmd.Parameters.AddWithValue("@SENHA", login.SENHA);
-            cmd.Parameters.AddWithValue("@COD_PAC", login.COD_PAC);
-            cmd.Parameters.AddWithValue("@COD_MED", login.COD_MED);
-            cmd.Parameters.AddWithValue("@COD_RESP", login.COD_RESP);
-            cmd.Parameters.AddWithValue("@COD_FUNC", login.COD_FUNC);
-            cmd.ExecuteReader();
+            cmd.Parameters.Add("@LOGIN", MySqlDbType.VarChar).Value = login.LOGIN;
+            cmd.Parameters.Add("@SENHA", MySqlDbType.VarChar).Value = login.SENHA;
 
-            msc.Close();
+            MySqlDataReader leitor;
 
+            leitor = cmd.ExecuteReader();
+
+            if (leitor.HasRows)
+            {
+                while (leitor.Read())
+                {
+                    Login dto = new Login();
+                    {
+                        dto.LOGIN = Convert.ToString(leitor["LOGIN"]);
+                        dto.SENHA = Convert.ToString(leitor["SENHA"]);
+                    }
+                }
+            }
+
+            else
+            {
+                login.LOGIN = null;
+                login.SENHA = null;
+            }
+
+            return login;
         }
-
 
 
         /*public string RetornaNomeFunc(string LOGIN)
