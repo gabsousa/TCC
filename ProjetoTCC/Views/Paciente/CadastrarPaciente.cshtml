@@ -112,6 +112,16 @@
                                             <span asp-validation-for="NUM_PAC" class="text-danger"></span>
                                         </div>
 
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="CEP_PAC" class="form-control" placeholder="CEP" />
+                                            <span asp-validation-for="CEP_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-4 form-group">
+                                            <input asp-for="BAIRRO_PAC" class="form-control" placeholder="Bairro" />
+                                            <span asp-validation-for="BAIRRO_PAC" class="text-danger"></span>
+                                        </div>
+                                        
                                         <div class="col-xs-4 col-md-4 form-group">
                                             <input asp-for="MUN_PAC" class="form-control" placeholder="Município" />
                                             <span asp-validation-for="MUN_PAC" class="text-danger"></span>
@@ -122,23 +132,12 @@
                                             <span asp-validation-for="UF_PAC" class="text-danger"></span>
                                         </div>
 
-                                        <div class="col-xs-4 col-md-3 form-group">
-                                            <input asp-for="CEP_PAC" class="form-control" placeholder="CEP" />
-                                            <span asp-validation-for="CEP_PAC" class="text-danger"></span>
-                                        </div>
-
-                                        <div class="col-xs-4 col-md-4 form-group">
-                                            <input asp-for="BAIRRO_PAC" class="form-control" placeholder="Bairro" />
-                                            <span asp-validation-for="BAIRRO_PAC" class="text-danger"></span>
-                                        </div>
-
-                                    </div> <!-- fim row -->
+                                    </div>
                                     <br />
 
                                     <div class="row">
                                         <div class="col-xs-12 col-md-12 form-group">
                                             <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                            <button type="submit" class="btn btn-primary">Limpar</button>
                                         </div>
                                     </div>
                                 </form>
