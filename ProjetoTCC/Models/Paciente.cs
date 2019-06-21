@@ -44,7 +44,7 @@ namespace ProjetoTCC.Models
         public string EMAIL_RESP { get; set; }
 
         [DisplayName("CPF do Responsável")]
-        public int CPF_RESP { get; set; }
+        public string CPF_RESP { get; set; }
 
         [DisplayName("Rua")]
         public string RUA_PAC { get; set; }
@@ -63,8 +63,5 @@ namespace ProjetoTCC.Models
 
         [DisplayName("Bairro")]
         public string BAIRRO_PAC { get; set; }
-
-        [DisplayName("Codigo Login")]
-        public string COD_LOGIN { get; set; }
     }
 }

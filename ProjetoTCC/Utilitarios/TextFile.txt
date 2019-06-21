@@ -1,0 +1,2087 @@
+﻿-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bd_clinicare
+-- ------------------------------------------------------
+-- Server version	8.0.16
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `tb_agenda`
+--
+
+DROP TABLE IF EXISTS `tb_agenda`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_agenda` (
+  `COD_AGENDA` int(11) NOT NULL AUTO_INCREMENT,
+  `DIA_CONSULTA` date NOT NULL,
+  `HORA_CONSULTA` time NOT NULL,
+  `COD_MED` int(11) NOT NULL,
+  `COD_PAC` int(11) NOT NULL,
+  `CONFIRMACAO_AGENDA` varchar(3) DEFAULT NULL,
+  `OBS_AGENDA` varchar(100) DEFAULT NULL,
+  `RESP_AGENDAMENTO` varchar(100) NOT NULL,
+  `DATA_RETORNO` date DEFAULT NULL,
+  PRIMARY KEY (`COD_AGENDA`),
+  KEY `COD_PAC_A_idx` (`COD_PAC`),
+  KEY `COD_MED_A_idx` (`COD_MED`),
+  CONSTRAINT `COD_MED_A` FOREIGN KEY (`COD_MED`) REFERENCES `tb_medico` (`COD_MED`),
+  CONSTRAINT `COD_PAC_A` FOREIGN KEY (`COD_PAC`) REFERENCES `tb_paciente` (`COD_PAC`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_agenda`
+--
+
+LOCK TABLES `tb_agenda` WRITE;
+/*!40000 ALTER TABLE `tb_agenda` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_agenda` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_anamneses`
+--
+
+DROP TABLE IF EXISTS `tb_anamneses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_anamneses` (
+  `COD_ANAMNESES` int(11) NOT NULL AUTO_INCREMENT,
+  `COD_PAC` int(11) NOT NULL,
+  `DATA_ANAMNESES` date NOT NULL,
+  `DESC_ANAMNESES` varchar(600) NOT NULL,
+  `FATOSIMPO_ANAMNESES` varchar(80) DEFAULT NULL,
+  `COD_MED` int(11) NOT NULL,
+  PRIMARY KEY (`COD_ANAMNESES`),
+  KEY `COD_PAC_idx` (`COD_PAC`),
+  KEY `COD_MED_F_idx` (`COD_MED`),
+  CONSTRAINT `COD_MED_F` FOREIGN KEY (`COD_MED`) REFERENCES `tb_medico` (`COD_MED`),
+  CONSTRAINT `COD_PAC_F` FOREIGN KEY (`COD_PAC`) REFERENCES `tb_paciente` (`COD_PAC`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_anamneses`
+--
+
+LOCK TABLES `tb_anamneses` WRITE;
+/*!40000 ALTER TABLE `tb_anamneses` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_anamneses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_cargo`
+--
+
+DROP TABLE IF EXISTS `tb_cargo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_cargo` (
+  `COD_CARGO` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME_CARGO` varchar(100) NOT NULL,
+  `NOME_USUARIO` varchar(100) NOT NULL,
+  `DATA_CADASTRO` date NOT NULL,
+  `SITUACAO` varchar(10) NOT NULL,
+  PRIMARY KEY (`COD_CARGO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_cargo`
+--
+
+LOCK TABLES `tb_cargo` WRITE;
+/*!40000 ALTER TABLE `tb_cargo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_cargo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_empresa`
+--
+
+DROP TABLE IF EXISTS `tb_empresa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_empresa` (
+  `COD_EMP` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME_EMP` varchar(100) NOT NULL,
+  `CNPJ_EMP` int(14) NOT NULL,
+  `MUN_EMP` varchar(100) NOT NULL,
+  `UF_EMP` varchar(2) NOT NULL,
+  `RUA_EMP` varchar(200) NOT NULL,
+  `NUM_EMP` int(10) NOT NULL,
+  `CEP_EMP` int(8) NOT NULL,
+  `BAIRRO_EMP` varchar(50) NOT NULL,
+  `COMPL_EMP` varchar(50) DEFAULT NULL,
+  `SITE_EMP` varchar(50) DEFAULT NULL,
+  `EMAIL_EMP` varchar(50) DEFAULT NULL,
+  `TEL_EMP` varchar(14) NOT NULL,
+  `CEL_EMP` varchar(14) DEFAULT NULL,
+  PRIMARY KEY (`COD_EMP`),
+  UNIQUE KEY `CNPJ_EMP_UNIQUE` (`CNPJ_EMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_empresa`
+--
+
+LOCK TABLES `tb_empresa` WRITE;
+/*!40000 ALTER TABLE `tb_empresa` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_empresa` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_endpac`
+--
+
+DROP TABLE IF EXISTS `tb_endpac`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_endpac` (
+  `COD_END` int(11) NOT NULL AUTO_INCREMENT,
+  `RUA_PAC` varchar(200) NOT NULL,
+  `MUN_PAC` varchar(100) NOT NULL,
+  `UF_PAC` varchar(2) NOT NULL,
+  `NUM_PAC` int(10) NOT NULL,
+  `CEP_PAC` int(8) NOT NULL,
+  `BAIRRO_PAC` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`COD_END`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_endpac`
+--
+
+LOCK TABLES `tb_endpac` WRITE;
+/*!40000 ALTER TABLE `tb_endpac` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_endpac` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_especialidade`
+--
+
+DROP TABLE IF EXISTS `tb_especialidade`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_especialidade` (
+  `COD_ESPEC` int(11) NOT NULL AUTO_INCREMENT,
+  `TIPO_ESPEC` varchar(50) NOT NULL,
+  `DESC_ESPEC` varchar(800) NOT NULL,
+  PRIMARY KEY (`COD_ESPEC`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_especialidade`
+--
+
+LOCK TABLES `tb_especialidade` WRITE;
+/*!40000 ALTER TABLE `tb_especialidade` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_especialidade` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_estoque`
+--
+
+DROP TABLE IF EXISTS `tb_estoque`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_estoque` (
+  `COD_PROD` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME_PROD` varchar(100) NOT NULL,
+  `QNT_PROD` int(255) NOT NULL,
+  `DATA_VALIDADE` date NOT NULL,
+  `NOME_FORNEC` varchar(100) DEFAULT NULL,
+  `DATA_ENTRADA` datetime NOT NULL,
+  `DATA_RETIRADA` datetime NOT NULL,
+  `RESP_RETIRADA` varchar(100) NOT NULL,
+  PRIMARY KEY (`COD_PROD`),
+  UNIQUE KEY `DATA_VALIDADE_UNIQUE` (`DATA_VALIDADE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_estoque`
+--
+
+LOCK TABLES `tb_estoque` WRITE;
+/*!40000 ALTER TABLE `tb_estoque` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_estoque` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_exame`
+--
+
+DROP TABLE IF EXISTS `tb_exame`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_exame` (
+  `COD_EXAME` int(11) NOT NULL AUTO_INCREMENT,
+  `COD_PAC` int(11) NOT NULL,
+  `NOME_EXAME` varchar(100) NOT NULL,
+  `DATA_EXAME` date NOT NULL,
+  `NOME_LAB` varchar(100) NOT NULL,
+  `HORA_EXAME` time DEFAULT NULL,
+  `ARQ_EXAME` blob,
+  `COD_MED` int(11) DEFAULT NULL,
+  `OBS_EXAME` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`COD_EXAME`),
+  KEY `COD_PAC_idx` (`COD_PAC`),
+  KEY `COD_MED_idx` (`COD_MED`),
+  CONSTRAINT `COD_MED` FOREIGN KEY (`COD_MED`) REFERENCES `tb_medico` (`COD_MED`),
+  CONSTRAINT `COD_PAC` FOREIGN KEY (`COD_PAC`) REFERENCES `tb_paciente` (`COD_PAC`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_exame`
+--
+
+LOCK TABLES `tb_exame` WRITE;
+/*!40000 ALTER TABLE `tb_exame` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_exame` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_funcionario`
+--
+
+DROP TABLE IF EXISTS `tb_funcionario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_funcionario` (
+  `COD_FUNC` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME_FUNC` varchar(100) NOT NULL,
+  `TEL_FUNC` varchar(14) NOT NULL,
+  `CEL_FUNC` varchar(14) DEFAULT NULL,
+  `EMAIL_FUNC` varchar(50) DEFAULT NULL,
+  `COD_CARGO` int(11) NOT NULL,
+  PRIMARY KEY (`COD_FUNC`),
+  KEY `COD_CARGO_idx` (`COD_CARGO`),
+  CONSTRAINT `COD_CARGO_A` FOREIGN KEY (`COD_CARGO`) REFERENCES `tb_cargo` (`COD_CARGO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_funcionario`
+--
+
+LOCK TABLES `tb_funcionario` WRITE;
+/*!40000 ALTER TABLE `tb_funcionario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_funcionario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_login`
+--
+
+DROP TABLE IF EXISTS `tb_login`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_login` (
+  `COD_LOGIN` int(11) NOT NULL AUTO_INCREMENT,
+  `LOGIN` varchar(20) NOT NULL,
+  `SENHA` varchar(8) NOT NULL,
+  `COD_PAC` int(11) DEFAULT NULL,
+  `COD_MED` int(11) DEFAULT NULL,
+  `COD_RESP` int(11) DEFAULT NULL,
+  `COD_FUNC` int(11) DEFAULT NULL,
+  PRIMARY KEY (`COD_LOGIN`),
+  UNIQUE KEY `login_UNIQUE` (`LOGIN`),
+  KEY `COD_PAC_T_idx` (`COD_PAC`),
+  KEY `COD_MED_T_idx` (`COD_MED`),
+  KEY `COD_FUNC_T_idx` (`COD_FUNC`),
+  KEY `COD_RESP_T_idx` (`COD_RESP`),
+  CONSTRAINT `COD_FUNC_T` FOREIGN KEY (`COD_FUNC`) REFERENCES `tb_funcionario` (`COD_FUNC`),
+  CONSTRAINT `COD_MED_T` FOREIGN KEY (`COD_MED`) REFERENCES `tb_medico` (`COD_MED`),
+  CONSTRAINT `COD_PAC_T` FOREIGN KEY (`COD_PAC`) REFERENCES `tb_paciente` (`COD_PAC`),
+  CONSTRAINT `COD_RESP_T` FOREIGN KEY (`COD_RESP`) REFERENCES `tb_responsavel` (`COD_RESP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_login`
+--
+
+LOCK TABLES `tb_login` WRITE;
+/*!40000 ALTER TABLE `tb_login` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_login` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_medico`
+--
+
+DROP TABLE IF EXISTS `tb_medico`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_medico` (
+  `COD_MED` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME_MED` varchar(100) NOT NULL,
+  `TEL_MED` varchar(14) NOT NULL,
+  `CEL_MED` varchar(14) DEFAULT NULL,
+  `EMAIL_MED` varchar(50) DEFAULT NULL,
+  `CPF_MED` varchar(14) NOT NULL,
+  `CRM` varchar(13) NOT NULL,
+  `VALIDADE_CRM` date NOT NULL,
+  `SEXO_MED` char(1) NOT NULL,
+  `COD_ESPEC` int(11) NOT NULL,
+  `COD_CARGO` int(11) DEFAULT NULL,
+  `SENHA_MED` varchar(8) NOT NULL,
+  PRIMARY KEY (`COD_MED`),
+  UNIQUE KEY `CPF_MED_UNIQUE` (`CPF_MED`),
+  UNIQUE KEY `CRM_UNIQUE` (`CRM`),
+  KEY `COD_ESPEC_idx` (`COD_ESPEC`),
+  KEY `COD_CARGO_idx` (`COD_CARGO`),
+  CONSTRAINT `COD_CARGO` FOREIGN KEY (`COD_CARGO`) REFERENCES `tb_cargo` (`COD_CARGO`),
+  CONSTRAINT `COD_ESPEC` FOREIGN KEY (`COD_ESPEC`) REFERENCES `tb_especialidade` (`COD_ESPEC`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_medico`
+--
+
+LOCK TABLES `tb_medico` WRITE;
+/*!40000 ALTER TABLE `tb_medico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_medico` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_paciente`
+--
+
+DROP TABLE IF EXISTS `tb_paciente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_paciente` (
+  `COD_PAC` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME_PAC` varchar(100) NOT NULL,
+  `DATANASC_PAC` date NOT NULL,
+  `COD_RESP` int(11) NOT NULL,
+  `SEXO_PAC` char(1) NOT NULL,
+  `IDADE_PAC` int(3) DEFAULT NULL,
+  `COD_END` int(11) NOT NULL,
+  PRIMARY KEY (`COD_PAC`),
+  KEY `COD_RESP_idx` (`COD_RESP`),
+  KEY `COD_END_Z_idx` (`COD_END`),
+  CONSTRAINT `COD_END_Z` FOREIGN KEY (`COD_END`) REFERENCES `tb_endpac` (`COD_END`),
+  CONSTRAINT `COD_RESP` FOREIGN KEY (`COD_RESP`) REFERENCES `tb_responsavel` (`COD_RESP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_paciente`
+--
+
+LOCK TABLES `tb_paciente` WRITE;
+/*!40000 ALTER TABLE `tb_paciente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_paciente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_pagamento`
+--
+
+DROP TABLE IF EXISTS `tb_pagamento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_pagamento` (
+  `COD_PGTO` int(11) NOT NULL AUTO_INCREMENT,
+  `COD_SERV` int(11) NOT NULL,
+  `FORMA_PGTO` varchar(100) NOT NULL,
+  `TIPO_PGTO` varchar(100) DEFAULT NULL,
+  `TIPO _CARTAO` varchar(100) DEFAULT NULL,
+  `QTD_PARCELA` int(11) NOT NULL,
+  `VALOR` decimal(10,2) NOT NULL,
+  `STATUS_PGTO` varchar(500) NOT NULL,
+  `OBS_PGTO` varchar(600) DEFAULT NULL,
+  PRIMARY KEY (`COD_PGTO`),
+  KEY `COD_SERV_idx` (`COD_SERV`),
+  CONSTRAINT `COD_SERV` FOREIGN KEY (`COD_SERV`) REFERENCES `tb_recibo` (`COD_SERV`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_pagamento`
+--
+
+LOCK TABLES `tb_pagamento` WRITE;
+/*!40000 ALTER TABLE `tb_pagamento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_pagamento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_recibo`
+--
+
+DROP TABLE IF EXISTS `tb_recibo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_recibo` (
+  `COD_SERV` int(11) NOT NULL AUTO_INCREMENT,
+  `COD_PAC` int(11) NOT NULL,
+  `COD_MED` int(11) NOT NULL,
+  `COD_AGENDA` int(11) NOT NULL,
+  `DATA_PGTO` date NOT NULL,
+  PRIMARY KEY (`COD_SERV`),
+  KEY `COD_AGENDA_B_idx` (`COD_AGENDA`),
+  KEY `COD_MED_B_idx` (`COD_MED`),
+  KEY `COD_PAC_B_idx` (`COD_PAC`),
+  CONSTRAINT `COD_AGENDA_B` FOREIGN KEY (`COD_AGENDA`) REFERENCES `tb_agenda` (`COD_AGENDA`),
+  CONSTRAINT `COD_MED_B` FOREIGN KEY (`COD_MED`) REFERENCES `tb_medico` (`COD_MED`),
+  CONSTRAINT `COD_PAC_B` FOREIGN KEY (`COD_PAC`) REFERENCES `tb_paciente` (`COD_PAC`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_recibo`
+--
+
+LOCK TABLES `tb_recibo` WRITE;
+/*!40000 ALTER TABLE `tb_recibo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_recibo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_responsavel`
+--
+
+DROP TABLE IF EXISTS `tb_responsavel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `tb_responsavel` (
+  `COD_RESP` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME_RESP` varchar(100) NOT NULL,
+  `RESP_DOIS` varchar(100) DEFAULT NULL,
+  `COD_END` int(11) DEFAULT NULL,
+  `TEL_RESP` varchar(14) NOT NULL,
+  `TEL_DOIS` varchar(14) DEFAULT NULL,
+  `CEL_RESP` varchar(14) DEFAULT NULL,
+  `EMAIL_RESP` varchar(50) DEFAULT NULL,
+  `CPF_RESP` varchar(14) NOT NULL,
+  `COD_LOGIN` int(11) NOT NULL,
+  PRIMARY KEY (`COD_RESP`),
+  UNIQUE KEY `CPF_RESP_UNIQUE` (`CPF_RESP`),
+  KEY `COD_END_idx` (`COD_END`),
+  KEY `COD_LOGIN_A_idx` (`COD_LOGIN`),
+  CONSTRAINT `COD_END` FOREIGN KEY (`COD_END`) REFERENCES `tb_endpac` (`COD_END`),
+  CONSTRAINT `COD_LOGIN_A` FOREIGN KEY (`COD_LOGIN`) REFERENCES `tb_login` (`COD_LOGIN`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_responsavel`
+--
+
+LOCK TABLES `tb_responsavel` WRITE;
+/*!40000 ALTER TABLE `tb_responsavel` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_responsavel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'bd_clinicare'
+--
+
+--
+-- Dumping routines for database 'bd_clinicare'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_AGENDA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_AGENDA`(COD_AGENDA INT, DIA_CONSULTA DATE, HORA_CONSULTA TIME, COD_MED INT, COD_PAC INT, CONFIRMACAO_AGENDA VARCHAR(3), OBS_AGENDA VARCHAR(100), RESP_AGENDAMENTO VARCHAR (100), DATA_RETORNO DATE)
+BEGIN
+UPDATE tb_agenda SET
+DIA_CONSULTA = DIA_CONSULTA , 
+HORA_CONSULTA = HORA_CONSULTA,
+COD_MED = COD_MED,
+COD_PAC = COD_PAC,
+CONFIRMACAO_AGENDA = CONFIRMACAO_AGENDA,
+OBS_AGENDA = OBS_AGENDA,
+RESP_AGENDAMENTO = RESP_AGENDAMENTO,
+DATA_RETORNO = DATA_RETORNO
+WHERE COD_AGENDA = COD_AGENDA;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_ANAMNESES` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_ANAMNESES`(COD_ANAMNESES INT, COD_PAC INT, DATA_ANAMNESES DATE, DESC_ANAMNESES VARCHAR(600), FATOSIMPO_ANAMNESES VARCHAR(80), COD_MED INT)
+BEGIN
+UPDATE tb_anamneses SET
+COD_PAC= COD_PAC,
+DATA_ANAMNESES = DATA_ANAMNESES,
+DESC_ANAMNESES = DESC_ANAMNESES,
+FATOSIMPO_ANAMNESES = FATOSIMPO_ANAMNESES,
+COD_MED = COD_MED
+WHERE COD_ANAMNESES = COD_ANAMNESES;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_CARGO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_CARGO`(COD_CARGO INT, NOME_CARGO VARCHAR(100), NOME_USUARIO VARCHAR(100), DATA_CADASTRO DATE, SITUACAO VARCHAR (10) )
+BEGIN
+UPDATE tb_cargo SET
+NOME_CARGO = NOME_CARGO,
+NOME_USUARIO = NOME_USUARIO,
+DATA_CADASTRO = DATA_CADASTRO,
+SITUACAO = SITUACAO
+WHERE COD_CARGO = COD_CARGO;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_EMPRESA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_EMPRESA`(COD_EMPRESA INT, NOME_EMP VARCHAR(100), CNPJ_EMP INT (14), MUN_EMP VARCHAR (100), UF_EMP VARCHAR (2), RUA_EMP VARCHAR (200), NUM_EMP INT(10), CEP_EMP INT(10), BAIRRO_EMP VARCHAR (50), COMPL_EMP VARCHAR(50), SITE_EMP VARCHAR(50), EMAIL_EMP VARCHAR(50), TEL_EMP VARCHAR(14), CEL_EMP VARCHAR(14))
+BEGIN
+UPDATE tb_empresa SET
+NOME_EMP = NOME_EMP,
+CNPJ_EMP = CNPJ_EMP,
+MUN_EMP = MUN_EMP,
+UF_EMP = UF_EMP,
+RUA_EMP = RUA_EMP,
+NUM_EMP = NUM_EMP,
+CEP_EMP = CEP_EMP,
+BAIRRO_EMP = BAIRRO_EMP,
+COMPL_EMP = COMPL_EMP,
+SITE_EMP = SITE_EMP,
+EMAIL_EMP = EMAIL_EMP,
+TEL_EMP = TEL_EMP,
+CEL_EMP = CEL_EMP
+WHERE COD_EMPRESA = COD_EMPRESA;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_ENDPAC` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_ENDPAC`(COD_END INT, RUA_PAC VARCHAR(200), MUN_PAC VARCHAR(100), UF_PAC VARCHAR (2), NUM_PAC INT(10), CEP_PAC INT(8), BAIRRO_PAC VARCHAR(50))
+BEGIN
+UPDATE tb_endpac SET
+RUA_PAC = RUA_PAC,
+MUN_PAC = MUN_PAC,
+UF_PAC = UF_PAC,
+NUM_PAC = NUM_PAC,
+CEP_PAC = CEP_PAC,
+BAIRRO_PAC = BAIRRO_PAC
+WHERE COD_END= COD_END; 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_ESPECIALIDADE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_ESPECIALIDADE`(COD_ESPEC INT, TIPO_ESPEC VARCHAR(50), IN DESC_ESPEC VARCHAR(800) )
+BEGIN
+UPDATE tb_especialidade SET
+TIPO_ESPEC = TIPO_ESPEC,
+DESC_ESPEC = DESC_ESPEC
+WHERE COD_ESPEC = COD_ESPEC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_ESTOQUE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_ESTOQUE`(COD_PROD INT,NOME_PROD VARCHAR(100), QNT_PROD INT(255), DATA_VALIDADE DATE, NOME_FORNEC VARCHAR(100), DATA_ENTRADA DATE, DATA_RETIRADA DATE, HORA_RETIRADA TIME, RESP_RETIRADA VARCHAR(100) )
+BEGIN
+UPDATE tb_estoque SET
+NOME_PROD = NOME_PROD,
+QNT_PROD = QNT_PROD,
+DATA_VALIDADE = DATA_VALIDADE,
+NOME_FORNEC = NOME_FORNEC,
+DATA_ENTRADA = DATA_ENTRADA,
+DATA_RETIRADA = DATA_RETIRADA,
+HORA_RETIRADA = HORA_RETIRADA ,
+RESP_RETIRADA = RESP_RETIRADA
+WHERE COD_PROD = COD_PROD;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_EXAME` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_EXAME`(COD_EXAME INT, COD_PAC INT, NOME_EXAME VARCHAR (100), DATA_EXAME DATE, NOME_LAB VARCHAR (100), HORA_EXAME TIME, ARQ_EXAME BLOB, COD_MED INT, OBS_EXAME VARCHAR(500))
+BEGIN
+UPDATE tb_exame SET
+COD_PAC = COD_PAC,
+NOME_EXAME = NOME_EXAME,
+DATA_EXAME = DATA_EXAME,
+NOME_LAB = NOME_LAB,
+HORA_EXAME = HORA_EXAME,
+ARQ_EXAME = ARQ_EXAME,
+COD_MED = COD_MED,
+OBS_EXAME = OBS_EXAME
+WHERE COD_EXAME = COD_EXAME;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_FUNCIONARIO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_FUNCIONARIO`(COD_FUNCIONARIO INT, NOME_FUNC VARCHAR(100), TEL_FUNC VARCHAR (14), CEL_FUNC VARCHAR(14), EMAIL_FUNC VARCHAR(50), COD_CARGO INT )
+BEGIN
+UPDATE tb_funcionario SET
+NOME_FUNC = NOME_FUNC,
+TEL_FUNC = TEL_FUNC,
+CEL_FUNC = CEL_FUNC,
+EMAIL_FUNC = EMAIL_FUNC,
+COD_CARGO = COD_CARGO
+WHERE COD_FUNCIONARIO = COD_FUNCIONARIO;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_LOGIN` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_LOGIN`(COD_LOGIN INT,LOGIN VARCHAR(20), SENHA VARCHAR(8), COD_PAC INT, COD_MED INT, COD_RESP INT, COD_FUNC INT)
+BEGIN
+UPDATE tb_login SET
+LOGIN = LOGIN,
+SENHA = SENHA,
+COD_PAC = COD_PAC,
+COD_MED = COD_MED,
+COD_RESP = COD_RESP,
+COD_FUNC = COD_FUNC
+WHERE COD_LOGIN = COD_LOGIN;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_MEDICO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_MEDICO`(COD_MED INT, NOME_MED VARCHAR(100), TEL_MED VARCHAR (14), CEL_MED VARCHAR(14), EMAIL_MED VARCHAR(50), CPF_MED VARCHAR(14), CRM VARCHAR(13), VALIDADE_CRM DATE, SEXO_MED CHAR(1), COD_ESPEC INT, COD_CARGO INT)
+BEGIN
+UPDATE tb_medico SET
+NOME_MED = NOME_MED,
+TEL_MED = TEL_MED,
+CEL_MED = CEL_MED, 
+EMAIL_MED = EMAIL_MED,
+CPF_MED = CPF_MED,
+CRM = CRM, 
+VALIDADE_CRM = VALIDADE_CRM,
+SEXO_MED = SEXO_MED,
+COD_ESPEC = COD_ESPEC,
+COD_CARGO = COD_CARGO
+WHERE COD_MED = COD_MED;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_PACIENTE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_PACIENTE`(COD_PAC INT,COD_END INT, NOME_PAC VARCHAR(100), DATANASC_PAC DATE, COD_RESP INT, SEXO_PAC CHAR (1), IDADE_PAC INT (3))
+BEGIN
+UPDATE tb_paciente SET
+NOME_PAC = NOME_PAC,
+COD_END = COD_END,
+DATANASC_PAC = DATANASC_PAC,
+COD_RESP = COD_RESP,
+SEXO_PAC = SEXO_PAC,
+IDADE_PAC = IDADE_PAC
+WHERE COD_PAC= COD_PAC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_PAGAMENTO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_PAGAMENTO`(COD_PGTO INT, COD_SERV INT, FORMA_PGTO VARCHAR(100), TIPO_PGTO VARCHAR(100), TIPO_CARTAO VARCHAR(100), QTD_PARCELA INT, VALOR DECIMAL(10,2), STATUS_PGTO VARCHAR(500), OBS_PGTO VARCHAR(600))
+BEGIN
+UPDATE tb_pagamento SET
+COD_SERV = COD_SERV,
+FORMA_PGTO = FORMA_PGTO,
+TIPO_PGTO = TIPO_PGTO,
+TIPO_CARTAO = TIPO_CARTAO, 
+QTD_PARCELA = QTD_PARCELA,
+VALOR = VALOR,
+STATUS_PGTO = STATUS_PGTO, 
+OBS_PGTO = OBS_PGTO 
+WHERE COD_PGTO = COD_PGTO;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_RECIBO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_RECIBO`(COD_SERV INT, COD_PAC INT, COD_MED INT, COD_AGENDA INT, DATA_PGTO DATE)
+BEGIN
+UPDATE tb_recibo SET
+COD_PAC = COD_PAC,
+COD_MED = COD_MED,
+COD_AGENDA = COD_AGENDA,
+DATA_PGTO = DATA_PGTO
+WHERE COD_SERV = COD_SERV;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ALTERAR_RESPONSAVEL` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ALTERAR_RESPONSAVEL`(COD_RESP INT,NOME_RESP VARCHAR(100), RESP_DOIS VARCHAR(100), COD_END INT, TEL_RESP VARCHAR(14), TEL_DOIS VARCHAR(14), CEL_RESP VARCHAR(14), EMAIL_RESP VARCHAR(50), CPF_RESP VARCHAR(14))
+BEGIN
+UPDATE tb_responsavel SET
+NOME_RESP = NOME_RESP, 
+RESP_DOIS = RESP_DOIS,
+COD_END = COD_END,
+TEL_RESP = TEL_RESP,
+TEL_DOIS = TEL_DOIS,
+CEL_RESP = CEL_RESP,
+EMAIL_RESP = EMAIL_RESP,
+CPF_RESP = CPF_RESP
+WHERE COD_RESP = COD_RESP;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_AGENDA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_AGENDA`()
+BEGIN
+DECLARE COD_AGENDA INT;
+SELECT *FROM tb_agenda WHERE COD_AGENDA = COD_AGENDA LIMIT 1 INTO COD_AGENDA; 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_ANAMNESES` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_ANAMNESES`()
+BEGIN
+DECLARE COD_ANAMNESES INT;
+SELECT *FROM tb_anamneses
+WHERE COD_ANAMNESES = COD_ANAMNESES LIMIT 1 INTO COD_ANAMNESES;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_CARGO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_CARGO`()
+BEGIN
+DECLARE COD_CARGO INT;
+SELECT *FROM tb_cargo
+WHERE COD_CARGO = COD_CARGO LIMIT 1 INTO COD_CARGO;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_EMPRESA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_EMPRESA`()
+BEGIN
+DECLARE COD_EMPRESA INT;
+SELECT *FROM tb_empresa WHERE COD_EMP= COD_EMP LIMIT 1 INTO COD_EMPRESA;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_ENDPAC` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_ENDPAC`()
+BEGIN
+DECLARE COD_END INT;
+SELECT *FROM tb_endpac WHERE COD_END = COD_END LIMIT 1 INTO COD_END;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_ESPECIALIDADE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_ESPECIALIDADE`()
+BEGIN
+DECLARE COD_ESPEC INT;
+SELECT *FROM tb_especialidade WHERE COD_ESPEC = COD_ESPEC LIMIT 1 INTO COD_ESPEC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_ESTOQUE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_ESTOQUE`()
+BEGIN
+DECLARE COD_PROD INT;
+SELECT *FROM tb_estoque 
+WHERE COD_PROD = COD_PROD LIMIT 1 INTO COD_PROD;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_EXAME` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_EXAME`()
+BEGIN
+DECLARE COD_EXAME INT;
+SELECT *FROM TB_EXAME WHERE COD_EXAME = COD_EXAME LIMIT 1 INTO COD_EXAME;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_FUNCIONARIO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_FUNCIONARIO`()
+BEGIN
+DECLARE COD_FUNC INT;
+SELECT *FROM tb_funcionario WHERE COD_FUNC = COD_FUNC LIMIT 1 INTO COD_FUNC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_LOGIN` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_LOGIN`()
+BEGIN
+DECLARE COD_LOGIN INT;
+SELECT *FROM tb_login WHERE COD_LOGIN = COD_LOGIN LIMIT 1 INTO COD_LOGIN;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_MEDICO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_MEDICO`()
+BEGIN
+DECLARE COD_MED INT;
+SELECT *FROM tb_medico WHERE COD_MED = COD_MED LIMIT 1 INTO COD_MED;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_PACIENTE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_PACIENTE`()
+BEGIN
+DECLARE COD_PAC INT;
+SELECT *FROM tb_paciente 
+WHERE COD_PAC = COD_PAC LIMIT 1 INTO COD_PAC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_PAGAMENTO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_PAGAMENTO`()
+BEGIN
+DECLARE COD_PGTO INT;
+SELECT *FROM tb_pagamento WHERE COD_PGTO = COD_PGTO LIMIT 1 INTO COD_PGTO;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_RECIBO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_RECIBO`()
+BEGIN
+DECLARE COD_SERV INT;
+SELECT *FROM tb_recibo WHERE COD_SERV = COD_SERV LIMIT 1 INTO COD_SERV;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CONSULTAR_RESPONSAVEL` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CONSULTAR_RESPONSAVEL`()
+BEGIN
+DECLARE COD_RESP INT;
+SELECT *FROM tb_responsavel WHERE COD_RESP = COD_RESP LIMIT 1 INTO COD_RESP;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_AGENDA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_AGENDA`(IN COD_AGENDA INT)
+BEGIN
+DELETE FROM tb_agenda
+WHERE COD_AGENDA = COD_AGENDA;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_ANAMNESES` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_ANAMNESES`(IN COD_ANAMNESES INT)
+BEGIN
+DELETE FROM tb_anamneses
+WHERE COD_ANAMNESES = COD_ANAMNESES;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_CARGO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_CARGO`(IN COD_CARGO INT )
+BEGIN
+DELETE FROM tb_cargo
+WHERE COD_CARGO = COD_CARGO;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_EMPRESA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_EMPRESA`(IN COD_EMP INT)
+BEGIN
+DELETE FROM tb_empresa
+WHERE COD_EMP = COD_EMP;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_ENDPAC` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_ENDPAC`(IN COD_ENDPAC INT)
+BEGIN
+DELETE FROM tb_endpac
+WHERE COD_END = COD_END;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_ESPECIALIDADE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_ESPECIALIDADE`(IN COD_ESPEC INT)
+BEGIN
+DELETE FROM tb_especialidade
+WHERE COD_ESPEC = COD_ESPEC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_ESTOQUE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_ESTOQUE`(IN COD_PROD INT )
+BEGIN
+DELETE FROM tb_estoque
+WHERE COD_PROD = COD_PROD;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_EXAME` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_EXAME`(IN COD_EXAME INT)
+BEGIN
+DELETE FROM tb_exame
+WHERE COD_EXAME = COD_EXAME;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_FUNCIONARIO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_FUNCIONARIO`(IN COD_FUNC INT)
+BEGIN
+DELETE FROM tb_funcionario
+WHERE COD_FUNC = COD_FUNC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_LOGIN` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_LOGIN`(IN COD_LOGIN INT)
+BEGIN
+DELETE FROM tb_login
+WHERE COD_LOGIN = COD_LOGIN;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_MEDICO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_MEDICO`()
+BEGIN
+DELETE FROM tb_medico
+WHERE COD_MED = COD_MED;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_PACIENTE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_PACIENTE`(IN COD_PAC int)
+BEGIN
+DELETE FROM tb_paciente 
+WHERE COD_PAC = COD_PAC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_PAGAMENTO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_PAGAMENTO`(IN COD_PGTO INT )
+BEGIN
+DELETE FROM tb_pagamneto
+WHERE COD_PGTO = COD_PGTO;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_RECIBO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_RECIBO`(IN COD_SERV INT)
+BEGIN
+DELETE FROM tb_recibo
+WHERE COD_SERV = COD_SERV;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETAR_RESPONSAVEL` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETAR_RESPONSAVEL`(IN COD_RESP INT)
+BEGIN
+DELETE FROM tb_responsavel
+WHERE COD_RESP = COD_RESP;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_ANAMNESES` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_ANAMNESES`(IN COD_PAC INT, IN DATA_ANAMNESES DATE, IN DESC_ANAMNESES VARCHAR(600),IN FATOSIMPO_ANAMNESES VARCHAR(80),IN COD_MED INT)
+BEGIN
+INSERT INTO tb_anamneses (COD_PAC,DATA_ANAMNESES, DESC_ANAMNESES, FATOSIMPO_ANAMNESES, COD_MED)
+VALUES (COD_PAC, DATA_ANAMNESES, DESC_ANAMNESES, FATOSIMPO_ANAMNESES, COD_MED);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_CARGO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_CARGO`(IN NOME_CARGO VARCHAR(100), IN NOME_USUARIO VARCHAR(100), IN DATA_CADASTRO DATE, IN SITUACAO VARCHAR (10) )
+BEGIN
+INSERT INTO tb_cargo ( NOME_CARGO , NOME_USUARIO , DATA_CADASTRO , SITUACAO )
+VALUES ( NOME_CARGO , NOME_USUARIO , DATA_CADASTRO , SITUACAO );
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_CONSULTA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_CONSULTA`(IN DIA_CONSULTA DATE,IN HORA_CONSULTA TIME,IN COD_MED INT,IN COD_PAC INT,IN CONFIRMACAO_AGENDA VARCHAR(3),IN OBS_AGENDA VARCHAR(100),IN RESP_AGENDAMENTO VARCHAR (100),IN DATA_RETORNO DATE)
+BEGIN 
+INSERT INTO tb_agenda (DIA_CONSULTA,HORA_CONSULTA ,COD_MED ,COD_PAC ,CONFIRMACAO_AGENDA ,OBS_AGENDA , RESP_AGENDAMENTO ,DATA_RETORNO)
+VALUES (DIA_CONSULTA,HORA_CONSULTA ,COD_MED ,COD_PAC ,CONFIRMACAO_AGENDA ,OBS_AGENDA , RESP_AGENDAMENTO ,DATA_RETORNO);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_EMPRESA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_EMPRESA`(IN NOME_EMP VARCHAR(100), IN CNPJ_EMP INT (14),IN MUN_EMP VARCHAR (100), IN UF_EMP VARCHAR (2), IN RUA_EMP VARCHAR (200), IN NUM_EMP INT(10), IN CEP_EMP INT(10), IN BAIRRO_EMP VARCHAR (50), IN COMPL_EMP VARCHAR(50), IN SITE_EMP VARCHAR(50), IN EMAIL_EMP VARCHAR(50), IN TEL_EMP VARCHAR(14), IN CEL_EMP VARCHAR(14))
+BEGIN
+INSERT INTO tb_empresa
+(NOME_EMP, CNPJ_EMP , MUN_EMP, UF_EMP, RUA_EMP , NUM_EMP , CEP_EMP , BAIRRO_EMP , COMPL_EMP, SITE_EMP, EMAIL_EMP , TEL_EMP , CEL_EMP)
+VALUES (NOME_EMP, CNPJ_EMP , MUN_EMP, UF_EMP, RUA_EMP , NUM_EMP , CEP_EMP , BAIRRO_EMP , COMPL_EMP, SITE_EMP, EMAIL_EMP , TEL_EMP , CEL_EMP);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_ENDPAC` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_ENDPAC`(IN RUA_PAC VARCHAR(200), IN MUN_PAC VARCHAR(100), IN UF_PAC VARCHAR (2), IN NUM_PAC INT(10), IN CEP_PAC INT(8), IN BAIRRO_PAC VARCHAR(50) )
+BEGIN
+INSERT INTO tb_endpac (RUA_PAC , MUN_PAC , UF_PAC , NUM_PAC, CEP_PAC, BAIRRO_PAC )
+VALUES (RUA_PAC , MUN_PAC , UF_PAC , NUM_PAC, CEP_PAC, BAIRRO_PAC );
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_ESPECIALIDADE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_ESPECIALIDADE`(IN TIPO_ESPEC VARCHAR(50), IN DESC_ESPEC VARCHAR(800) )
+BEGIN
+INSERT INTO tb_especialidade (TIPO_ESPEC , DESC_ESPEC)
+VALUES (TIPO_ESPEC , DESC_ESPEC);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_ESTOQUE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_ESTOQUE`(IN NOME_PROD VARCHAR(100), IN QNT_PROD INT(255), IN DATA_VALIDADE DATE, IN NOME_FORNEC VARCHAR(100), IN DATA_ENTRADA DATE, IN DATA_RETIRADA DATE, IN HORA_RETIRADA TIME, IN RESP_RETIRADA VARCHAR(100) )
+BEGIN
+INSERT INTO tb_estoque (NOME_PROD, QNT_PROD, DATA_VALIDADE , NOME_FORNEC , DATA_ENTRADA , DATA_RETIRADA , HORA_RETIRADA , RESP_RETIRADA )
+VALUES (NOME_PROD, QNT_PROD, DATA_VALIDADE , NOME_FORNEC , DATA_ENTRADA , DATA_RETIRADA , HORA_RETIRADA , RESP_RETIRADA ); 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_EXAME` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_EXAME`(IN COD_PAC INT, IN NOME_EXAME VARCHAR (100), IN DATA_EXAME DATE, IN NOME_LAB VARCHAR (100), IN HORA_EXAME TIME, IN ARQ_EXAME BLOB, IN COD_MED INT, IN OBS_EXAME VARCHAR(500))
+BEGIN
+INSERT INTO tb_exame (COD_PAC , NOME_EXAME, DATA_EXAME, NOME_LAB, HORA_EXAME, ARQ_EXAME , COD_MED, OBS_EXAME)
+VALUES (COD_PAC , NOME_EXAME, DATA_EXAME, NOME_LAB, HORA_EXAME, ARQ_EXAME , COD_MED, OBS_EXAME);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_FUNCIONARIO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_FUNCIONARIO`(IN NOME_FUNC VARCHAR(100), IN TEL_FUNC VARCHAR (14), IN CEL_FUNC VARCHAR(14),IN EMAIL_FUNC VARCHAR(50), IN COD_CARGO INT)
+BEGIN
+INSERT INTO tb_funcionario (NOME_FUNC, TEL_FUNC, CEL_FUNC , EMAIL_FUNC, COD_CARGO )
+VALUES (NOME_FUNC, TEL_FUNC, CEL_FUNC , EMAIL_FUNC, COD_CARGO );
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_LOGIN` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_LOGIN`(IN LOGIN VARCHAR(8), IN SENHA VARCHAR(20), IN COD_PAC INT, IN COD_MED INT, IN COD_RESP INT, COD_FUNC INT)
+BEGIN
+INSERT INTO tb_login (LOGIN , SENHA, COD_PAC, COD_MED, COD_RESP, COD_FUNC)
+VALUES (LOGIN , SENHA, COD_PAC, COD_MED, COD_RESP, COD_FUNC);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_MEDICO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_MEDICO`(IN NOME_MED VARCHAR(100), IN TEL_MED VARCHAR (14), IN CEL_MED VARCHAR(14), IN EMAIL_MED VARCHAR(50), IN CPF_MED VARCHAR(14), IN CRM VARCHAR(13), IN VALIDADE_CRM DATE, IN SEXO_MED CHAR(1), IN COD_ESPEC INT, IN COD_CARGO INT)
+BEGIN
+INSERT INTO tb_medico (NOME_MED, TEL_MED, CEL_MED, EMAIL_MED, CPF_MED, CRM , VALIDADE_CRM, SEXO_MED, COD_ESPEC, COD_CARGO)
+VALUES (NOME_MED, TEL_MED, CEL_MED, EMAIL_MED, CPF_MED, CRM , VALIDADE_CRM, SEXO_MED, COD_ESPEC, COD_CARGO); 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_PACIENTE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_PACIENTE`(IN NOME_PAC VARCHAR(100),IN COD_END INT,IN DATANASC_PAC DATE, IN COD_RESP INT, IN SEXO_PAC CHAR (1), IN IDADE_PAC INT (3))
+BEGIN
+INSERT INTO tb_paciente(NOME_PAC,COD_END, DATANASC_PAC,COD_RESP,SEXO_PAC,IDADE_PAC)
+VALUES (NOME_PAC, COD_END,DATANASC_PAC,COD_RESP,SEXO_PAC,IDADE_PAC);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_PAGAMENTO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_PAGAMENTO`(IN COD_SERV INT, IN FORMA_PGTO VARCHAR(100), IN TIPO_PGTO VARCHAR(100), IN TIPO_CARTAO VARCHAR(100), IN QTD_PARCELA INT, IN VALOR DECIMAL(10,2), IN STATUS_PGTO VARCHAR(500), IN OBS_PGTO VARCHAR(600))
+BEGIN
+INSERT INTO tb_pagamento (COD_SERV, FORMA_PGTO, TIPO_PGTO, TIPO_CARTAO , QTD_PARCELA , VALOR , STATUS_PGTO , OBS_PGTO )
+VALUES (COD_SERV, FORMA_PGTO, TIPO_PGTO, TIPO_CARTAO , QTD_PARCELA , VALOR , STATUS_PGTO , OBS_PGTO );
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_RECIBO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_RECIBO`(IN COD_PAC INT, IN COD_MED INT, IN COD_AGENDA INT, IN DATA_PGTO DATE)
+BEGIN
+INSERT INTO tb_recibo (COD_PAC, COD_MED, COD_AGENDA, DATA_PGTO )
+VALUES (COD_PAC, COD_MED, COD_AGENDA, DATA_PGTO );
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `INSERIR_RESPONSAVEL` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERIR_RESPONSAVEL`(IN NOME_RESP VARCHAR(100), IN RESP_DOIS VARCHAR(100), IN COD_END INT, IN TEL_RESP VARCHAR(14), IN TEL_DOIS VARCHAR(14), IN CEL_RESP VARCHAR(14), IN EMAIL_RESP VARCHAR(50), IN CPF_RESP VARCHAR(14))
+BEGIN
+INSERT INTO tb_responsavel (NOME_RESP, RESP_DOIS, COD_END, TEL_RESP, TEL_DOIS, CEL_RESP, EMAIL_RESP, CPF_RESP)
+VALUES (NOME_RESP, RESP_DOIS, COD_END, TEL_RESP, TEL_DOIS, CEL_RESP, EMAIL_RESP, CPF_RESP);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_AGENDA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_AGENDA`()
+BEGIN
+SELECT *FROM tb_agenda;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_ANAMNESES` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_ANAMNESES`()
+BEGIN
+SELECT *FROM tb_anamneses;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_CARGO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_CARGO`()
+BEGIN
+SELECT * FROM tb_cargo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_EMPRESA` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_EMPRESA`()
+BEGIN
+SELECT *FROM tb_empresa;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_ESPECIALIDADE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_ESPECIALIDADE`()
+BEGIN
+SELECT * FROM tb_especialidade;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_ESTOQUE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_ESTOQUE`()
+BEGIN
+SELECT *FROM tb_estoque;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_EXAME` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_EXAME`()
+BEGIN
+SELECT *FROM TB_EXAME;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_FUNCIONARIO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_FUNCIONARIO`()
+BEGIN
+SELECT *FROM tb_funcionario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_MEDICO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_MEDICO`()
+BEGIN
+SELECT *FROM tb_medico;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_PACIENTE` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_PACIENTE`()
+BEGIN
+SELECT *FROM tb_paciente;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_PAGAMENTO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_PAGAMENTO`()
+BEGIN
+SELECT *FROM tb_pagamento;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_RECIBO` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_RECIBO`()
+BEGIN
+SELECT *FROM tb_recibo;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR_RESPONSAVEL` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR_RESPONSAVEL`()
+BEGIN
+SELECT *FROM tb_responsavel;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `LISTAR__ENDPAC` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTAR__ENDPAC`()
+BEGIN
+	SELECT * FROM tb_endpac;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-06-12 21:36:59

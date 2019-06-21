@@ -9,47 +9,31 @@ namespace ProjetoTCC.Models.Data
 {
     public class LoginData
     {
-        MySqlDataReader dr;
 
-        public bool LoginFunc(Login login)
+        public void LoginFunc(Login login)
         {
-            try
-            {
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            msc.Open();
 
-                MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
-                msc.Open();
+            MySqlCommand cmd = new MySqlCommand("INSERIR_LOGIN", msc);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-                MySqlCommand cmd = new MySqlCommand("INSERIR_LOGIN", msc);
-                cmd.CommandType = CommandType.StoredProcedure;
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@LOGIN", login.LOGIN);
-                    cmd.Parameters.AddWithValue("@SENHA", login.SENHA);
-                    dr = cmd.ExecuteReader();
-                    if (dr.Read())
-                    {
-                        return true;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@LOGIN", login.LOGIN);
+            cmd.Parameters.AddWithValue("@SENHA", login.SENHA);
+            cmd.Parameters.AddWithValue("@COD_PAC", login.COD_PAC);
+            cmd.Parameters.AddWithValue("@COD_MED", login.COD_MED);
+            cmd.Parameters.AddWithValue("@COD_RESP", login.COD_RESP);
+            cmd.Parameters.AddWithValue("@COD_FUNC", login.COD_FUNC);
+            cmd.ExecuteReader();
 
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                dr.Close();
-            }
+            msc.Close();
+
         }
 
 
 
-        public string RetornaNomeFunc(string LOGIN)
+        /*public string RetornaNomeFunc(string LOGIN)
         {
             Login login = new Login();
             Funcionario funcionario = new Funcionario();
@@ -107,7 +91,7 @@ namespace ProjetoTCC.Models.Data
             {
                 throw;
             }
-        }
+        }*/
 
     }
 }
