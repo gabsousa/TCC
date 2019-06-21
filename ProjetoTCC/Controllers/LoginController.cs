@@ -5,17 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Session;
+using ProjetoTCC.Models;
 
 namespace ProjetoTCC.Controllers
 {
     public class LoginController : Controller
     {
+        Login aA = new Login();
+
+        public object LOGIN { get; private set; }
        
         public ActionResult TelaLogin()
         {
-            //HttpContext.Session.SetString("Login", Models.Data.);
-            //HttpContext.Session.SetString("Nome_Usuario", classeLogin.NOME);
-
             return View();
         }
 
@@ -26,15 +27,35 @@ namespace ProjetoTCC.Controllers
 
             //se usuário for válido preenhcer a session
 
-            Models.Login classeLogin = new Models.Login();
-            classeLogin.LOGIN = "gabriela";
-            classeLogin.NOME = "Gabriela Aguiar";
+            //Models.Login classeLogin = new Models.Login();
+            //classeLogin.LOGIN = "LOGIN";
+            //classeLogin.NOME = "COD_FUNC";
 
-            HttpContext.Session.SetString("Login", classeLogin.LOGIN);
-            HttpContext.Session.SetString("Nome_Usuario", classeLogin.NOME);
+            //HttpContext.Session.SetString("Login", classeLogin.LOGIN);
+            //HttpContext.Session.SetString("Nome_Usuario", classeLogin.NOME);
 
             return View();
         }
+
+        //public ActionResult VerificarLogin()
+        //{
+        //    //aA.TestarUsuario(u);
+
+        //    //if (u.LOGIN !=null && u.ds_SENHA !=null)
+        //    //{
+        //    //    FormsAuthentication.SetAuthCookie(u.LOGIN, false);
+        //    //    Session["usuarioLogado"] = u.LOGIN.ToString();
+        //    //    Session["senhaLogado"] = u.ds_SENHA.ToString();
+
+        //    //    return RedirectToaction("TelaMenu", "Login");
+        //    //}
+        //    //else
+        //    //{
+        //    //    return RedirectToAction("Login", "Login");
+        //    //}
+
+        //    //return View();
+        //}
 
         // GET: Login
         public ActionResult Index()
@@ -116,6 +137,13 @@ namespace ProjetoTCC.Controllers
                 return View();
             }
         }
+
+        //public ActionResult Logout()
+        //{
+        //    Session["usuarioLogado"] = null;
+        //    return RedirectToAction("Login", "Login");
+
+        //}
     }
 }
 

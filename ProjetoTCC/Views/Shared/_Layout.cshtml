@@ -25,9 +25,6 @@
     <div class="appointment now">
         @RenderBody()
 
-
-
-
         @if (Context.Session.GetString("Login") != null)
         {
             <label>Olá Prezado usuário  @Context.Session.GetString("Nome_Usuario")</label>
