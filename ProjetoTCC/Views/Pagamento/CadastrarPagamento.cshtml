@@ -4,64 +4,220 @@
     ViewData["Title"] = "CadastrarPagamento";
 }
 
-<h2>CadastrarPagamento</h2>
+<link href="~/css/bootstrap2.min.css" rel="stylesheet" id="bootstrap-css">
+<script type="text/javascript" src="~/js/bootstrap2.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="~/js/jquery-1.11.1.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<h4>Pagamento</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CadastrarPagamento">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="COD_PGTO" class="control-label"></label>
-                <input asp-for="COD_PGTO" class="form-control" />
-                <span asp-validation-for="COD_PGTO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FORMA_PGTO" class="control-label"></label>
-                <input asp-for="FORMA_PGTO" class="form-control" />
-                <span asp-validation-for="FORMA_PGTO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TIPO_PGTO" class="control-label"></label>
-                <input asp-for="TIPO_PGTO" class="form-control" />
-                <span asp-validation-for="TIPO_PGTO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TIPO_CARTAO" class="control-label"></label>
-                <input asp-for="TIPO_CARTAO" class="form-control" />
-                <span asp-validation-for="TIPO_CARTAO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="QTD_PARCELA" class="control-label"></label>
-                <input asp-for="QTD_PARCELA" class="form-control" />
-                <span asp-validation-for="QTD_PARCELA" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VALOR" class="control-label"></label>
-                <input asp-for="VALOR" class="form-control" />
-                <span asp-validation-for="VALOR" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="STATUS_PGTO" class="control-label"></label>
-                <input asp-for="STATUS_PGTO" class="form-control" />
-                <span asp-validation-for="STATUS_PGTO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OBS_PGTO" class="control-label"></label>
-                <input asp-for="OBS_PGTO" class="form-control" />
-                <span asp-validation-for="OBS_PGTO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Cadastrar" class="btn btn-default" />
-            </div>
-        </form>
+<nav>
+    <!-- Menu Toggle btn-->
+    <div class="menu-toggle">
+        <h3>Menu</h3>
+        <button type="button" id="menu-btn">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
     </div>
-</div>
+    <!-- Responsive Menu Structure-->
+    <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+    <ul id="respMenu" class="ace-responsive-menu" data-menu-style="vertical">
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="title">Menu Principal</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Paciente" asp-action="ListaPaciente">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Paciente</span>
 
-<div>
-    <a asp-action="Index">Voltar para a lista</a>
-</div>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Medico" asp-action="ListaMedico">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Médico</span>
+
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Especialidade Médico</span>
+
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Anamneses" asp-action="ListaAnamneses">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Anamneses Paciente</span>
+
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Exame" asp-action="ListaExame">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Exame Paciente</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Agenda" asp-action="ListaAgenda">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Agenda</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Pagamento" asp-action="ListaPagamento">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Pagamento</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="RcbPagamento" asp-action="ListaPagamento">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Recibo Pagamento</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Exame" asp-action="ListaExame">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Exame</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Funcionario" asp-action="ListaFuncionario">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Funcionário</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Estoque" asp-action="ListaEstoque">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Estoque</span>
+            </a>
+        </li>
+
+    </ul>
+</nav>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#respMenu").aceResponsiveMenu({
+            resizeWidth: '768', // Set the same in Media query
+            animationSpeed: 'fast', //slow, medium, fast
+            accoridonExpAll: false //Expands all the accordion menu on click
+        });
+    });
+
+
+</script>
+
+<!------ Include the above in your HEAD tag ---------->
+<style>
+    section {
+        display: inline-block;
+    }
+</style>
+
+<section>
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="well lead" style="margin-left:1%;">Pagamento</p>
+                    <div class="container">
+                        <div class="row">
+                            <!-- div da esquerda -->
+
+                            <div class="col-sm-8 contact-form">
+                                <!-- div da direita -->
+                                <form id="contact" method="post" class="form" role="form">
+                                    <div class="row">
+                                        <div class="col-xs-4 col-md-3 form-group" style="width:29%;">
+                                            <div class="controls">
+                                                <select asp-for="FORMA_PGTO" class="form-control">
+                                                    <option>Forma de Pagamento</option>
+                                                    <option value="1">Dinheiro</option>
+                                                    <option value="2">Cheque</option>
+                                                    <option value="3">Cartão de Débito</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group" style="width:29%;">
+                                            <div class="controls">
+                                                <select asp-for="TIPO_PGTO" class="form-control">
+                                                    <option>Tipo de Pagamento</option>
+                                                    <option value="1">À Vista</option>
+                                                    <option value="2">Parcelado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-md-3 form-group" style="width:32%;">
+                                            <div class="controls">
+                                                <select asp-for="QTD_PARCELA" class="form-control">
+                                                    <option>Quantidade de Parcelas </option>
+                                                    <option value="1">1x sem juros</option>
+                                                    <option value="2">2x sem juros</option>
+                                                    <option value="3">3x sem juros </option>
+                                                    <option value="4">4x sem juros</option>
+                                                    <option value="5">5x com juros</option>
+                                                    <option value="6">6x com juros</option>
+                                                    <option value="7">7x com juros</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <div class="controls">
+                                                <select asp-for="TIPO_CARTAO" class="form-control">
+                                                    <option>Tipo de Cartão</option>
+                                                    <option value="1">Débito</option>
+                                                    <option value="2">Crédito</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-md-12 form-group">
+                                            <input asp-for="VALOR" class="form-control" placeholder="Valor Total do Serviço (R$)" />
+                                            <span asp-validation-for="VALOR" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-xs-4 col-md-3 form-group" style="width:28%;">
+                                            <div class="controls">
+                                                <select asp-for="STATUS_PGTO" class="form-control">
+                                                    <option>Status do Pagamento</option>
+                                                    <option value="1">Pago</option>
+                                                    <option value="2">Em Débito</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-md-12 form-group">
+                                            <div class="controls">
+                                                <textarea class="form-control" id="message" name="message" placeholder="Deixe sua observação sobre esse Pagamento." rows="5"></textarea>
+                                            </div>
+                                        </div>
+                                        <br />
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-12 form-group" style="margin-left:2%;">
+                                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                                <button type="submit" class="btn btn-primary">Limpar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+</form>
+                                
+                            </div> <!-- fim div da direita -->
+                        </div> <!-- fim div da esquerda -->
+                    </div>
+                    <p class="well lead" style="margin-left:1%;">© 2019 Omega IT Developers Systems </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

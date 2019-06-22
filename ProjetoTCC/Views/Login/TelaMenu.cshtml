@@ -24,14 +24,14 @@
             </a>
         </li>
         <li>
-            <a href="">
+            <a asp-controller="Paciente" asp-action="ListaPaciente" >
                 <i class="fa fa-cube" aria-hidden="true"></i>
                 <span class="title">Paciente</span>
 
             </a>
         </li>
         <li>
-            <a href="">
+            <a asp-controller="Medico" asp-action="ListaMedico">
                 <i class="fa fa-cube" aria-hidden="true"></i>
                 <span class="title">Médico</span>
 
@@ -40,41 +40,60 @@
         <li>
             <a href="">
                 <i class="fa fa-cube" aria-hidden="true"></i>
-                <span class="title">Especialidade do Médico</span>
-
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <i class="fa fa-cube" aria-hidden="true"></i>
-                <span class="title">Anamneses</span>
-
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <i class="fa fa-crop" aria-hidden="true"></i>
-                <span class="title">Médico</span>
-            </a>
-
-            <a class="" href="javascript:;">
-                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                 <span class="title">Especialidade Médico</span>
 
             </a>
         </li>
         <li>
-            <a href="javascript:;">
-                <i class="fa fa-heart" aria-hidden="true"></i>
-                <span class="title">Lista</span>
+            <a asp-controller="Anamneses" asp-action="ListaAnamneses">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Anamneses Paciente</span>
+
             </a>
         </li>
-        <li class="last ">
-            <a href="javascript:;">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span class="title">Contatos</span>
+        <li>
+            <a asp-controller="Exame" asp-action="ListaExame">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Exame Paciente</span>
             </a>
         </li>
+        <li>
+            <a asp-controller="Agenda" asp-action="ListaAgenda">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Agenda</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Pagamento" asp-action="ListaPagamento">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Pagamento</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="RcbPagamento" asp-action="ListaPagamento">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Recibo Pagamento</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Exame" asp-action="ListaExame">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Exame</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Funcionario" asp-action="ListaFuncionario">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Funcionário</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Estoque" asp-action="ListaEstoque">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Estoque</span>
+            </a>
+        </li>
+        
     </ul>
 </nav>
 <script type="text/javascript">
