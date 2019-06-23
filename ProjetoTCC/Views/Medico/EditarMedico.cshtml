@@ -4,80 +4,217 @@
     ViewData["Title"] = "EditarMedico";
 }
 
-<h2>EditarMedico</h2>
+<link href="~/css/bootstrap2.min.css" rel="stylesheet" id="bootstrap-css">
+<script type="text/javascript" src="~/js/bootstrap2.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="~/js/jquery-1.11.1.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<h4>Medico</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="EditarMedico">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="COD_MED" class="control-label"></label>
-                <input asp-for="COD_MED" class="form-control" />
-                <span asp-validation-for="COD_MED" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NOME_MED" class="control-label"></label>
-                <input asp-for="NOME_MED" class="form-control" />
-                <span asp-validation-for="NOME_MED" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TEL_MED" class="control-label"></label>
-                <input asp-for="TEL_MED" class="form-control" />
-                <span asp-validation-for="TEL_MED" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CEL_MED" class="control-label"></label>
-                <input asp-for="CEL_MED" class="form-control" />
-                <span asp-validation-for="CEL_MED" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EMAIL_MED" class="control-label"></label>
-                <input asp-for="EMAIL_MED" class="form-control" />
-                <span asp-validation-for="EMAIL_MED" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CPF_MED" class="control-label"></label>
-                <input asp-for="CPF_MED" class="form-control" />
-                <span asp-validation-for="CPF_MED" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CRM" class="control-label"></label>
-                <input asp-for="CRM" class="form-control" />
-                <span asp-validation-for="CRM" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VALIDADE_CRM" class="control-label"></label>
-                <input asp-for="VALIDADE_CRM" class="form-control" />
-                <span asp-validation-for="VALIDADE_CRM" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SEXO_MED" class="control-label"></label>
-                <input asp-for="SEXO_MED" class="form-control" />
-                <span asp-validation-for="SEXO_MED" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="COD_ESPEC" class="control-label"></label>
-                <input asp-for="COD_ESPEC" class="form-control" />
-                <span asp-validation-for="COD_ESPEC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="COD_CARGO" class="control-label"></label>
-                <input asp-for="COD_CARGO" class="form-control" />
-                <span asp-validation-for="COD_CARGO" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-default" />
-            </div>
-        </form>
+<nav>
+    <!-- Menu Toggle btn-->
+    <div class="menu-toggle">
+        <h3>Menu</h3>
+        <button type="button" id="menu-btn">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
     </div>
-</div>
+    <!-- Responsive Menu Structure-->
+    <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+    <ul id="respMenu" class="ace-responsive-menu" data-menu-style="vertical">
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="title">Menu Principal</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Paciente" asp-action="ListaPaciente">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Paciente</span>
 
-<div>
-    <a asp-action="ListaMedico">Voltar para a lista</a>
-</div>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Medico" asp-action="ListaMedico">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Médico</span>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Especialidade Médico</span>
+
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Anamneses" asp-action="ListaAnamneses">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Anamneses Paciente</span>
+
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Exame" asp-action="ListaExame">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Exame Paciente</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Agenda" asp-action="ListaAgenda">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Agenda</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Pagamento" asp-action="ListaPagamento">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Pagamento</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="RcbPagamento" asp-action="ListaPagamento">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Recibo Pagamento</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Exame" asp-action="ListaExame">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Exame</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Funcionario" asp-action="ListaFuncionario">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Funcionário</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Estoque" asp-action="ListaEstoque">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Estoque</span>
+            </a>
+        </li>
+
+    </ul>
+</nav>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#respMenu").aceResponsiveMenu({
+            resizeWidth: '768', // Set the same in Media query
+            animationSpeed: 'fast', //slow, medium, fast
+            accoridonExpAll: false //Expands all the accordion menu on click
+        });
+    });
+
+
+</script>
+
+<!------ Include the above in your HEAD tag ---------->
+<style>
+    section {
+        display: inline-block;
+    }
+</style>
+
+<section>
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="well lead" style="margin-left:1%;">Alterar Médico</p>
+                    <div class="container">
+                        <div class="row">
+                            <!-- div da esquerda -->
+
+                            <div class="col-sm-8 contact-form">
+                                <!-- div da direita -->
+                                <form id="contact" method="post" class="form" role="form">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-12 form-group">
+                                            <input asp-for="NOME_MED" class="form-control" placeholder="Nome" />
+                                            <span asp-validation-for="NOME_MED" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="TEL_MED" class="form-control" placeholder="Telefone" data-mask="(00) 00000-0000" />
+                                            <span asp-validation-for="TEL_MED" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="CEL_MED" class="form-control" placeholder="Celular" />
+                                            <span asp-validation-for="CEL_MED" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-12 form-group">
+                                            <input asp-for="EMAIL_MED" class="form-control" placeholder="email@exemplo.com" />
+                                            <span asp-validation-for="EMAIL_MED" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-6 form-group">
+                                            <input asp-for="CPF_MED" class="form-control" placeholder="CPF" />
+                                            <span asp-validation-for="CPF_MED" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-6 form-group">
+                                            <input asp-for="CRM" class="form-control" placeholder="CRM" />
+                                            <span asp-validation-for="CRM" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-6 form-group">
+                                            <input asp-for="VALIDADE_CRM" class="form-control" placeholder="Validade do CRM __/__/____" />
+                                            <span asp-validation-for="VALIDADE_CRM" class="text-danger"></span>
+                                        </div>
+
+                                        <label class="control-label col-sm-1">Gênero</label>
+                                        <div class="col-sm-1">
+                                            <label class="radio-inline">
+                                                <input type="radio" asp-for="SEXO_MED" value="F">Feminino
+                                                <input type="radio" asp-for="SEXO_MED" value="M">Masculino
+                                            </label>
+                                        </div>
+
+                                    </div> <!-- fim row -->
+                                    <!-- Text input endereco-->
+                                    <div class="col-xs-4 col-md-3 form-group">
+                                        <div class="controls">
+                                            <select asp-for="COD_CARGO" class="form-control">
+                                                <option>Cargo</option>
+                                                <option value="1">Médico</option>
+                                                <option value="2">Funcionário</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-4 col-md-3 form-group">
+                                        <div class="controls">
+                                            <select asp-for="COD_ESPEC" class="form-control">
+                                                <option>Especialidade</option>
+                                                <option value="1">Psicólogo</option>
+                                                <option value="2">Clínico Geral</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 form-group">
+                                            <button type="submit" class="btn btn-primary">Alterar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> <!-- fim div da direita -->
+                        </div> <!-- fim div da esquerda -->
+                    </div>
+                    <p class="well lead" style="margin-left:1%;">© 2019 Omega IT Developers Systems</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

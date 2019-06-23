@@ -11,34 +11,34 @@ namespace ProjetoTCC.Models
         [DisplayName("Código do Médico")]
         public int COD_MED { get; set; }
 
-        [DisplayName("Nome do Médico")]
+        [DisplayName("Nome")]
         public string NOME_MED { get; set; }
 
-        [DisplayName("Telefone do Médico")]
+        [DisplayName("Telefone")]
         public int TEL_MED { get; set; }
 
-        [DisplayName("Celular do Médico")]
+        [DisplayName("Celular")]
         public int CEL_MED { get; set; }
 
-        [DisplayName("Email do Médico")]
+        [DisplayName("Email")]
         public string EMAIL_MED { get; set; }
 
-        [DisplayName("CPF do Médico")]
-        public int CPF_MED { get; set; }
+        [DisplayName("CPF")]
+        public string CPF_MED { get; set; }
 
-        [DisplayName("CRM do Médico")]
+        [DisplayName("CRM")]
         public string CRM { get; set; }
 
         [DisplayName("Validade do CRM")]
         public DateTime VALIDADE_CRM { get; set; }
 
-        [DisplayName("Sexo do Médico")]
+        [DisplayName("Sexo")]
         public string SEXO_MED { get; set; }
 
-        [DisplayName("Especialidade do Médico")] //FOREIGN KEY
+        [DisplayName("Especialidade")] //FOREIGN KEY
         public int COD_ESPEC { get; set; }
 
-        [DisplayName("Código do Cargo")] // FOREIGN KEY
+        [DisplayName("Cargo")] // FOREIGN KEY
         public int COD_CARGO { get; set; }
     }
 }
