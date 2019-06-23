@@ -4,101 +4,245 @@
     ViewData["Title"] = "DeletarPaciente";
 }
 
-<h2>DeletarPaciente</h2>
+<link href="~/css/bootstrap2.min.css" rel="stylesheet" id="bootstrap-css">
+<script type="text/javascript" src="~/js/bootstrap2.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="~/js/jquery-1.11.1.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<h3>Você tem certeza disso?</h3>
-<div>
-    <h4>Paciente</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NOME_PAC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NOME_PAC)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DATANASC_PAC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DATANASC_PAC)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SEXO_PAC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SEXO_PAC)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.IDADE_PAC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IDADE_PAC)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.NOME_RESP)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NOME_RESP)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TEL_RESP)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TEL_RESP)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CEL_RESP)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CEL_RESP)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RESP_DOIS)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RESP_DOIS)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TEL_DOIS)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TEL_DOIS)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.EMAIL_RESP)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.EMAIL_RESP)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RUA_PAC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RUA_PAC)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.NUM_PAC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NUM_PAC)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CEP_PAC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IDADE_PAC)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.IDADE_PAC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.IDADE_PAC)
-        </dd>
-    </dl>
-    
-    <form asp-action="DeletarPaciente">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+<nav>
+    <!-- Menu Toggle btn-->
+    <div class="menu-toggle">
+        <h3>Menu</h3>
+        <button type="button" id="menu-btn">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <!-- Responsive Menu Structure-->
+    <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+    <ul id="respMenu" class="ace-responsive-menu" data-menu-style="vertical">
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="title">Menu Principal</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Paciente" asp-action="ListaPaciente">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Paciente</span>
+
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Medico" asp-action="ListaMedico">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Médico</span>
+
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Especialidade Médico</span>
+
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Anamneses" asp-action="ListaAnamneses">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Anamneses Paciente</span>
+
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Exame" asp-action="ListaExame">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Exame Paciente</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Agenda" asp-action="ListaAgenda">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Agenda</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Pagamento" asp-action="ListaPagamento">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Pagamento</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="RcbPagamento" asp-action="ListaPagamento">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Recibo Pagamento</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Exame" asp-action="ListaExame">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Exame</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Funcionario" asp-action="ListaFuncionario">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Funcionário</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Estoque" asp-action="ListaEstoque">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Estoque</span>
+            </a>
+        </li>
+
+    </ul>
+</nav>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#respMenu").aceResponsiveMenu({
+            resizeWidth: '768', // Set the same in Media query
+            animationSpeed: 'fast', //slow, medium, fast
+            accoridonExpAll: false //Expands all the accordion menu on click
+        });
+    });
+
+
+</script>
+
+<!------ Include the above in your HEAD tag ---------->
+<style>
+    section {
+        display: inline-block;
+    }
+</style>
+
+<section>
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="well lead" style="margin-left:1%;">Deletar Paciente</p>
+                    <div class="container">
+                        <div class="row">
+                            <!-- div da esquerda -->
+
+                            <div class="col-sm-8 contact-form">
+                                <!-- div da direita -->
+                                <form id="contact" method="post" class="form" role="form">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-12 form-group">
+                                            <input asp-for="NOME_PAC" class="form-control" placeholder="Nome" readonly />
+                                            <span asp-validation-for="NOME_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-4 form-group">
+                                            <input asp-for="DATANASC_PAC" type="date" class="form-control" readonly />
+                                            <span asp-validation-for="DATANASC_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-2 form-group">
+                                            <input asp-for="IDADE_PAC" class="form-control" placeholder="Idade" readonly />
+                                            <span asp-validation-for="IDADE_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <label class="control-label col-sm-1">Gênero</label>
+                                        <div class="col-sm-1">
+                                            <label class="radio-inline">
+                                                <input type="radio" asp-for="SEXO_PAC" value="F" readonly>Feminino
+                                                <input type="radio" asp-for="SEXO_PAC" value="M" readonly>Masculino
+                                            </label>
+                                            <br />
+                                            <br />
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-6 form-group" style="margin-left">
+                                            <input asp-for="NOME_RESP" class="form-control" placeholder="Nome do Responsável" readonly />
+                                            <span asp-validation-for="NOME_RESP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="TEL_RESP" class="form-control" placeholder="Telefone" readonly />
+                                            <span asp-validation-for="TEL_RESP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="CEL_RESP" class="form-control" placeholder="Celular" readonly />
+                                            <span asp-validation-for="CEL_RESP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-6 form-group">
+                                            <input asp-for="RESP_DOIS" class="form-control" placeholder="Nome do Responsável 2" readonly />
+                                            <span asp-validation-for="RESP_DOIS" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="TEL_DOIS" data-mask="(00) 00000-0000" class="form-control" placeholder="Telefone 2" readonly />
+                                            <span asp-validation-for="TEL_DOIS" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-10 form-group">
+                                            <input asp-for="EMAIL_RESP" class="form-control" placeholder="email@exemplo.com" readonly />
+                                            <span asp-validation-for="EMAIL_RESP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-4 form-group">
+                                            <input asp-for="CPF_RESP" class="form-control" placeholder="CPF do Responsável" readonly />
+                                            <span asp-validation-for="CPF_RESP" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-10 form-group">
+                                            <input asp-for="RUA_PAC" class="form-control" placeholder="Rua" readonly />
+                                            <span asp-validation-for="RUA_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-2 form-group">
+                                            <input asp-for="NUM_PAC" class="form-control" placeholder="Número" readonly />
+                                            <span asp-validation-for="NUM_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-3 form-group">
+                                            <input asp-for="CEP_PAC" class="form-control" placeholder="CEP" readonly />
+                                            <span asp-validation-for="CEP_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-4 form-group">
+                                            <input asp-for="BAIRRO_PAC" class="form-control" placeholder="Bairro" readonly />
+                                            <span asp-validation-for="BAIRRO_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-4 form-group">
+                                            <input asp-for="MUN_PAC" class="form-control" placeholder="Município" readonly />
+                                            <span asp-validation-for="MUN_PAC" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-xs-4 col-md-2 form-group">
+                                            <input asp-for="UF_PAC" class="form-control" placeholder="UF" readonly />
+                                            <span asp-validation-for="UF_PAC" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 form-group">
+                                            <button type="submit" class="btn btn-primary">Deletar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> <!-- fim div da direita -->
+                        </div> <!-- fim div da esquerda -->
+                    </div>
+                    <p class="well lead" style="margin-left:1%;">© 2019 Omega IT Developers Systems</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

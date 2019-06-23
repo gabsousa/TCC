@@ -63,7 +63,7 @@ namespace ProjetoTCC.Controllers
             Models.Data.FuncionarioData fd = new Models.Data.FuncionarioData();
             fd.EditarFuncionario(collection);
 
-            return RedirectToAction(nameof(EditarFuncionario));
+            return RedirectToAction(nameof(ListaFuncionario));
         }
 
         // GET: Funcionario/Delete/5

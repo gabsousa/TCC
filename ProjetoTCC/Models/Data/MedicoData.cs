@@ -57,7 +57,7 @@ namespace ProjetoTCC.Models.Data
                 item.TEL_MED = int.Parse(dr["TEL_MED"].ToString());
                 item.CEL_MED = int.Parse(dr["CEL_MED"].ToString());
                 item.EMAIL_MED = dr["EMAIL_MED"].ToString();
-                item.CPF_MED = int.Parse(dr["CPF_MED"].ToString());
+                item.CPF_MED = dr["CPF_MED"].ToString();
                 item.CRM = dr["CRM"].ToString();
                 item.VALIDADE_CRM = DateTime.Parse(dr["VALIDADE_CRM"].ToString());
                 item.SEXO_MED = dr["SEXO_MED"].ToString();
@@ -93,7 +93,7 @@ namespace ProjetoTCC.Models.Data
                 item.TEL_MED = int.Parse(ds.Tables[0].Rows[0]["TEL_MED"].ToString());
                 item.CEL_MED = int.Parse(ds.Tables[0].Rows[0]["CEL_MED"].ToString());
                 item.EMAIL_MED = ds.Tables[0].Rows[0]["EMAIL_MED"].ToString();
-                item.CPF_MED = int.Parse(ds.Tables[0].Rows[0]["CPF_MED"].ToString());
+                item.CPF_MED = ds.Tables[0].Rows[0]["CPF_MED"].ToString();
                 item.CRM = ds.Tables[0].Rows[0]["CRM"].ToString();
                 item.VALIDADE_CRM = DateTime.Parse(ds.Tables[0].Rows[0]["VALIDADE_CRM"].ToString());
                 item.SEXO_MED = ds.Tables[0].Rows[0]["SEXO_MED"].ToString();
@@ -134,7 +134,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("call DELETAR_MEDICO (" + COD_MED + ");", msc);
+            MySqlCommand cmd = new MySqlCommand("delete from tb_medico where COD_MED = " + COD_MED, msc);
             cmd.ExecuteNonQuery();
 
             msc.Close();
