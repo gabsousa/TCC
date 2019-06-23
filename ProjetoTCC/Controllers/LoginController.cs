@@ -48,7 +48,7 @@ namespace ProjetoTCC.Controllers
             {
                 //FormsAuthentication.SetAuthCookie(u.LOGIN, false);
                 HttpContext.Session.SetString("Login", u.LOGIN);
-                HttpContext.Session.SetString("Nome_Usuario", u.NOME);
+                //HttpContext.Session.SetString("Nome_Usuario", u.NOME);
 
                 //Session["usuarioLogado"] = u.LOGIN.ToString();
                 //Session["senhaLogado"] = u.SENHA.ToString();

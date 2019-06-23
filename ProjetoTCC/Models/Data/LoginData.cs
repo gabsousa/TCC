@@ -39,7 +39,6 @@ namespace ProjetoTCC.Models.Data
             //MySqlCommand cmd = new MySqlCommand("select * from tbUsuario where nm_usuario = @Usuario and ds_senha = @Senha",
 
             MySqlCommand cmd = new MySqlCommand("select * from tb_login where LOGIN = @LOGIN and SENHA = @SENHA", msc);
-            cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@LOGIN", MySqlDbType.VarChar).Value = login.LOGIN;
             cmd.Parameters.Add("@SENHA", MySqlDbType.VarChar).Value = login.SENHA;
