@@ -6671,3 +6671,9 @@ h6 {
 .item-padding {
     padding: 40px 20px
 }
+
+.footer {
+    width: 101%;
+    margin: -0% -1%;
+    margin-bottom: -1%;
+}

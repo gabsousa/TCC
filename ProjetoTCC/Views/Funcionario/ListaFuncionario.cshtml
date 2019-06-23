@@ -4,50 +4,191 @@
     ViewData["Title"] = "ListaFuncionario";
 }
 
-<h2>ListaFuncionario</h2>
+<link href="~/css/bootstrap2.min.css" rel="stylesheet" id="bootstrap-css">
+<script type="text/javascript" src="~/js/bootstrap2.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="~/js/jquery-1.11.1.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<p>
-    <a asp-action="CadastrarFuncionario">Cadastrar</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NOME_FUNC)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TEL_FUNC)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CEL_FUNC)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EMAIL_FUNC)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NOME_FUNC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TEL_FUNC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CEL_FUNC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EMAIL_FUNC)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "EditarFuncionario", new { id=item.COD_FUNC }) |
-                @Html.ActionLink("Detalhes", "DetalhesFuncionario", new { id=item.COD_FUNC }) |
-                @Html.ActionLink("Deletar", "DeletarFuncionario", new { id=item.COD_FUNC })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<nav>
+    <!-- Menu Toggle btn-->
+    <div class="menu-toggle">
+        <h3>Menu</h3>
+        <button type="button" id="menu-btn">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <!-- Responsive Menu Structure-->
+    <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+    <ul id="respMenu" class="ace-responsive-menu" data-menu-style="vertical">
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="title">Menu Principal</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Paciente" asp-action="ListaPaciente">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Paciente</span>
+
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Medico" asp-action="ListaMedico">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Médico</span>
+
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Especialidade Médico</span>
+
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Anamneses" asp-action="ListaAnamneses">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                <span class="title">Anamneses Paciente</span>
+
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Exame" asp-action="ListaExame">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Exame Paciente</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Agenda" asp-action="ListaAgenda">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Agenda</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Pagamento" asp-action="ListaPagamento">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Pagamento</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="RcbPagamento" asp-action="ListaPagamento">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Recibo Pagamento</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Exame" asp-action="ListaExame">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Exame</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Funcionario" asp-action="ListaFuncionario">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Funcionário</span>
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Estoque" asp-action="ListaEstoque">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Estoque</span>
+            </a>
+        </li>
+
+    </ul>
+</nav>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#respMenu").aceResponsiveMenu({
+            resizeWidth: '768', // Set the same in Media query
+            animationSpeed: 'fast', //slow, medium, fast
+            accoridonExpAll: false //Expands all the accordion menu on click
+        });
+    });
+
+
+</script>
+
+<!------ Include the above in your HEAD tag ---------->
+<style>
+    section {
+        display: inline-block;
+    }
+</style>
+
+<section>
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="well lead" style="margin-left:1%;">Funcionários Cadastrados</p>
+                    <div class="container">
+                        <div class="row">
+                            <!-- div da esquerda -->
+
+                            <div class="col-sm-8 contact-form">
+                                <!-- div da direita -->
+                                <form id="contact" method="post" class="form" role="form">
+                                    <p>
+                                        <a asp-action="CadastrarFuncionario">Cadastrar</a>
+                                    </p>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.NOME_FUNC)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.TEL_FUNC)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.CEL_FUNC)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.EMAIL_FUNC)
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.NOME_FUNC)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.TEL_FUNC)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CEL_FUNC)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.EMAIL_FUNC)
+                                                    </td>
+                                                    <td>
+                                                        @Html.ActionLink("Editar", "EditarFuncionario", new { id = item.COD_FUNC }) |
+                                                        @Html.ActionLink("Detalhes", "DetalhesFuncionario", new { id = item.COD_FUNC }) |
+                                                        @Html.ActionLink("Deletar", "DeletarFuncionario", new { id = item.COD_FUNC })
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div> <!-- fim div da direita -->
+                        </div> <!-- fim div da esquerda -->
+                    </div>
+                    <p class="well lead" style="margin-left:1%;">© 2019 Omega IT Developers Systems</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
