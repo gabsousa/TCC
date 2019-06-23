@@ -15,10 +15,10 @@ namespace ProjetoTCC.Models
         public string NOME_FUNC { get; set; }
 
         [DisplayName("Telefone do Funcionário")]
-        public int TEL_FUNC { get; set; }
+        public string TEL_FUNC { get; set; }
 
         [DisplayName("Celular do Funcionário")]
-        public int CEL_FUNC { get; set; }
+        public string CEL_FUNC { get; set; }
 
         [DisplayName("Email do Funcionário")]
         public string EMAIL_FUNC { get; set; }

@@ -49,8 +49,8 @@ namespace ProjetoTCC.Models.Data
 
                 item.COD_FUNC = int.Parse(dr["COD_FUNC"].ToString());
                 item.NOME_FUNC = dr["NOME_FUNC"].ToString();    
-                item.TEL_FUNC = int.Parse(dr["TEL_FUNC"].ToString());
-                item.CEL_FUNC = int.Parse(dr["CEL_FUNC"].ToString());
+                item.TEL_FUNC = dr["TEL_FUNC"].ToString();
+                item.CEL_FUNC = dr["CEL_FUNC"].ToString();
                 item.EMAIL_FUNC = dr["EMAIL_FUNC"].ToString();
                 item.COD_CARGO = int.Parse(dr["COD_CARGO"].ToString());
 
@@ -65,7 +65,7 @@ namespace ProjetoTCC.Models.Data
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_funcionario where COD_FUNC" + COD_FUNC, msc);
+            MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_funcionario where COD_FUNC = " + COD_FUNC, msc);
             
             DataSet ds = new DataSet();
             msda.Fill(ds);
@@ -79,9 +79,9 @@ namespace ProjetoTCC.Models.Data
             if (ds.Tables[0].Rows.Count > 0)
             {
                 item.COD_FUNC = int.Parse(ds.Tables[0].Rows[0]["COD_FUNC"].ToString());
-                item.NOME_FUNC = ds.Tables[0].Rows[0]["TEL_FUNC"].ToString();
-                item.TEL_FUNC = int.Parse(ds.Tables[0].Rows[0]["TEL_FUNC"].ToString());
-                item.CEL_FUNC = int.Parse(ds.Tables[0].Rows[0]["CEL_FUNC"].ToString());
+                item.NOME_FUNC = ds.Tables[0].Rows[0]["NOME_FUNC"].ToString();
+                item.TEL_FUNC = ds.Tables[0].Rows[0]["TEL_FUNC"].ToString();
+                item.CEL_FUNC = ds.Tables[0].Rows[0]["CEL_FUNC"].ToString();
                 item.EMAIL_FUNC = ds.Tables[0].Rows[0]["EMAIL_FUNC"].ToString();
                 item.COD_CARGO = int.Parse(ds.Tables[0].Rows[0]["COD_CARGO"].ToString());
             }
