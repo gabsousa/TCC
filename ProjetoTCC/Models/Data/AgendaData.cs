@@ -34,7 +34,7 @@ namespace ProjetoTCC.Models.Data
 
         public List<Agenda> ListaAgenda()
         {
-            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=lore210616; database=bd_clinicare");
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_AGENDA", msc);
