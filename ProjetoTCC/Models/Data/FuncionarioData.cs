@@ -48,7 +48,7 @@ namespace ProjetoTCC.Models.Data
                 Funcionario item = new Funcionario();
 
                 item.COD_FUNC = int.Parse(dr["COD_FUNC"].ToString());
-                item.NOME_FUNC = dr["NOME_FUNC"].ToString();    
+                item.NOME_FUNC = dr["NOME_FUNC"].ToString();
                 item.TEL_FUNC = dr["TEL_FUNC"].ToString();
                 item.CEL_FUNC = dr["CEL_FUNC"].ToString();
                 item.EMAIL_FUNC = dr["EMAIL_FUNC"].ToString();
@@ -66,7 +66,7 @@ namespace ProjetoTCC.Models.Data
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("select * from tb_funcionario where COD_FUNC = " + COD_FUNC, msc);
-            
+
             DataSet ds = new DataSet();
             msda.Fill(ds);
 
@@ -88,7 +88,7 @@ namespace ProjetoTCC.Models.Data
 
             return item;
         }
-                
+
 
         public void EditarFuncionario(Funcionario funcionario)
         {
@@ -109,12 +109,12 @@ namespace ProjetoTCC.Models.Data
             msc.Close();
         }
 
-        public void DeletarFuncionario (int COD_FUNC)
+        public void DeletarFuncionario(int COD_FUNC)
         {
             MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
-            MySqlCommand cmd = new MySqlCommand("call DELETAR_FUNCIONARIO (" + COD_FUNC + ");", msc);
+            MySqlCommand cmd = new MySqlCommand("delete from tb_funcionario where COD_FUNC = " + COD_FUNC, msc);
             cmd.ExecuteNonQuery();
 
             msc.Close();
