@@ -491,7 +491,7 @@ body.mobile-nav-active {
 .banner-area {
     padding: 400px 0 350px;
     background-color: #b0b0b0;
-    background-image: url("../images/pediatra.jpg");
+    /*background-image: url('../images/pediatrialore.jpg');*/
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -3828,7 +3828,7 @@ body.mobile-nav-active {
 .banner-area {
     padding: 400px 0 350px;
     background-color: #b0b0b0;
-    background-image: url("../images/pediatra.jpg");
+    background-image: url('../images/pediatrialore.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
