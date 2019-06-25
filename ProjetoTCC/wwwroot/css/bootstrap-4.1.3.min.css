@@ -9031,11 +9031,7 @@ a.text-dark:focus, a.text-dark:hover {
     visibility: hidden !important
 }
 
-@media print {
-    *, ::after, ::before {
-        text-shadow: none !important;
-        box-shadow: none !important
-    }
+
 
     a:not(.btn) {
         text-decoration: underline

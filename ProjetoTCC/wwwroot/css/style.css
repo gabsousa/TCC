@@ -171,19 +171,10 @@ input:focus, textarea:focus {
     padding-right: 30px
 }
 
-    .sf-arrows .sf-with-ul:after {
-        content: "\f107";
-        position: absolute;
-        right: 15px;
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal
-    }
-
-.sf-arrows ul
+/*.sf-arrows ul
 .sf-with-ul:after {
     content: "\f105"
-}
+}*/
 
 #nav-menu-container {
     margin: 0
@@ -3508,14 +3499,6 @@ input:focus, textarea:focus {
     padding-right: 30px
 }
 
-    .sf-arrows .sf-with-ul:after {
-        content: "\f107";
-        position: absolute;
-        right: 15px;
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal
-    }
 
 .sf-arrows ul
 .sf-with-ul:after {

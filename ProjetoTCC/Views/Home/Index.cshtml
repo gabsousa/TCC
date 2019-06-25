@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Page Title -->
-    <title>Medino</title>
+    <title>Clinicare</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="~/images/favicon.png" type="image/x-icon">
@@ -33,24 +33,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 d-md-flex">
-                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-mobile"></i></span> Ligue! +1 305 708 2563</h6>
-                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-envelope-o"></i></span> medical@example.com</h6>
+                        <h6 class="mr-3"><span class="mr-2"><i class="glyphicon glyphicon-phone-alt"></i></span> Ligue! (11) 3735-4895</h6>
+                        <h6 class="mr-3"><span class="mr-2"><i class="glyphicon glyphicon-envelope"></i></span> atendimento@imunocare.com.br</h6>
                         <h6>
                             <span class="mr-2">
                                 <i class="glyphicon glyphicon-map-marker"></i>
-                            </span> Find our Location
+                            </span> Encontre sua Localização
                         </h6>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="social-links">
-                            <ul>
-                                <li><a href="#"><i class="glyphicon glyphicon-pushpin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
                     </div>
-                </div>
             </div>
         </div>
         <div id="header" id="home">
@@ -61,18 +52,22 @@
                     </div>
                     <nav id="nav-menu-container">
                         <ul class="nav-menu">
-                            <li class="menu-active"><a href="index.html">Home</a></li>
-                            <li><a href="departments.html">História</a></li>
-                            <li><a href="doctors.html">Sobre</a></li>
+                            <li class="menu-active"><a href="~/Views/Home/Index.cshtml">Home</a></li>
+                            <li><a href="~/Views/Home/Historia.cshtml">História</a>
+                            </li>
+                            <li><a href="~/Views/Home/About.cshtml">Sobre</a>
+                            </li>
                             <li><a asp-controller="Login" asp-action="TelaLogin">Login</a></li>
-                            <li class="menu-has-children">
-                                <a href="">Médicos</a>
+                            <li>
+                                <a href="">Médicos</a><i style="margin-left:-20%;"class="glyphicon glyphicon-chevron-down"></i>
                                 <ul>
-                                    <li><a href="about.html">Doutores</a></li>
-                                    <li><a href="elements.html">Especialidades</a></li>
+                                    <li><a href="~/Views/Home/Doutores.cshtml">Doutores</a></li>
+                                    <li><a href="~/Views/Home/Especialidades.cshtml">Especialidades</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a href="contact.html">Contato</a></li>
+                            <li><a href="~/Views/Home/Contact.cshtml">Contato</a>
+                            </li>
                         </ul>
                     </nav><!-- #nav-menu-container -->
                 </div>
@@ -307,26 +302,26 @@
                         <div class="single-widget-home mb-5 mb-lg-0">
                             <h3 class="mb-4">top products</h3>
                             <ul>
+                                <li class="mb-2"><a href="#">História</a></li>
                                 <li class="mb-2"><a href="#">Sobre</a></li>
-                                <li class="mb-2"><a href="#">managed reputation</a></li>
-                                <li class="mb-2"><a href="#">power tools</a></li>
-                                <li><a href="#">marketing service</a></li>
+                                <li class="mb-2"><a href="#">Contato</a></li>
+                                <li><a href="#">Login</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-5 offset-xl-1 col-lg-6">
                         <div class="single-widget-home mb-5 mb-lg-0">
-                            <h3 class="mb-4">newsletter</h3>
-                            <p class="mb-4">You can trust us. we only send promo offers, not a single.</p>
+                            <h3 class="mb-4">Novidades</h3>
+                            <p class="mb-4">Pode confiar em nós! Trataremos seu filho como se fosse nosso!.</p>
                             <form action="#">
-                                <input type="email" placeholder="Your email here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email here'" required>
-                                <button type="submit" class="template-btn">subscribe now</button>
+                                <input type="email" placeholder="Your email here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Deixe seu email para receber novidades!'" required>
+                                <button type="submit" class="template-btn">Concluir</button>
                             </form>
                         </div>
                     </div>
-                    @*<div class="col-xl-3 offset-xl-1 col-lg-3">
+                    <div class="col-xl-3 offset-xl-1 col-lg-3">
                         <div class="single-widge-home">
-                            <h3 class="mb-4">instagram feed</h3>
+                            <h3 class="mb-4">Curiosidades no Instagram </h3>
                             <div class="feed">
                                 <img src="~/images/feed1.jpg" alt="feed">
                                 <img src="~/images/feed2.jpg" alt="feed">
@@ -338,7 +333,7 @@
                                 <img src="~/images/feed8.jpg" alt="feed">
                             </div>
                         </div>
-                    </div>*@
+                    </div>
                 </div>
             </div>
         </div>
@@ -349,7 +344,7 @@
                         <span>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with love by <a href="https:www.omegaitdevelopers.com.br" target="_blank">OMEGA IT DEVELOPERS SYSTEMS </a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </span>
                     </div>
