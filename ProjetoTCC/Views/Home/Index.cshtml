@@ -62,24 +62,17 @@
                     <nav id="nav-menu-container">
                         <ul class="nav-menu">
                             <li class="menu-active"><a href="index.html">Home</a></li>
-                            <li><a href="departments.html">departments</a></li>
-                            <li><a href="doctors.html">doctors</a></li>
+                            <li><a href="departments.html">História</a></li>
+                            <li><a href="doctors.html">Sobre</a></li>
                             <li><a asp-controller="Login" asp-action="TelaLogin">Login</a></li>
                             <li class="menu-has-children">
-                                <a href="">Pages</a>
+                                <a href="">Médicos</a>
                                 <ul>
-                                    <li><a href="about.html">about us</a></li>
-                                    <li><a href="elements.html">elements</a></li>
+                                    <li><a href="about.html">Doutores</a></li>
+                                    <li><a href="elements.html">Especialidades</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-has-children">
-                                <a href="">blog</a>
-                                <ul>
-                                    <li><a href="blog-home.html">blog home</a></li>
-                                    <li><a href="blog-details.html">blog details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="contact.html">Contato</a></li>
                         </ul>
                     </nav><!-- #nav-menu-container -->
                 </div>
@@ -181,50 +174,50 @@
                     <div class="department-slider owl-carousel">
                         <div class="single-slide">
                             <div class="slide-img">
-                                <img src="assets/images/department1.jpg" alt="" class="img-fluid">
+                                <img src="~/images/pediatrah.jpg" alt="" class="img-fluid">
                                 <div class="hover-state">
-                                    <a href="#"><i class="fa fa-stethoscope"></i></a>
+                                    <a href="#"><i class= "fa fa-stethoscope"></i></a>
                                 </div>
                             </div>
                             <div class="single-department item-padding text-center">
-                                <h3>cardiac clinic</h3>
-                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply female midst upon</p>
+                                <h3>Marcos Henrique</h3>
+                                <p>Marcos é um pediatra que estudou na universidade de São Paulo e se formou em 1998, em seguida fez residência por 6 anos no Hospital da USP até decidir trabalhar na ImunoCare.</p>
                             </div>
                         </div>
                         <div class="single-slide">
                             <div class="slide-img">
-                                <img src="assets/images/department2.jpg" alt="" class="img-fluid">
+                                <img src="~/images/pediatram.jpg" alt="" class="img-fluid">
                                 <div class="hover-state">
                                     <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
                                 </div>
                             </div>
                             <div class="single-department item-padding text-center">
-                                <h3>plastic surgery</h3>
-                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply female midst upon</p>
+                                <h3>Eloisa Correa</h3>
+                                <p>Elois é uma pediatra que estudou na PUCRS e se formou em pediatria, depois de sua formação fez residência por mais 4 anos e resolveu se mudar para São Paulo e ajudar a cuidar das nossas crianças de São Paulo na clinica ImunoCare.</p>
                             </div>
                         </div>
                         <div class="single-slide">
                             <div class="slide-img">
-                                <img src="assets/images/department3.jpg" alt="" class="img-fluid">
+                                <img src="~/images/dentista.jpg" alt="" class="img-fluid">
                                 <div class="hover-state">
                                     <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
                                 </div>
                             </div>
                             <div class="single-department item-padding text-center">
-                                <h3>dental clinic</h3>
-                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply female midst upon</p>
+                                <h3>Luis Paulo</h3>
+                                <p>Luis Paulo é um dentista que se formou em 1997 na Universidade de São Paulo e desde então faz seu melhor para atender as crianças da melhor forma possível para que não sintam medo e nem peguem trauma de dentistas.</p>
                             </div>
                         </div>
                         <div class="single-slide">
                             <div class="slide-img">
-                                <img src="assets/images/department1.jpg" alt="" class="img-fluid">
+                                <img src="~/images/dermatologista.jpg" alt="" class="img-fluid">
                                 <div class="hover-state">
                                     <a href="departments.html"><i class="fa fa-stethoscope"></i></a>
                                 </div>
                             </div>
                             <div class="single-department item-padding text-center">
-                                <h3>cardiac clinic</h3>
-                                <p>Hath creeping subdue he fish gred face whose spirit that seasons today multiply female midst upon</p>
+                                <h3>Milena Silva</h3>
+                                <p>Milena é uma dentista que se formou recentemente, se especializou em alergologia pediatrica e desde então trabalha na ImunoCare cuidando da parte dermatológica de nossas crianças.</p>
                             </div>
                         </div>
                     </div>
@@ -247,25 +240,27 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="single-patient mb-4"> @*do lado do formulario de duvidas*@
-                        <img src="assets/images/patient1.png" alt="">
+                        <img src="~/images/patient1.png" alt="">
                         <h3>Bianca Francisca</h3>
                         <h5>Engenheira Civil</h5>
                         <p class="pt-3">
                             Ótimo atendimento!
                             A Pediatra Dr. Eloisa é muito atenciosa e dedicada em todas as consultas.
                             Recomendo de olhos fechados!
+                            Minha netinha amou ela!
                         </p>
                     </div>
                     <div class="single-patient">
-                        <img src="assets/images/patient2.png" alt="">
-                        <h3>black heiden</h3>
-                        <h5>hp specialist</h5>
-                        <p class="pt-3">Elementum libero hac leo integer. Risus hac road parturient feugiat. Litora cursus hendrerit bib elit Tempus inceptos posuere metus.</p>
+                        <img src="~/images/patient2.png" alt="">
+                        <h3>Marcos Veloso</h3>
+                        <h5>Advogado</h5>
+                        <p class="pt-3">Levei o meu filho e me impressionei com a pontualidade e eficiência dos funcionários.O dentista pediatrico teve muita paciência e cautela com o meu filho porque ele tem muito
+                        medo de ir ao dentista mas dessa vez esse medo passou.Recomendo!</p>
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1 align-self-center">
                     <div class="appointment-form text-center mt-5 mt-lg-0">
-                        <h3 class="mb-5">Informações e Dúvidas</h3>
+                        <h3 class="mb-5">Informações, Dúvidas, Reclamações e Elogios</h3>
                         <form action="#">
                             <div class="form-group">
                                 <input type="text" placeholder="Seu Nome" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seu Nome'" required>
@@ -294,9 +289,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Emergency hotline</h2>
-                    <span>(+01) – 256 567 550</span>
-                    <p class="pt-3">We provide 24/7 customer support. Please feel free to contact us <br>for emergency case.</p>
+                    <h2>Agende a consulta do seu filho por telefone!</h2>
+                    <span>(11) 3735-4895</span>
+                    <p class="pt-3">Você também pode fazer agendamentos pelo nosso aplicativo CLINICARE!</p>
                 </div>
             </div>
         </div>
@@ -312,7 +307,7 @@
                         <div class="single-widget-home mb-5 mb-lg-0">
                             <h3 class="mb-4">top products</h3>
                             <ul>
-                                <li class="mb-2"><a href="#">managed website</a></li>
+                                <li class="mb-2"><a href="#">Sobre</a></li>
                                 <li class="mb-2"><a href="#">managed reputation</a></li>
                                 <li class="mb-2"><a href="#">power tools</a></li>
                                 <li><a href="#">marketing service</a></li>
