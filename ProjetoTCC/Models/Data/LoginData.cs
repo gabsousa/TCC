@@ -31,42 +31,42 @@ namespace ProjetoTCC.Models.Data
 
         //}
 
-        public Login TestarLogin(Login login)
-        {
-            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=1234567; database=bd_clinicare");
-            msc.Open();
+        //public Login TestarLogin(Login login)
+        //{
+        //    MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
+        //    msc.Open();
 
-            //MySqlCommand cmd = new MySqlCommand("select * from tbUsuario where nm_usuario = @Usuario and ds_senha = @Senha",
+        //    //MySqlCommand cmd = new MySqlCommand("select * from tbUsuario where nm_usuario = @Usuario and ds_senha = @Senha",
 
-            MySqlCommand cmd = new MySqlCommand("select * from tb_login where LOGIN = @LOGIN and SENHA = @SENHA", msc);
+        //    MySqlCommand cmd = new MySqlCommand("select * from tb_login where LOGIN = @LOGIN and SENHA = @SENHA", msc);
 
-            cmd.Parameters.Add("@LOGIN", MySqlDbType.VarChar).Value = login.LOGIN;
-            cmd.Parameters.Add("@SENHA", MySqlDbType.VarChar).Value = login.SENHA;
+        //    cmd.Parameters.Add("@LOGIN", MySqlDbType.VarChar).Value = login.LOGIN;
+        //    cmd.Parameters.Add("@SENHA", MySqlDbType.VarChar).Value = login.SENHA;
 
-            MySqlDataReader leitor;
+        //    MySqlDataReader leitor;
 
-            leitor = cmd.ExecuteReader();
+        //    leitor = cmd.ExecuteReader();
 
-            if (leitor.HasRows)
-            {
-                while (leitor.Read())
-                {
-                    Login dto = new Login();
-                    {
-                        dto.LOGIN = Convert.ToString(leitor["LOGIN"]);
-                        dto.SENHA = Convert.ToString(leitor["SENHA"]);
-                    }
-                }
-            }
+        //    if (leitor.HasRows)
+        //    {
+        //        while (leitor.Read())
+        //        {
+        //            Login dto = new Login();
+        //            {
+        //                dto.LOGIN = Convert.ToString(leitor["LOGIN"]);
+        //                dto.SENHA = Convert.ToString(leitor["SENHA"]);
+        //            }
+        //        }
+        //    }
 
-            else
-            {
-                login.LOGIN = null;
-                login.SENHA = null;
-            }
+        //    else
+        //    {
+        //        login.LOGIN = null;
+        //        login.SENHA = null;
+        //    }
 
-            return login;
-        }
+        //    return login;
+        //}
 
 
         /*public string RetornaNomeFunc(string LOGIN)
