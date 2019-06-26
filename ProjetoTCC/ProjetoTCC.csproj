@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Content Remove="Views\Agenda\ListaAgendaTeste.cshtml" />
+    <Content Remove="Views\Home\Historia.cshtml" />
     <Content Remove="wwwroot\css\Teste.css" />
     <Content Remove="wwwroot\images\pediatra2.jpg" />
     <Content Remove="wwwroot\js\Teste.js" />

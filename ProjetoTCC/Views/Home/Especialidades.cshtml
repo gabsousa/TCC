@@ -1,7 +1,242 @@
-﻿@{
-    ViewData["Title"] = "about";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<p>Use this area to provide additional information.</p>
+    <!-- Page Title -->
+    <title>Clinicare</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/images/favicon.png" type="image/x-icon">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="~/css/animate-3.7.0.css">
+    <link rel="stylesheet" href="~/css/font-awesome-4.7.0.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap-4.1.3.min.css">
+    <link rel="stylesheet" href="~/css/owl-carousel.min.css">
+    <link rel="stylesheet" href="~/css/jquery.datetimepicker.min.css">
+    <link rel="stylesheet" href="~/css/linearicons.css">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <!-- Preloader Starts -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- Preloader End -->
+    <!-- Header Area Starts -->
+    <header class="header-area">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 d-md-flex">
+                        <h6 class="mr-3"><span class="mr-2"><i class="glyphicon glyphicon-phone-alt"></i></span> Ligue! (11) 3735-4895</h6>
+                        <h6 class="mr-3"><span class="mr-2"><i class="glyphicon glyphicon-envelope"></i></span> atendimento@imunocare.com.br</h6>
+                        <h6>
+                            <span class="mr-2">
+                                <i class="glyphicon glyphicon-map-marker"></i>
+                            </span> Encontre sua Localização
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="header" id="home">
+            <div class="container">
+                <div class="row align-items-center justify-content-between d-flex">
+                    <div id="logo">
+                        <a href="index.html"><img src="assets/images/logo/logo.png" alt="" title="" /></a>
+                    </div>
+                    <nav id="nav-menu-container" style="margin-right:55%;">
+                        <ul class="nav-menu">
+                            <li class="menu-active"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                            <li>
+                                <a asp-controller="Home" asp-action="About">Sobre</a>
+                            </li>
+                            <li><a asp-controller="Login" asp-action="TelaLogin">Login</a></li>
+                            <li>
+                                <a href="">Médicos</a><i style="margin-left:-20%;" class="glyphicon glyphicon-chevron-down"></i>
+                                <ul>
+                                    <li><a asp-controller="Home" asp-action="Doutores">Doutores</a></li>
+                                    <li>
+                                        <a asp-controller="Home" asp-action="Especialidades">Especialidades</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a asp-controller="Home" asp-action="Contact" style="margin-left:-35%;">Contato</a>
+                            </li>
+                        </ul>
+                    </nav><!-- #nav-menu-container -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+    <!-- Banner Area Starts -->
+    <section class="banner-area other-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Sobre Nós!</h1>
+
+                    <a asp-controller="Home" asp-action="Index">Home</a> <span>|</span> <a asp-controller="Home" asp-action="About">Sobre</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area End -->
+    <section class="feature-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature text-center item-padding">
+                        <img src="~/images/feature1.png" alt="">
+                        <h3>Alergologia</h3>
+                        <p class="pt-3">
+                            
+                            Especialidade da Medicina que visa o diagnóstico e o tratamento das doenças alérgicas, onde as intervenções e tratamento consistem em extratos biológicos no consultório para diagnóstico, e caracterização da hipersensibilidade apresentada pelo paciente.
+
+                            O atendimento inicial da Alergologia é realizado no Pronto socorro e encaminhado para o ambulatório específico da doença após a triagem.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature text-center item-padding">
+                        <img src="~/images/feature1.png" alt="">
+                        <h3>Cardiologia</h3>
+                        <p class="pt-3">
+
+                            Especialidade médica que se ocupa do diagnóstico e tratamento das doenças que acometem o coração, bem como os outros componentes do sistema circulatório.
+
+                            O atendimento inicial da Cardiologia é realizado no Pronto socorro e encaminhado para o ambulatório específico da doença após a triagem.
+
+                        </p>
+                    </div>
+                </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-feature text-center item-padding mt-4 mt-lg-0">
+                            <img src="~/images/feature1.png" alt="">
+                            <h3>Neurologia</h3>
+                            <p class="pt-3">
+                                Subespecialidade que trata doenças ou disfunções do sistema nervoso e do sistema muscular que se manifestam na criança ou na adolescência.
+                                Diagnóstica, prognóstica, orienta e aconselha relativo aos problemas neurológicos que afectam a criança ou o adolescente.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-feature text-center item-padding mt-4 mt-lg-0">
+                            <img src="~/images/feature1.png" alt="">
+                            <h3>Infectologia</h3>
+                            <p class="pt-3">
+                                Infectologia é a especialidade médica que se ocupa do estudo das doenças causada por microrganismos, sejam eles bactérias, vírus, protozoários, ou fungos.
+
+                                O atendimento inicial da Infectologia é realizado no Pronto socorro e encaminhado para o ambulatório específico da doença após a triagem.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <!-- Specialist Area Starts -->
+    <!-- Hotline Area Starts -->
+    <section class="hotline-area text-center section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Agende a consulta do seu filho por telefone!</h2>
+                    <span>(11) 3735-4895</span>
+                    <p class="pt-3">Você também pode fazer agendamentos pelo nosso aplicativo CLINICARE!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hotline Area End -->
+    <!-- Footer Area Starts -->
+    <footer class="footer-area section-padding">
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3">
+                        <div class="single-widget-home mb-5 mb-lg-0">
+                            <h3 class="mb-4">top products</h3>
+                            <ul>
+                                <li class="mb-2"><a href="#">Doutores</a></li>
+                                <li class="mb-2"><a href="#">Sobre</a></li>
+                                <li class="mb-2"><a href="#">Contato</a></li>
+                                <li><a href="#">Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 offset-xl-1 col-lg-6">
+                        <div class="single-widget-home mb-5 mb-lg-0">
+                            <h3 class="mb-4">Novidades</h3>
+                            <p class="mb-4">Pode confiar em nós! Trataremos seu filho como se fosse nosso!.</p>
+                            <form action="#">
+                                <input type="email" placeholder="Your email here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Deixe seu email para receber novidades!'" required>
+                                <button type="submit" class="template-btn">Concluir</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 offset-xl-1 col-lg-3">
+                        <div class="single-widge-home">
+                            <h3 class="mb-4">Curiosidades no Instagram </h3>
+                            <div class="feed">
+                                <img src="~/images/feed1.jpg" alt="feed">
+                                <img src="~/images/feed2.jpg" alt="feed">
+                                <img src="~/images/feed3.jpg" alt="feed">
+                                <img src="~/images/feed4.jpg" alt="feed">
+                                <img src="~/images/feed5.jpg" alt="feed">
+                                <img src="~/images/feed6.jpg" alt="feed">
+                                <img src="~/images/feed7.jpg" alt="feed">
+                                <img src="~/images/feed8.jpg" alt="feed">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <span>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with love by <a href="https:www.omegaitdevelopers.com.br" target="_blank">OMEGA IT DEVELOPERS SYSTEMS </a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </span>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="social-icons">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+    <!-- Javascript -->
+    <script src="~/js/jquery-2.2.4.min.js"></script>
+    <script src="~/js/bootstrap-4.1.3.min.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/owl-carousel.min.js"></script>
+    <script src="~/js/jquery.datetimepicker.full.min.js"></script>
+    <script src="~/js/jquery.nice-select.min.js"></script>
+    <script src="~/js/superfish.min.js"></script>
+    <script src="~/js/main.js"></script>
+
+</body>
+</html>
+

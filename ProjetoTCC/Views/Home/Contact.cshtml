@@ -50,12 +50,9 @@
                     <div id="logo">
                         <a href="index.html"><img src="assets/images/logo/logo.png" alt="" title="" /></a>
                     </div>
-                    <nav id="nav-menu-container">
+                    <nav id="nav-menu-container" style="margin-right:55%;">
                         <ul class="nav-menu">
                             <li class="menu-active"><a asp-controller="Home" asp-action="Index">Home</a></li>
-                            <li>
-                                <a asp-controller="Home" asp-action="Historia">História</a>
-                            </li>
                             <li>
                                 <a asp-controller="Home" asp-action="About">Sobre</a>
                             </li>
@@ -70,7 +67,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a asp-controller="Home" asp-action="Contact">Contato</a>
+                                <a asp-controller="Home" asp-action="Contact" style="margin-left:-35%;">Contato</a>a>
                             </li>
                         </ul>
                     </nav><!-- #nav-menu-container -->
@@ -93,7 +90,10 @@
     </section>
     <!-- Banner Area End -->
     <!-- Map Area Starts -->
-    <iframe src="https://www.google.com/maps/embed?pb=!4v1529894241892!6m8!1m7!1s11c1cI6JXwP6w7addM28Sg!2m2!1d-23.49958932249423!2d-46.76981721179433!3f95.05188!4f0!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div style="margin-left:35%; margin-top:5%; margin-bottom:5%;">
+    <h1 style="margin-left:20%;"> Nos Visite!</h1>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.706263129831!2d-46.73996678502202!3d-23.578990884674035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5664a980470b%3A0xac300f5e539b410f!2sR.+Judite+Fran%C3%A7a+Costa%2C+93+-+Butant%C3%A3%2C+S%C3%A3o+Paulo+-+SP%2C+05592-040!5e0!3m2!1spt-BR!2sbr!4v1561557093058!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
     <!-- Map Area End -->
     <!-- Contact Form Starts -->
     <section class="contact-form section-padding3">
@@ -154,7 +154,7 @@
                         <div class="single-widget-home mb-5 mb-lg-0">
                             <h3 class="mb-4">top products</h3>
                             <ul>
-                                <li class="mb-2"><a href="#">História</a></li>
+                                <li class="mb-2"><a href="#">Doutores</a></li>
                                 <li class="mb-2"><a href="#">Sobre</a></li>
                                 <li class="mb-2"><a href="#">Contato</a></li>
                                 <li><a href="#">Login</a></li>
@@ -164,7 +164,7 @@
                     <div class="col-xl-5 offset-xl-1 col-lg-6">
                         <div class="single-widget-home mb-5 mb-lg-0">
                             <h3 class="mb-4">Novidades</h3>
-                            <p class="mb-4">Pode confiar em nós! Trataremos seu filho como se fosse nosso!.</p>
+                            <p class="mb-4">Pode confiar em nós! Trataremos seu filho como se fosse nosso!</p>
                             <form action="#">
                                 <input type="email" placeholder="Your email here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Deixe seu email para receber novidades!'" required>
                                 <button type="submit" class="template-btn">Concluir</button>
