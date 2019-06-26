@@ -39,26 +39,26 @@ namespace ProjetoTCC.Controllers
 
         public ActionResult VerificarLogin(Login u)
         {
-            //Models.Data.LoginData ld = new Models.Data.LoginData();
-            //ld.TestarLogin(u);
+            Models.Data.LoginData ld = new Models.Data.LoginData();
+            ld.TestarLogin(u);
 
-            ////aA.TestarLogin(u);
+            //aA.TestarLogin(u);
 
-            //if (u.LOGIN != null && u.SENHA != null)
-            //{
-            //    //FormsAuthentication.SetAuthCookie(u.LOGIN, false);
-            //    HttpContext.Session.SetString("Login", u.LOGIN);
-            //    //HttpContext.Session.SetString("Nome_Usuario", u.NOME);
+            if (u.LOGIN != null && u.SENHA != null)
+            {
+                //FormsAuthentication.SetAuthCookie(u.LOGIN, false);
+                HttpContext.Session.SetString("Login", u.LOGIN);
+                //HttpContext.Session.SetString("Nome_Usuario", u.NOME);
 
-            //    //Session["usuarioLogado"] = u.LOGIN.ToString();
-            //    //Session["senhaLogado"] = u.SENHA.ToString();
+                //Session["usuarioLogado"] = u.LOGIN.ToString();
+                //Session["senhaLogado"] = u.SENHA.ToString();
 
-            //    return RedirectToAction("TelaMenu", "Login");
-            //}
-            //else
-            //{
-            //    return RedirectToAction("TelaLogin", "Login");
-            //}
+                return RedirectToAction("TelaMenu", "Login");
+            }
+            else
+            {
+                return RedirectToAction("TelaLogin", "Login");
+            }
 
             return View();
         }

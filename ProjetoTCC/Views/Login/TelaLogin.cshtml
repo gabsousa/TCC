@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form action="VerificarLogin" method="post">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -48,9 +48,9 @@
                             <input type="checkbox">Lembrar Senha
                         </div>
                         <div class="form-group">
-                            <a asp-controller="Login" asp-action="TelaMenu"><input readonly value="Entrar" class="btn float-right login_btn"></a>
+                            <a asp-controller="Login" asp-action="TelaMenu"><input type="submit" readonly value="Entrar" class="btn float-right login_btn"></a>
                             @*<a asp-controller="Login" asp-action="CadastrarLogin"><input readonly value="Cadastrar Login" class="btn float-left login_btn"></a>*@
-                        </div> 
+                        </div>
                     </form>
                 </div>
                 <div class="card-footer">
