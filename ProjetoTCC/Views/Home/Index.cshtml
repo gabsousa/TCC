@@ -52,21 +52,21 @@
                     </div>
                     <nav id="nav-menu-container">
                         <ul class="nav-menu">
-                            <li class="menu-active"><a href="~/Views/Home/Index.cshtml">Home</a></li>
-                            <li><a href="~/Views/Home/Historia.cshtml">História</a>
+                            <li class="menu-active"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                            <li><a asp-controller="Home" asp-action="Historia">História</a>
                             </li>
-                            <li><a href="~/Views/Home/About.cshtml">Sobre</a>
+                            <li><a asp-controller="Home" asp-action="About">Sobre</a>
                             </li>
                             <li><a asp-controller="Login" asp-action="TelaLogin">Login</a></li>
                             <li>
                                 <a href="">Médicos</a><i style="margin-left:-20%;"class="glyphicon glyphicon-chevron-down"></i>
                                 <ul>
-                                    <li><a href="~/Views/Home/Doutores.cshtml">Doutores</a></li>
-                                    <li><a href="~/Views/Home/Especialidades.cshtml">Especialidades</a>
+                                    <li><a asp-controller="Home" asp-action="Doutores">Doutores</a></li>
+                                    <li><a asp-controller="Home" asp-action="Especialidades">Especialidades</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="~/Views/Home/Contact.cshtml">Contato</a>
+                            <li><a asp-controller="Home" asp-action="Contact">Contato</a>
                             </li>
                         </ul>
                     </nav><!-- #nav-menu-container -->

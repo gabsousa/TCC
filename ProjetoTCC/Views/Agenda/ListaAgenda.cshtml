@@ -4,8 +4,10 @@
     ViewData["Title"] = "ListaAgenda";
 }
 
+<link href="~/css/agenda.css" rel="stylesheet" id="agenda-css">
+<script type="text/javascript" src="~/js/agendajs.js"></script>
 
-<script>
+<script src="agendajs.js">
     // fill the month table with column headings
     function day_title(day_name) {
         document.write("<div class='c-cal__col'>" + day_name + "</div>");
