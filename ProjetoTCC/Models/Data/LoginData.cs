@@ -33,7 +33,7 @@ namespace ProjetoTCC.Models.Data
 
         public Login TestarLogin(Login login)
         {
-            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=12345679; database=bd_clinicare");
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
             //MySqlCommand cmd = new MySqlCommand("select * from tbUsuario where nm_usuario = @Usuario and ds_senha = @Senha",
