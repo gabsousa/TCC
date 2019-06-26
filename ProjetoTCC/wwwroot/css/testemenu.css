@@ -1,0 +1,10 @@
+﻿html,body {
+    background-image:url(../images/LogoCC.png);
+    background-repeat: no-repeat;
+    background-size: 42%;
+    background-position:center;
+    position: relative;
+    right:auto;
+    left:auto
+
+}

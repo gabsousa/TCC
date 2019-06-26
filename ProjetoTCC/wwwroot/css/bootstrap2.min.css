@@ -170,6 +170,7 @@ ul {
     float: left;
     width: 100%;
     background: #333;
+    
 }
 
     .menu-toggle h3 {
@@ -352,6 +353,7 @@ ul[data-menu-style="vertical"] {
     .ace-responsive-menu {
         float: left;
         width: 100%;
+        position:fixed
     }
 
         .ace-responsive-menu > li {
