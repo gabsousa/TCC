@@ -42,7 +42,7 @@ namespace ProjetoTCC.Models.Data
 
         public List<Paciente> ListaPaciente()
         {
-            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=1234567; database=bd_clinicare");
+            MySqlConnection msc = new MySqlConnection("server=localhost; uid=root; pwd=123456789; database=bd_clinicare");
             msc.Open();
 
             MySqlDataAdapter msda = new MySqlDataAdapter("LISTAR_PACIENTE", msc);
