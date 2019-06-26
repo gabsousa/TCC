@@ -27,7 +27,7 @@
             </a>
         </li>
         <li>
-            <a asp-controller="Paciente" asp-action="ListaPaciente" >
+            <a asp-controller="Paciente" asp-action="ListaPaciente">
                 <i class="fa fa-cube" aria-hidden="true"></i>
                 <span class="title">Paciente</span>
 
@@ -96,7 +96,13 @@
                 <span class="title">Estoque</span>
             </a>
         </li>
-        
+        <li>
+            <a asp-controller="E" asp-action="ListaEstoque">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+                <span class="title">Estoque</span>
+            </a>
+        </li>
+
     </ul>
 </nav>
 <script type="text/javascript">
@@ -111,4 +117,9 @@
 
 </script>
 </section>
+<div class="row">
+    <div class="col-xs-12 col-md-12 form-group" style="margin-left:85%; margin-top:-49%;" >
+       <u> <a asp-controller="Home" asp-action="Index">Voltar à Página Principal</a></u>
+    </div>
+</div>
 

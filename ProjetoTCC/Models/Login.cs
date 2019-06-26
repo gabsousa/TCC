@@ -17,18 +17,18 @@ namespace ProjetoTCC.Models
         public string SENHA { get; set; }
 
         //[DisplayName("Nome do Funcionário")]
-        //public string NOME { get; set; }
+        // public string NOME { get; set; }
 
-        //[DisplayName("Telefone do Funcionário")]
-        //public int COD_PAC { get; set; }
+        // [DisplayName("Telefone do Funcionário")]
+        // public int COD_PAC { get; set; }
 
-        //[DisplayName("Celular do Funcionário")]
-        //public int COD_MED { get; set; }
+        // [DisplayName("Celular do Funcionário")]
+        // public int COD_MED { get; set; }
 
-        //[DisplayName("Email do Funcionário")]
-        //public string COD_RESP { get; set; }
+        // [DisplayName("Email do Funcionário")]
+        // public string COD_RESP { get; set; }
 
-        //[DisplayName("Cargo do Funcionário")]
-        //public string COD_FUNC { get; set; }
+        // [DisplayName("Cargo do Funcionário")]
+        // public string COD_FUNC { get; set; }
     }
 }
